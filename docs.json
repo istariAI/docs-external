@@ -1,53 +1,87 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mintlify Starter Kit",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
-  },
+  "name": "ISTARI.AI Documentation",
+  "theme": "maple",
   "favicon": "/favicon.svg",
-  "navigation": {
-    "pages": [
-      {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
+  "logo": {
+    "light": "/images/logo/logo1.png",
+    "dark": "/images/logo/logo1.png",
+    "href": "https://www.istari.ai"
+  },
+  "colors": {
+    "primary": "#00D2D4",
+    "light": "#33DCE0",
+    "dark": "#00A8AA"
+  },
+  "fonts": {
+    "family": "Barlow",
+    "heading": {
+      "family": "Barlow"
     }
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+  "appearance": {
+    "default": "system"
+  },
+  "icons": {
+    "library": "lucide"
+  },
+  "seo": {
+    "metatags": {
+      "canonical": "https://docs.istari.ai"
+    }
   },
   "navbar": {
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@istari.ai"
+      },
+      {
+        "label": "GOI Dashboard",
+        "href": "https://index.istari.ai"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "Sign in",
+      "href": "https://index.istari.ai"
+    }
+  },
+  "footer": {
+    "links": [
+      {
+        "header": "Product",
+        "items": [
+          {
+            "label": "ISTARI GOI",
+            "href": "https://index.istari.ai"
+          },
+          {
+            "label": "Technology",
+            "href": "https://www.istari.ai/en/technology"
+          }
+        ]
+      },
+      {
+        "header": "Support",
+        "items": [
+          {
+            "label": "Contact",
+            "href": "mailto:support@istari.ai"
+          },
+          {
+            "label": "Feedback & Changelog",
+            "href": "/tools/feedback-and-changelog"
+          },
+          {
+            "label": "Imprint",
+            "href": "/tools/imprint"
+          }
+        ]
+      }
+    ],
+    "socials": {
+      "github": "https://github.com/istariAI"
     }
   },
   "contextual": {
@@ -62,11 +96,108 @@
       "vscode"
     ]
   },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+  "navigation": {
+    "groups": [
+      {
+        "group": "Home",
+        "pages": ["index"]
+      },
+      {
+        "group": "ISTARI Global Organization Index",
+        "pages": [
+          "goi/goi_start_page",
+          "goi/login-logout",
+          "goi/dashboard",
+          {
+            "group": "Search methods",
+            "pages": [
+              "goi/semantic-search",
+              "goi/similarity-search",
+              "goi/keyword-search"
+            ]
+          },
+          {
+            "group": "Filters",
+            "pages": [
+              "goi/advanced-search-filters",
+              "goi/location-filters",
+              "goi/organizational-filters"
+            ]
+          },
+          "goi/search-results",
+          "goi/export-search-results",
+          "goi/saved-searches",
+          "goi/lists",
+          "goi/new-companies",
+          "goi/api-keys",
+          "goi/subscription-billing",
+          "goi/help-section"
+        ]
+      },
+      {
+        "group": "ISTARI API",
+        "pages": [
+          "api/api_start_page",
+          {
+            "group": "GOI Public API (v2)",
+            "pages": [
+              "api/goi-search",
+              "api/goi-fetch-stats",
+              "api/goi-reference"
+            ]
+          },
+          {
+            "group": "Legacy ISTARI API (v1)",
+            "pages": [
+              "api/legacy/api_start_page",
+              "api/legacy/search-endpoints",
+              "api/legacy/column-information",
+              "api/legacy/variable-overview"
+            ]
+          }
+        ]
+      },
+      {
+        "group": "GOI MCP Connector",
+        "pages": [
+          "mcp/index",
+          "mcp/connect",
+          "mcp/tools",
+          "mcp/privacy"
+        ]
+      },
+      {
+        "group": "ISTARI Research Data",
+        "pages": [
+          "research-data/research_data_start_page",
+          "research-data/additive-manufacturing",
+          "research-data/artificial-intelligence",
+          "research-data/blockchain",
+          "research-data/company-networks",
+          "research-data/contact-information",
+          "research-data/digital-health",
+          "research-data/energy",
+          "research-data/innovation",
+          "research-data/mobility",
+          "research-data/sdg-1",
+          "research-data/sdg-2",
+          "research-data/sdg-3",
+          "research-data/social-innovation",
+          "research-data/social-media",
+          "research-data/standards",
+          "research-data/sustainability",
+          "research-data/website-techstack"
+        ]
+      },
+      {
+        "group": "Tools & Admin",
+        "pages": [
+          "tools/administrative-units",
+          "tools/country-coverage",
+          "tools/feedback-and-changelog",
+          "tools/imprint"
+        ]
+      }
+    ]
   }
 }
