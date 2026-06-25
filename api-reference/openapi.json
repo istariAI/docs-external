@@ -1378,7 +1378,7 @@
         "type": "apiKey",
         "in": "header",
         "name": "x-api-key",
-        "description": "Your GOI API key. Create one on the GOI Home page under API keys."
+        "description": "Your GOI API key. Create one on the GOI dashboard under API keys."
       }
     }
   },

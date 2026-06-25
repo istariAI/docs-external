@@ -79,7 +79,7 @@ All filter-accepting tools (`search_organizations`, `find_similar_*`, `filter_or
 | Tags | `summary_keywords` |
 | Registry | `company_register_court`, `register_date_from`, `register_date_to` |
 
-Values within a single field combine with **OR**. Different fields combine with **AND**. See the [GOI Home page docs](/goi/advanced-search-filters) for the same filters as they appear in the web UI.
+Values within a single field combine with **OR**. Different fields combine with **AND**. See the [GOI dashboard docs](/goi/advanced-search-filters) for the same filters as they appear in the web UI.
 
 ### A note on commercial-register data
 

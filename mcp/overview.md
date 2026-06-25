@@ -24,7 +24,7 @@ GOI MCP is undergoing review for publication in connector stores, including Clau
 
 ## Get access
 
-1. Sign up or sign in at [index.istari.ai](https://index.istari.ai). The same account works for the GOI Home page, the API, and GOI MCP.
+1. Sign up or sign in at [index.istari.ai](https://index.istari.ai). The same account works for the GOI dashboard, the API, and GOI MCP.
 2. [Request beta access](https://index.istari.ai/goi-mcp-access). We enable approved accounts for early use.
 3. After approval, follow [Connect](/mcp/connect) to add GOI MCP in Claude, Cursor, or another MCP client.
 
@@ -64,5 +64,5 @@ For everything else: [support@istari.ai](mailto:support@istari.ai).
 
 * [Tools](/mcp/tools): what each tool does and when to use it.
 * [Privacy](/mcp/privacy): what we log, where it lives, how long we keep it.
-* [GOI product docs](/goi/goi_start_page): dataset, schema, GOI Home page features.
-* [GOI API docs](/api/api_start_page): the underlying HTTP API GOI MCP wraps.
+* [GOI product docs](/goi/goi_start_page): dataset, schema, GOI dashboard features.
+* [GOI API docs](/api/api_start_page): the underlying API GOI MCP wraps.

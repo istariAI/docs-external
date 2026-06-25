@@ -3,7 +3,7 @@ title: "Connect"
 description: Connect GOI MCP to Claude, Cursor, and other MCP clients.
 ---
 
-GOI MCP uses your ISTARI account at [index.istari.ai](https://index.istari.ai). The same account works for the GOI Home page, the HTTP API, and GOI MCP.
+GOI MCP uses your ISTARI account at [index.istari.ai](https://index.istari.ai). The same account works for the GOI dashboard, the GOI API, and GOI MCP.
 
 <Note>
 GOI MCP is undergoing review for publication in connector stores, including Claude and ChatGPT. Until it is listed there, [request beta access](https://index.istari.ai/goi-mcp-access) with your ISTARI account.
