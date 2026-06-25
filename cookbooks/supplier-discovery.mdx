@@ -5,7 +5,7 @@ description: "Given a product and a location, return a clean supplier shortlist,
 
 **Inputs:** `product` (free text) · `location` (a country). **Returns:** a deduped shortlist of suppliers.
 
-A bare `search_organizations(query="macbook dubai")` mixes in repair shops, rental firms, and parts makers, and the order drifts between runs. The quality comes from disciplined parameters, this template bakes them in.
+A bare `search_organizations(query="macbook dubai")` mixes in repair shops, rental firms, and parts makers, and the order drifts between runs. The quality comes from disciplined parameters that this template bakes in.
 
 ## The recipe
 
@@ -33,7 +33,7 @@ search_organizations(
 
 | Lever | Role |
 |---|---|
-| `nace_code` = **C + G** | The workhorse. Admits makers (C) and traders (G); excludes repair, rental, consulting by category. This is what removes the noise: don't drop it. |
+| `nace_code` = **C + G** | The main levers. Admits makers (C) and traders (G); excludes repair, rental, consulting by category. This is what removes the noise: don't drop it. |
 | `query` | Weights the product + supply intent. Self-adjusts: leans distributor for imported goods, manufacturer where made locally. |
 | `keywords_must_any` | Forces supply-side language to be present (also required so `must_not` can run). |
 | `keywords_must_not` | A soft down-weight, **not** a hard filter: real exclusion comes from NACE. |
@@ -48,7 +48,7 @@ search_organizations(
 | Babcock Valves, Tecval, FHT, ICP Valves | Manufacturer | C |
 | VAINDUSA, ACOM, DIMAC | Distributor | G |
 
-The same template was validated across MacBooks (UAE, distributor-heavy), hydraulic pumps (Germany, maker-heavy), solar panels (India, mixed), electronic components (Singapore, trading hub), and surgical gloves (India — Asma, Kanam Latex, Saachi), one parameter set, product-appropriate skew in every geography.
+The same template was validated across different use cases like MacBooks (UAE, distributor-heavy), hydraulic pumps (Germany, maker-heavy), solar panels (India, mixed), electronic components (Singapore, trading hub), and surgical gloves (India — Asma, Kanam Latex, Saachi), one parameter set, product-appropriate skew in every geography.
 
 ## Notes
 
