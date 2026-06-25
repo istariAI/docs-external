@@ -30,7 +30,7 @@ Every request must include your API key:
 x-api-key: <your-api-key>
 ```
 
-Keys are issued for GOI access tiers (`tier_1`, `tier_2`, `tier_3`). Some routes and features require **tier_3** (see linked pages).
+Keys are issued for GOI access tiers (`tier_1` or `tier_2`). Quotas and rate limits depend on the tier assigned to your key (see [Reference](/api/goi-reference#rate-limits-and-tiers)).
 
 ## Quick example : search
 
@@ -71,10 +71,9 @@ Paths are relative to **`https://api.istari.ai/v2`**.
 | `POST` | `/stats` | Aggregations (`COUNT` by dimension); monthly quota by tier |
 | `GET` | `/filters/options` | Allowed values for categorical filters (scoped to your key) |
 | `GET` | `/health` | Liveness / database check |
-| `GET` | `/test` | Internal smoke suite: **tier_3 only** |
 
 ## Documentation map
 
 * [Search](/api/goi-search): request body, auto-detected modes, keywords, `similar_to`, `describe`, filters, pagination, deduplication  
-* [Fetch, stats & utilities](/api/goi-fetch-stats): `/fetch`, `/stats`, `/filters/options`, health and test  
+* [Fetch, stats & utilities](/api/goi-fetch-stats): `/fetch`, `/stats`, `/filters/options`, and health  
 * [Reference: columns, filters, limits & errors](/api/goi-reference): response fields, quotas, HTTP errors  

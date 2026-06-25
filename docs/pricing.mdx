@@ -1,0 +1,139 @@
+---
+title: "Pricing and limits"
+description: "How GOI account tiers, commercial plans, and API key tiers map to dashboard, MCP, and API quotas."
+---
+
+GOI pricing has two layers that are easy to mix up:
+
+1. **Account tier** — who you are when you use the [GOI dashboard](https://index.istari.ai) or [GOI MCP](/mcp/overview). Set by your login and subscription.
+2. **API key tier** — which quotas apply when you call the [HTTP API](/api/api_start_page). Only available on **premium** accounts.
+
+<Frame>
+  <img src="/images/pricing-summary.png" alt="GOI access by account tier: Guest uses the dashboard; Standard adds GOI MCP; Premium unlocks dashboard, GOI MCP, and GOI API with tier_1 or tier_2 keys" width="720" />
+</Frame>
+
+The [istari.ai technology page](https://www.istari.ai/en/technology) shows **Regional** and **Global** commercial packages. Those plans set your account tier, geographic coverage, and API key tier. The tables below show the **rate limits** which are consequentially enforced.
+
+<Note>
+All monthly quotas reset on the **first of each month (UTC)**. A server-level burst cap of **60 requests/minute per IP** also applies across dashboard, API, and MCP.
+</Note>
+
+## Account tiers
+
+| Tier | Who gets it | Dashboard | GOI MCP | API keys |
+| --- | --- | --- | --- | --- |
+| **Guest** | Visitor without signing in | Limited search and map | No | No |
+| **Standard** | Any signed-in user at [index.istari.ai](https://index.istari.ai) | Full UI with monthly quotas | Yes | No |
+| **Premium** | Paid commercial plan (Regional or Global) | Higher quotas + exports | Yes, higher quotas | Yes |
+
+**Standard** is the default when you create a free account and sign in. You can search, filter, save lists, and use GOI MCP within the limits below.
+
+**Premium** is required for **API access** (creating keys in the dashboard), **CSV/XLSX exports**, and the higher monthly quotas. API key management is blocked for standard accounts.
+
+## Commercial plans
+
+There are two paid packages. Both include the web interface, API access, and GOI MCP. The difference is mainly **coverage** and **volume**.
+
+| Plan | Annual price | Coverage | Base monthly volume | Analyst upgrade |
+| --- | --- | --- | --- | --- |
+| **Regional** | €2,500 / year | One or more areas at region, district, or municipality level | 5,000 organization rows / month | +€7,500 / year → 250,000 rows / month |
+| **Global** | €5,000 / year | Worldwide | 5,000 organization rows / month | +€20,000 / year → 250,000 rows / month |
+
+### What counts as a region (Regional plan)
+
+On the **Regional** plan, coverage is scoped to geographic areas you select in the GOI dashboard. A region can be defined at the **region**, **district**, or **municipality** level — not at **country** or **state** level.
+
+<Frame>
+  <img src="/images/region-defs.png" alt="GOI location picker showing Region, District, and Municipality levels in a hierarchy" width="420" />
+</Frame>
+
+For example, *Rhein-Neckar-Kreis* is a **region**, *Weinheim* can appear as a **district** or **municipality**, each with its own organization count. Your plan limits which of these units you can query and export.
+
+**Global** plans remove this geographic scope — you can search across all countries that GOI covers.
+
+**How to read "downloads" on the website:** each returned organization row via search counts toward your monthly **result** quota. A search that returns 50 organizations uses 50 rows; a CSV export uses one download request but can include up to thousands of rows against the same quota.
+
+**Analyst upgrade** raises you to higher API and dashboard result caps (roughly aligned with **API tier 2** / premium dashboard limits at **250,000 rows/month**). Contact [support@istari.ai](mailto:support@istari.ai) to change plan or upgrade.
+
+## GOI dashboard limits
+
+Quotas apply per calendar month. **Results** = organization rows returned (search hits or fetch IDs).
+
+### Search
+
+| Account tier | Requests / month | Results / month |
+| --- | ---: | ---: |
+| Guest | 20 | 2,000 |
+| Standard | 100 | 1,000 |
+| Premium | 5,000 | 250,000 |
+
+
+### Export (CSV / XLSX)
+
+Max **5,000 rows per export** request.
+
+### Easy mode in GOI dashboard
+
+| Account tier | Requests / month |
+| --- | ---: |
+| Guest | 5 |
+| Standard | 100 |
+| Premium | 5,000 |
+
+## GOI MCP limits
+
+GOI MCP uses the same **standard** / **premium** account tiers as the dashboard (via your [index.istari.ai](https://index.istari.ai) login). [Request beta access](https://index.istari.ai/goi-mcp-access) if the connector is not yet enabled for your account.
+
+Limits are grouped into **tool buckets**. All tools in a bucket share one monthly budget.
+
+| Bucket | Tools | Standard | Premium |
+| --- | --- | --- | --- |
+| **Search** | `search_organizations`, `find_similar_organizations`, `find_similar_with_steering`, `filter_organizations` | 100 requests / 1,000 results | 1,000 requests / 5,000 results |
+| **Fetch** | `get_organization_details` | 100 requests / 1,000 results | 1,000 requests / 5,000 results |
+| **Stats** | `aggregate_organizations` | 100 requests | 1,000 requests |
+
+See [GOI MCP overview](/mcp/overview) for connection setup and [Tools](/mcp/tools) for what each tool does.
+
+## GOI API limits
+
+API keys are only available on **premium** accounts. Create them under **Profile → API keys** in the [dashboard](https://index.istari.ai/api-keys).
+
+Each key is assigned an **API tier** (`tier_1` or `tier_2`) when created. That tier controls quotas on `POST /v2/search`, `POST /v2/fetch`, and `POST /v2/stats`.
+
+### Search and fetch
+
+| API tier | Requests / month | Results / month |
+| --- | ---: | ---: |
+| tier_1 | 1,000 | 5,000 |
+| tier_2 | 5,000 | 250,000 |
+
+### Stats (aggregations)
+
+| API tier | Requests / month |
+| --- | ---: |
+| tier_1 | 500 |
+| tier_2 | 5,000 |
+
+Regional vs global **coverage** is enforced via your account or API key scope (region, district, or municipality for Regional plans). See [API reference](/api/goi-reference).
+
+### Fair use limits
+
+We have some per-key throttle limits (requests per second) to ensure fair use of our API.
+
+| API tier | Approx. steady RPS | Burst |
+| --- | ---: | ---: |
+| tier_1 | 2 | 5 |
+| tier_2 | 5 | 10 |
+
+## Upgrading or changing limits
+
+- **Free → paid:** see [istari.ai technology / pricing](https://www.istari.ai/en/technology) or email [support@istari.ai](mailto:support@istari.ai).
+- **Raise API quotas:** analyst upgrade on your commercial plan, or contact support for **tier_2** assignment.
+
+
+## Related
+
+- [Quickstart](/docs/quickstart): dashboard, API, and MCP paths
+- [API keys](/goi/api-keys): create and manage keys
+- [API reference](/api/goi-reference): columns, filters, and error codes
+- [GOI MCP connect](/mcp/connect): add GOI MCP to an AI client

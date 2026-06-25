@@ -42,12 +42,12 @@ All new accounts start on the **Standard** plan. Quotas reset on the first of ea
 | --- | --- | ---: |
 | Search | `search_organizations`, `find_similar_organizations`, `find_similar_with_steering`, `filter_organizations` | 100 requests / 1,000 results |
 | Fetch | `get_organization_details` | 100 requests / 1,000 results |
-| Aggregate | `aggregate_organizations` | unlimited |
+| Aggregate | `aggregate_organizations` | 100 requests |
 | Metadata | `describe_filters`, `resolve_location` | unlimited |
 
 When a call would exceed the limit, the tool returns an error string beginning with `Error:`. A short consumption indicator appears in the response footer once you cross 80% of any limit.
 
-To raise your quotas, see the [GOI access plans on the istari.ai technology page](https://www.istari.ai/en/technology).
+For full quota tables across dashboard, MCP, and API, see [Pricing and limits](/docs/pricing). For higher quotas on a commercial plan, see [GOI access plans](https://www.istari.ai/en/technology) or contact [support@istari.ai](mailto:support@istari.ai).
 
 A server-level burst cap (60 requests / minute per IP) also applies, independent of the monthly plan quota to maintain fair usage.
 

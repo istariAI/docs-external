@@ -42,7 +42,7 @@ Domains your key is not allowed to see are treated like missing and appear in `m
 
 Returns `COUNT(*)` buckets over the filtered population. No text or vector scoring, plain SQL grouping.
 
-Available on all tiers. Monthly **request** quotas apply by tier (see [Reference: rate limits](/api/goi-reference#rate-limits-and-tiers)). `explain` remains **tier_3** only.
+Available on all customer API tiers. Monthly **request** quotas apply by tier (see [Reference: rate limits](/api/goi-reference#rate-limits-and-tiers)).
 
 ### Request (shape)
 
@@ -57,8 +57,7 @@ Available on all tiers. Monthly **request** quotas apply by tier (see [Reference
     "from_date": "2020-01-01",
     "to_date": "2024-12-31"
   },
-  "limit": 100,
-  "explain": false
+  "limit": 100
 }
 ```
 
@@ -70,7 +69,6 @@ Available on all tiers. Monthly **request** quotas apply by tier (see [Reference
 | `filters` | Same column filters as `/search`. **`text_keywords` is not supported** in stats. |
 | `date_range` | Optional bounds on `company_register_date`, `created_at`, or `updated_at`. |
 | `limit` | Max buckets returned (default `100`, max `500`). Ordered by count descending, except date dimensions (chronological ascending). |
-| `explain` | `EXPLAIN ANALYZE` in metadata: **tier_3**; uses a longer statement timeout. |
 
 ### Allowed `group_by` / `group_by_secondary` columns
 
@@ -86,7 +84,7 @@ Date (use with `date_trunc`): `company_register_date`, `created_at`.
 
 ### Response
 
-Each bucket in `data` includes the grouping column value(s) and a `count`. Top-level `elapsed_ms` and `metadata` echo timings, filters, and bucket counts. When `explain` is true, `metadata.explain_plan` contains plan lines.
+Each bucket in `data` includes the grouping column value(s) and a `count`. Top-level `elapsed_ms` and `metadata` echo timings, filters, and bucket counts.
 
 ---
 
@@ -105,12 +103,6 @@ Lightweight check that the service can reach the database. Response shape:
 ```
 
 or, on failure, `healthy: false` with an `error` message.
-
----
-
-## `GET /test` (**tier_3**)
-
-Runs an internal parallel smoke suite against search paths. Intended for operators / support, not for application monitoring. Query parameter `explain=true` adds extra diagnostics.
 
 ---
 

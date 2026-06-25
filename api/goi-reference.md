@@ -65,7 +65,6 @@ Typical **public** tier profile:
 | ---- | ------------------ | ----- | ------------------------ |
 | `tier_1` | 2 | 5 | 10,000 |
 | `tier_2` | 5 | 10 | 50,000 |
-| `tier_3` | 10 | 20 | Unlimited (subject to fair use) |
 
 Monthly **`POST /stats`** request quotas (per key, per calendar month):
 
@@ -73,7 +72,6 @@ Monthly **`POST /stats`** request quotas (per key, per calendar month):
 | ---- | ----------------------- |
 | `tier_1` | 500 |
 | `tier_2` | 5,000 |
-| `tier_3` | 25,000 |
 
 Result rows also count against monthly **result** quotas where configured (`/search` and `/fetch`). `/stats` counts requests only.
 
@@ -97,7 +95,7 @@ When limits are exceeded, the API returns **`429 Too Many Requests`**.
 | ------ | ------- |
 | `400` | Malformed or inconsistent input |
 | `401` | Missing or invalid API key |
-| `403` | Authenticated but action not allowed for this tier (e.g. `explain`, `/test`) |
+| `403` | Authenticated but action not allowed for this tier |
 | `422` | Validation error (body fails schema or business rules) |
 | `429` | Rate or quota exceeded |
 | `500` | Unexpected server error |

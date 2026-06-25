@@ -98,7 +98,7 @@
           "stats"
         ],
         "summary": "Aggregate counts — group by dimension(s) with filters",
-        "description": "Returns `COUNT(*)` bucketed by one or two categorical dimensions with optional column filters and an optional date range. No search scoring — pure SQL `GROUP BY`.\n\n**Use cases:** NACE distribution by country, org size breakdown, top keywords for a sector, monthly registration trends.\n\n**Dimensions (`group_by` / `group_by_secondary`):** continent, country, country_code, state, state_code, region, region_code, district, district_code, municipality, municipality_code, nace_code, organization_type, organization_size, employee_class, revenue_class, summary_keywords (unnested), company_register_date, created_at.\n\n`summary_keywords` is automatically unnested — each keyword in the array counts as its own bucket.\n\nDate dimensions use `DATE_TRUNC` and are ordered chronologically (ASC). All other dimensions are ordered by count DESC.\n\n**Access:** `tier_3` keys only.",
+        "description": "Returns `COUNT(*)` bucketed by one or two categorical dimensions with optional column filters and an optional date range. No search scoring — pure SQL `GROUP BY`.\n\n**Use cases:** NACE distribution by country, org size breakdown, top keywords for a sector, monthly registration trends.\n\n**Dimensions (`group_by` / `group_by_secondary`):** continent, country, country_code, state, state_code, region, region_code, district, district_code, municipality, municipality_code, nace_code, organization_type, organization_size, employee_class, revenue_class, summary_keywords (unnested), company_register_date, created_at.\n\n`summary_keywords` is automatically unnested — each keyword in the array counts as its own bucket.\n\nDate dimensions use `DATE_TRUNC` and are ordered chronologically (ASC). All other dimensions are ordered by count DESC.\n\nMonthly request quotas apply by API key tier.",
         "operationId": "stats_v1_stats_post",
         "requestBody": {
           "content": {
@@ -1297,7 +1297,7 @@
           "explain": {
             "type": "boolean",
             "title": "Explain",
-            "description": "Return EXPLAIN ANALYZE plan in metadata. Sets a 120s statement timeout. Restricted to tier_3 (public) / admin (dashboard).",
+            "description": "Return EXPLAIN ANALYZE plan in metadata. Sets a 120s statement timeout. Not available for customer API keys.",
             "default": false
           }
         },

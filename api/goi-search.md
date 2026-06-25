@@ -3,7 +3,7 @@ title: "Search"
 description: POST /v2/search, modes, keywords, semantic and similarity queries, filters, pagination.
 ---
 
-Search returns a JSON object with a `data` array of organisation rows and a `metadata` object (total hits, mode, timing, pagination cursor, filters applied, optional explain plan).
+Search returns a JSON object with a `data` array of organisation rows and a `metadata` object (total hits, mode, timing, pagination cursor, filters applied).
 
 ## Requirements
 
@@ -44,7 +44,6 @@ Hybrid queries blend BM25 and vector ranking (reciprocal rank fusion). Use `sear
   "min_score": null,
   "search_balance": 0.5,
   "search_after": null,
-  "explain": false,
   "dedup": false
 }
 ```
@@ -56,7 +55,6 @@ Hybrid queries blend BM25 and vector ranking (reciprocal rank fusion). Use `sear
 | `min_score` | Optional `0.0`–`1.0` cosine similarity floor for vector / semantic / hybrid modes. |
 | `search_after` | Opaque cursor from the previous response’s `metadata.search_after` for pagination. |
 | `dedup` | If `true`, collapse rows that share the same organization `name`, keeping the best match until `size` rows. |
-| `explain` | If `true`, includes PostgreSQL `EXPLAIN ANALYZE` lines in metadata: **tier_3 only**. |
 
 ## Keywords (`keywords`)
 
@@ -168,8 +166,7 @@ Scored modes use an offset-style cursor with a **maximum depth of 10,000** rows.
     "mode": "hybrid",
     "elapsed_ms": 312,
     "search_after": [25],
-    "filters_applied": { "country": ["Germany"] },
-    "explain_plan": null
+    "filters_applied": { "country": ["Germany"] }
   }
 }
 ```
