@@ -1,6 +1,6 @@
 ---
 title: "Startup scouting"
-description: "Find early-stage companies working on a specific theme, scoped to startups — for sourcing, partnerships, or trend mapping."
+description: "Find early-stage companies working on a specific theme, scoped to startups, for sourcing, partnerships, or trend mapping."
 ---
 
 **Inputs:** `theme` (free text) · optional `location`. **Returns:** a ranked list of startups matching the theme.
@@ -24,9 +24,9 @@ search_organizations(
 
 | Lever | Role |
 |---|---|
-| `query` | The theme, in natural language — describe the problem space, not just a keyword. |
+| `query` | The theme, in natural language: describe the problem space, not just a keyword. |
 | `organization_type` = **Startup** | The key filter. Restricts to companies typed as startups. |
-| `organization_size` | Optional — narrows to early-stage headcount bands. |
+| `organization_size` | Optional: narrows to early-stage headcount bands. |
 | `min_score` | Optional. Raise to `~0.5` if the tail drifts off-theme (semantic relevance decays past the top results). |
 
 ## Validated example
@@ -43,7 +43,7 @@ search_organizations(
 
 ## Notes
 
-- **Semantic relevance decays** down the list — the genuinely on-theme startups are the top ~10–30; the tail fills with looser matches. Use `size` modestly or raise `min_score`.
+- **Semantic relevance decays** down the list: the genuinely on-theme startups are the top ~10–30; the tail fills with looser matches. Use `size` modestly or raise `min_score`.
 - **The startup-typed pool is small** for any given theme (this query had ~229 candidates), so cast the `query` a bit wider rather than over-narrow.
-- **Don't add `nace_code`** unless the user names an industry — it can exclude relevant cross-sector startups. Let the semantic query do the topical work.
+- **Don't add `nace_code`** unless the user names an industry: it can exclude relevant cross-sector startups. Let the semantic query do the topical work.
 - For an exhaustive, unranked universe (full outreach list) over a *structured* slice, use [`filter_organizations`](/mcp/tools) instead of search.

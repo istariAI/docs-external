@@ -19,14 +19,14 @@ Preview at [http://localhost:3000](http://localhost:3000).
 
 Connect this repository in the [Mintlify dashboard](https://dashboard.mintlify.com) and install the GitHub App. Pushes to `main` deploy automatically.
 
-No monorepo path is needed — `docs.json` lives at the repository root.
+No monorepo path is needed, `docs.json` lives at the repository root.
 
 ## Structure
 
-- `docs.json` — site config and navigation
-- `.mintlify/Assistant.md` — AI assistant instructions (not published)
-- `goi/`, `api/`, `mcp/`, `research-data/`, `tools/` — documentation pages
-- `images/` — screenshots and assets
+- `docs.json`: site config and navigation
+- `.mintlify/Assistant.md`: AI assistant instructions (not published)
+- `goi/`, `api/`, `mcp/`, `research-data/`, `tools/`: documentation pages
+- `images/`: screenshots and assets
 
 ## Support
 

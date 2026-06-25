@@ -37,7 +37,7 @@
         "href": "mailto:support@istari.ai"
       },
       {
-        "label": "GOI Dashboard",
+        "label": "GOI Home page",
         "href": "https://index.istari.ai"
       }
     ],
@@ -95,7 +95,7 @@
             ]
           },
           {
-            "group": "GOI Public API",
+            "group": "GOI API",
             "pages": [
               "api/api_start_page",
               "api/goi-search",
@@ -104,7 +104,7 @@
             ]
           },
           {
-            "group": "MCP Connector",
+            "group": "GOI MCP",
             "pages": [
               "mcp/overview",
               "mcp/connect",

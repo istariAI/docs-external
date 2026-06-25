@@ -1,11 +1,11 @@
 ---
 title: "Market sizing"
-description: "Count and break down a sector across geographies — exact, reproducible numbers for TAM and territory planning."
+description: "Count and break down a sector across geographies, exact, reproducible numbers for TAM and territory planning."
 ---
 
 **Inputs:** a sector (`nace_code`) + scope (`country`) · a breakdown dimension (`group_by`). **Returns:** exact counts per bucket.
 
-`aggregate_organizations` answers "how many" and "distribution of" with **exact, deterministic** counts — unlike search, which scores and ranks. Use it for market sizing, territory planning, and coverage checks.
+`aggregate_organizations` answers "how many" and "distribution of" with **exact, deterministic** counts, unlike search, which scores and ranks. Use it for market sizing, territory planning, and coverage checks.
 
 ## The recipe
 
@@ -41,8 +41,8 @@ German manufacturers (`NACE C`) by state:
 ## Notes
 
 <Warning>
-  **Aggregate ignores keyword filters.** `aggregate_organizations` honors structured filters (country, NACE, size, type, region, dates, `summary_keywords`) but **silently ignores** `keywords_*`. So an aggregate is a *sector + geography* denominator — never a product-specific count. Label it honestly ("manufacturers + traders in DE"), not "suppliers of product X".
+  **Aggregate ignores keyword filters.** `aggregate_organizations` honors structured filters (country, NACE, size, type, region, dates, `summary_keywords`) but **silently ignores** `keywords_*`. So an aggregate is a *sector + geography* denominator: never a product-specific count. Label it honestly ("manufacturers + traders in DE"), not "suppliers of product X".
 </Warning>
 
-- For a **product-specific** count, there's no exact tool — deliver the [supplier shortlist](/cookbooks/supplier-discovery) instead, and quote the aggregate only as a labeled sector denominator.
+- For a **product-specific** count, there's no exact tool: deliver the [supplier shortlist](/cookbooks/supplier-discovery) instead, and quote the aggregate only as a labeled sector denominator.
 - Discover valid `summary_keywords` tags by running `aggregate_organizations(group_by="summary_keywords")` on a narrow slice rather than guessing.

@@ -5,7 +5,7 @@ description: v2 /fetch bulk lookup, /stats aggregations, /filters/options, healt
 
 Base URL prefix: **`https://api.istari.ai/v2`**.
 
-## `POST /fetch` — bulk domain lookup
+## `POST /fetch` : bulk domain lookup
 
 Returns current GOI rows for domains you already know. There is **no** relevance ranking.
 
@@ -18,8 +18,8 @@ Returns current GOI rows for domains you already know. There is **no** relevance
 }
 ```
 
-* **domains** — required, non-empty list, **maximum 5,000** domains per request.  
-* **columns** — same rules as search; default `["domain", "name", "country"]`. See [Reference — columns](/api/goi-reference#selectable-columns).
+* **domains**: required, non-empty list, **maximum 5,000** domains per request.  
+* **columns**: same rules as search; default `["domain", "name", "country"]`. See [Reference: columns](/api/goi-reference#selectable-columns).
 
 Domains your key is not allowed to see are treated like missing and appear in `metadata.missing`.
 
@@ -38,9 +38,9 @@ Domains your key is not allowed to see are treated like missing and appear in `m
 
 ---
 
-## `POST /stats` — aggregations (**tier_3**)
+## `POST /stats` : aggregations (**tier_3**)
 
-Returns `COUNT(*)` buckets over the filtered population. No text or vector scoring — plain SQL grouping.
+Returns `COUNT(*)` buckets over the filtered population. No text or vector scoring, plain SQL grouping.
 
 **Requires tier_3.** Other tiers receive `403`.
 
@@ -66,11 +66,11 @@ Returns `COUNT(*)` buckets over the filtered population. No text or vector scori
 | ----- | ----------- |
 | `group_by` | Optional. Primary dimension to bucket by. Omit for a **single total** count. |
 | `group_by_secondary` | Optional second dimension (2D breakdown). Requires `group_by`. Must differ from `group_by`. |
-| `date_trunc` | `year`, `month`, or `week` — used when a grouping column is a **date** (`company_register_date`, `created_at`). |
+| `date_trunc` | `year`, `month`, or `week`: used when a grouping column is a **date** (`company_register_date`, `created_at`). |
 | `filters` | Same column filters as `/search`. **`text_keywords` is not supported** in stats. |
 | `date_range` | Optional bounds on `company_register_date`, `created_at`, or `updated_at`. |
 | `limit` | Max buckets returned (default `100`, max `500`). Ordered by count descending, except date dimensions (chronological ascending). |
-| `explain` | `EXPLAIN ANALYZE` in metadata — **tier_3**; uses a longer statement timeout. |
+| `explain` | `EXPLAIN ANALYZE` in metadata: **tier_3**; uses a longer statement timeout. |
 
 ### Allowed `group_by` / `group_by_secondary` columns
 
@@ -114,7 +114,7 @@ Runs an internal parallel smoke suite against search paths. Intended for operato
 
 ---
 
-## Minimal `curl` — fetch
+## Minimal `curl` : fetch
 
 ```bash
 curl -sS 'https://api.istari.ai/v2/fetch' \

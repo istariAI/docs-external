@@ -1,11 +1,11 @@
 ---
 title: "Find lookalikes"
-description: "Given one or more reference companies, return similar companies — for competitive mapping, M&A screening, or prospecting."
+description: "Given one or more reference companies, return similar companies, for competitive mapping, M&A screening, or prospecting."
 ---
 
 **Inputs:** 1–3 reference `domains` · optional `location`. **Returns:** companies similar to the references by embedding similarity.
 
-Use this when you have a known company and want "more like this" — competitors, acquisition targets, or lookalike prospects for an ABM list.
+Use this when you have a known company and want "more like this", competitors, acquisition targets, or lookalike prospects for an ABM list.
 
 ## The recipe
 
@@ -42,6 +42,6 @@ find_similar_organizations(
 ## Notes
 
 - **Exclusion is by exact domain.** A reference's sister domains can still appear (here `number26.de`, N26's alternate, surfaced). Add every known domain to `exclude_domains`.
-- **Multi-domain queries are fused** with reciprocal-rank fusion — great for "companies like A, B *and* C".
+- **Multi-domain queries are fused** with reciprocal-rank fusion: great for "companies like A, B *and* C".
 - **To steer** toward or away from concepts (boost/penalize terms, repel specific companies), use [`find_similar_with_steering`](/mcp/tools).
 - Pair with [`get_organization_details`](/mcp/tools) to hydrate full profiles for the shortlist.

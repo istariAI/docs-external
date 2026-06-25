@@ -12,15 +12,15 @@ The Global Organization Index (GOI) is our curated, organization-level dataset c
 
 GOI is built through a multi-step validation pipeline designed to prioritize quality over volume:
 
-1. **Registry Collection** — We systematically query national registers worldwide — including organization, commercial, and association registers. This primary data source is then enriched with additional open data sources, giving us an initial pool of approximately **400 million organizations**.
-2. **Domain Attribution** — We determine which of these organizations can be attributed to a clearly identifiable web domain. This results in roughly **10%** of the total — about **40 million organizations**. The remainder are either no longer active, were never truly operational (e.g., pure holding structures), or simply never maintained a web presence.
-3. **Activity Verification** — We verify which of those 40 million domains are still actively operated. This validation step brings the dataset down to approximately **20 million organizations** that are demonstrably active.
+1. **Registry Collection**: We systematically query national registers worldwide, including organization, commercial, and association registers. This primary data source is then enriched with additional open data sources, giving us an initial pool of approximately **400 million organizations**.
+2. **Domain Attribution**: We determine which of these organizations can be attributed to a clearly identifiable web domain. This results in roughly **10%** of the total, about **40 million organizations**. The remainder are either no longer active, were never truly operational (e.g., pure holding structures), or simply never maintained a web presence.
+3. **Activity Verification**: We verify which of those 40 million domains are still actively operated. This validation step brings the dataset down to approximately **20 million organizations** that are demonstrably active.
 
 This process ensures that every record in GOI is web domain-verified and confirmed active.
 
 ### Quality vs. volume
 
-Our final dataset is smaller than comparable, traditional databases. However, in contrast, our dataset contains exclusively verified and active organizations — no inactive records or dormant entities. The key differentiator is not size, but data timliness, operational relevance, and verification depth.
+Our final dataset is smaller than comparable, traditional databases. However, in contrast, our dataset contains exclusively verified and active organizations, no inactive records or dormant entities. The key differentiator is not size, but data timliness, operational relevance, and verification depth.
 
 ### Data sources
 
@@ -35,9 +35,9 @@ Our final dataset is smaller than comparable, traditional databases. However, in
 
 ### Key definitions
 
-- **NACE Code** — The EU's standard statistical classification of economic activities. Used as GOI's primary industry taxonomy. [Learn more](https://ec.europa.eu/eurostat/web/nace)
-- **Organization Type** — Categorized as Company, Startup, Academic, Public, or Other based on registry data and web content analysis.
-- **Organization Size** — Derived from employee and revenue signals, bucketed into Micro, Small, Medium-sized, and Large enterprise per EU SME definitions.
+- **NACE Code**: The EU's standard statistical classification of economic activities. Used as GOI's primary industry taxonomy. [Learn more](https://ec.europa.eu/eurostat/web/nace)
+- **Organization Type**: Categorized as Company, Startup, Academic, Public, or Other based on registry data and web content analysis.
+- **Organization Size**: Derived from employee and revenue signals, bucketed into Micro, Small, Medium-sized, and Large enterprise per EU SME definitions.
 
 ### Core fields
 

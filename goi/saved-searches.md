@@ -3,7 +3,7 @@ title: "Saved searches"
 description: Save a search configuration and re-run it later.
 ---
 
-A **Saved Search** captures everything about a query — the search type, your description or reference domain, all keyword filters, locations, and organization-specific filters — so you can re-run it later with one click. Use it for recurring market scans, ongoing prospecting, or anything you'd otherwise re-type by hand.
+A **Saved Search** captures everything about a query, the search type, your description or reference domain, all keyword filters, locations, and organization-specific filters, so you can re-run it later with one click. Use it for recurring market scans, ongoing prospecting, or anything you'd otherwise re-type by hand.
 
 ## Save a search
 
@@ -29,8 +29,8 @@ The **Saved Searches** page lists every search you've saved as a card. Each card
 
 From each card you can:
 
-* **View Search** — re-run the search and land on a fresh results page.
-* **Delete** — remove the saved search permanently. This cannot be undone.
+* **View Search**: re-run the search and land on a fresh results page.
+* **Delete**: remove the saved search permanently. This cannot be undone.
 
 Use the **Newest First / Oldest First** toggle at the top of the grid to reorder the cards.
 

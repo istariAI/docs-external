@@ -14,8 +14,8 @@ To open the API Keys page, click your **profile avatar** in the bottom-left of t
 ## Create an API key
 
 1. Click **Create API Key** in the top-right of the page.
-2. Give the key a **name** — pick something that identifies where it will be used (for example, *"Data warehouse ETL"* or *"Marketing automation"*), so you can recognise it later.
-3. Optionally set a **monthly quota** to cap how many organizations the key can return in a single billing month. This is a safety guard — once the quota is reached, subsequent requests from that key will fail until the next month or until you raise the limit.
+2. Give the key a **name**: pick something that identifies where it will be used (for example, *"Data warehouse ETL"* or *"Marketing automation"*), so you can recognise it later.
+3. Optionally set a **monthly quota** to cap how many organizations the key can return in a single billing month. This is a safety guard, once the quota is reached, subsequent requests from that key will fail until the next month or until you raise the limit.
 4. Click **Create** to generate the key.
 
 <Frame>
@@ -36,9 +36,9 @@ Each row in the API keys table shows:
 
 For each key you can:
 
-* **Edit** — rename the key or adjust its monthly quota.
-* **Disable** — temporarily stop the key from working without deleting it.
-* **Delete** — remove the key permanently. Any application using it will immediately start failing.
+* **Edit**: rename the key or adjust its monthly quota.
+* **Disable**: temporarily stop the key from working without deleting it.
+* **Delete**: remove the key permanently. Any application using it will immediately start failing.
 
 ## Getting started
 

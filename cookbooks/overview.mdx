@@ -3,19 +3,19 @@ title: "Cookbooks"
 description: "Copy-paste query templates that turn a fuzzy request into a clean, reproducible GOI result."
 ---
 
-Each cookbook is a **fixed parameter template**: the caller supplies one or two free-text inputs, and everything else is locked in. The quality comes from the parameters, not the search string — so you get the same clean result every time without knowing the internals.
+Each cookbook is a **fixed parameter template**: the caller supplies one or two free-text inputs, and everything else is locked in. The quality comes from the parameters, not the search string, so you get the same clean result every time without knowing the internals.
 
-All examples use the [GOI MCP connector](/mcp/overview) tool calls (`search_organizations`, `find_similar_organizations`, `aggregate_organizations`). The same parameters map directly to the [Public API](/api/api_start_page) `POST /v2/search`.
+All examples use the [GOI MCP](/mcp/overview) tool calls (`search_organizations`, `find_similar_organizations`, `aggregate_organizations`). The same parameters map directly to the [API](/api/api_start_page) `POST /v2/search`.
 
 <CardGroup cols={2}>
   <Card title="Supplier discovery" icon="package" href="/cookbooks/supplier-discovery">
     Given a product + location, return a supplier shortlist (makers + distributors).
   </Card>
   <Card title="Find lookalikes" icon="copy" href="/cookbooks/find-lookalikes">
-    Given a reference company, find similar companies — competitors, targets, prospects.
+    Given a reference company, find similar companies, competitors, targets, prospects.
   </Card>
   <Card title="Market sizing" icon="chart-bar" href="/cookbooks/market-sizing">
-    Count and break down a sector across geographies — exact, reproducible numbers.
+    Count and break down a sector across geographies, exact, reproducible numbers.
   </Card>
   <Card title="Startup scouting" icon="rocket" href="/cookbooks/startup-scouting">
     Find early-stage companies working on a specific theme, scoped to startups.

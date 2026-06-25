@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "GOI Public API",
+    "title": "GOI API",
     "description": "Programmatic access to the ISTARI Global Organization Index (GOI) — search, bulk lookup, aggregations, and location resolution over ~20M verified organizations. Authenticate with the `x-api-key` header.",
     "version": "v2"
   },
@@ -1378,14 +1378,14 @@
         "type": "apiKey",
         "in": "header",
         "name": "x-api-key",
-        "description": "Your GOI API key. Create one in the dashboard under API keys."
+        "description": "Your GOI API key. Create one on the GOI Home page under API keys."
       }
     }
   },
   "servers": [
     {
       "url": "https://api.istari.ai/v2",
-      "description": "GOI Public API (production)"
+      "description": "GOI API (production)"
     }
   ],
   "security": [

@@ -1,9 +1,9 @@
 ---
 title: "Tools"
-description: The eight read-only MCP tools exposed by the GOI connector — search, similarity, filter, fetch, aggregate, and metadata helpers.
+description: The eight read-only MCP tools exposed by GOI MCP, search, similarity, filter, fetch, aggregate, and metadata helpers.
 ---
 
-The MCP server exposes eight tools. All eight are read-only. When a client connects, it discovers them automatically via MCP's `tools/list` — there is no separate REST surface to learn.
+The MCP server exposes eight tools. All eight are read-only. When a client connects, it discovers them automatically via MCP's `tools/list`, there is no separate REST surface to learn.
 
 The same server also exposes this documentation as MCP **resources**. A client can list them via `resources/list` and fetch the raw Markdown via `resources/read`, with URIs like `https://mcp.goi.istari.ai/docs/tools.md`. Pick whichever discovery path your client supports.
 
@@ -25,20 +25,20 @@ Use this for "find me companies that …" and exploratory market research questi
 
 Find companies similar to up to three reference domains via embedding similarity. Optional `keywords_must_all` / `keywords_must_not` are applied as post-filters.
 
-If a reference domain is not already in GOI, the public site is fetched and embedded on demand. The resulting embedding is cached across users — see [Privacy](/mcp/privacy#scraping-and-the-embedding-cache).
+If a reference domain is not already in GOI, the public site is fetched and embedded on demand. The resulting embedding is cached across users, see [Privacy](/mcp/privacy#scraping-and-the-embedding-cache).
 
-Use for "companies like X" — competitive benchmarking, supplier discovery, peer-group analysis.
+Use for "companies like X", competitive benchmarking, supplier discovery, peer-group analysis.
 
 ## find\_similar\_with\_steering
 
 Same as `find_similar_organizations` but with **embedding arithmetic** to steer the search:
 
-* `boost` — up to five terms whose averaged embedding is _added_ to the reference vector. Pulls the search toward a concept.
-* `penalize` — up to five terms whose embedding is _subtracted_. Pushes the search away.
-* `repel_domains` — up to five domains whose embeddings are subtracted. Pushes the search away from a specific company.
-* `weight` — `weak` (0.5), `normal` (1.0), or `strong` (2.0) to scale every adjustment.
+* `boost`: up to five terms whose averaged embedding is _added_ to the reference vector. Pulls the search toward a concept.
+* `penalize`: up to five terms whose embedding is _subtracted_. Pushes the search away.
+* `repel_domains`: up to five domains whose embeddings are subtracted. Pushes the search away from a specific company.
+* `weight`: `weak` (0.5), `normal` (1.0), or `strong` (2.0) to scale every adjustment.
 
-Use this when a plain similarity search returns too much of the wrong thing — for example _"companies like Stripe, but enterprise-focused"_ maps to `domains=["stripe.com"], boost=["enterprise"]`.
+Use this when a plain similarity search returns too much of the wrong thing, for example _"companies like Stripe, but enterprise-focused"_ maps to `domains=["stripe.com"], boost=["enterprise"]`.
 
 ## filter\_organizations
 
@@ -66,7 +66,7 @@ Call this once at the start of a session to ground filter-string choices, instea
 
 Fuzzy-match a free-text place name to the canonical GADM administrative entry. Returns ranked candidates with their admin level (country / state / region / district / municipality) and a suggested filter object to drop into the next call.
 
-Place names follow GADM's native official spelling — _Bayern_ not _Bavaria_, _München_ not _Munich_, _Île-de-France_ not _Ile de France_. The fuzzy match catches anglicizations and minor misspellings, but the value returned to filters is the canonical form.
+Place names follow GADM's native official spelling, _Bayern_ not _Bavaria_, _München_ not _Munich_, _Île-de-France_ not _Ile de France_. The fuzzy match catches anglicizations and minor misspellings, but the value returned to filters is the canonical form.
 
 ## Filter dimensions
 
@@ -79,13 +79,13 @@ All filter-accepting tools (`search_organizations`, `find_similar_*`, `filter_or
 | Tags | `summary_keywords` |
 | Registry | `company_register_court`, `register_date_from`, `register_date_to` |
 
-Values within a single field combine with **OR**. Different fields combine with **AND**. See the [GOI dashboard docs](/goi/advanced-search-filters) for the same filters as they appear in the web UI.
+Values within a single field combine with **OR**. Different fields combine with **AND**. See the [GOI Home page docs](/goi/advanced-search-filters) for the same filters as they appear in the web UI.
 
 ### A note on commercial-register data
 
 The registry fields (`company_register_court`, `register_date_*`) are populated **only for German, Austrian, and Swiss companies** today, and only for entries appearing in the commercial register from January 2026 onwards. Companies outside that scope have null register attributes and are excluded from any filter on those fields. The rest of the dataset (~20M companies across 232 countries) is unaffected.
 
-This isn't an API restriction — it's the current state of the underlying source data. Coverage expands over time.
+This isn't an API restriction, it's the current state of the underlying source data. Coverage expands over time.
 
 ## Pagination
 
@@ -108,10 +108,10 @@ The bracketed code is stable across releases and lets a client (or LLM) route on
 | `INVALID_FILTER_COLUMN` | `describe_filters` was called with a column that is not an enumerable filter | Pass one of the `Allowed:` values, or omit `column` to see all |
 | `INVALID_DATE_TRUNC` | `date_trunc` not in `year` / `month` / `week` | Pass a valid value |
 | `OUT_OF_SCOPE` | A filter value is outside your account's allowed scope (region or commercial-register court) | Use one of the `Allowed values:` in the message; this only fires for accounts with a configured scope |
-| `RATE_LIMITED_REQUESTS` | Monthly request budget for this bucket exceeded | Wait until the start of next month, or upgrade — see [Connect](/mcp/connect#standard-plan-quotas) |
+| `RATE_LIMITED_REQUESTS` | Monthly request budget for this bucket exceeded | Wait until the start of next month, or upgrade: see [Connect](/mcp/connect#standard-plan-quotas) |
 | `RATE_LIMITED_RESULTS` | Monthly result budget for this bucket exceeded | Same |
-| `ROUTE_BLOCKED` | This tool is gated and not available on your plan | Upgrade plan — see [GOI access plans](https://www.istari.ai/en/technology) |
+| `ROUTE_BLOCKED` | This tool is gated and not available on your plan | Upgrade plan: see [GOI access plans](https://www.istari.ai/en/technology) |
 | `REFERENCE_DOMAIN_UNAVAILABLE` | `find_similar_*` got a reference domain that is not in GOI and whose website could not be fetched | Try a different reference domain, or remove the unreachable one |
-| `INTERNAL` | An unexpected server-side error. The message contains a short **reference ID** (8 hex characters) — quote it when contacting support so we can correlate to logs | Retry once; if the same ID class repeats, contact `support@istari.ai` with the reference ID |
+| `INTERNAL` | An unexpected server-side error. The message contains a short **reference ID** (8 hex characters): quote it when contacting support so we can correlate to logs | Retry once; if the same ID class repeats, contact `support@istari.ai` with the reference ID |
 
-`INTERNAL` errors are the only ones whose detail is intentionally opaque — full traceback goes to our server logs, not to you.
+`INTERNAL` errors are the only ones whose detail is intentionally opaque, full traceback goes to our server logs, not to you.

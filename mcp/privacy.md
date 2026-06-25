@@ -1,9 +1,9 @@
 ---
 title: "Privacy"
-description: Data handling for the GOI MCP Connector — what we log, where it lives, retention, embedding cache, and GDPR rights.
+description: Data handling for GOI MCP, what we log, where it lives, retention, embedding cache, and GDPR rights.
 ---
 
-This page covers data handling specific to the GOI MCP Connector. For istari.ai's full privacy policy and legal notices, see the [imprint](https://www.istari.ai/en/imprint#privacypolicy).
+This page covers data handling specific to GOI MCP. For istari.ai's full privacy policy and legal notices, see the [imprint](https://www.istari.ai/en/imprint#privacypolicy).
 
 ## Data controller
 
@@ -23,7 +23,7 @@ Every MCP tool call produces one row in our `request_log` table. Each row stores
 
 * Your istari.ai user ID and tier.
 * The tool name (e.g. `search_organizations`).
-* The structured arguments you passed — for example, your search query text, the domain list you asked us to fetch, the filter values you applied. We log these so we can enforce monthly quotas, debug failures, and improve relevance.
+* The structured arguments you passed: for example, your search query text, the domain list you asked us to fetch, the filter values you applied. We log these so we can enforce monthly quotas, debug failures, and improve relevance.
 * The result count returned and the wall-clock duration.
 * HTTP status and error code (if any).
 
@@ -31,9 +31,9 @@ We **do not log**: your full conversation with the AI client, the text the AI cl
 
 ## How long we keep it
 
-* **Server / HTTP access logs** — retained for at most **7 days**, per the istari.ai [privacy policy](https://www.istari.ai/en/imprint#privacypolicy).
-* **Application request log** (the `request_log` table described above) — retained for **24 months**, then deleted.
-* **Embedding cache** — embeddings of submitted reference domains are retained indefinitely. They are derived numerical features, not personal data.
+* **Server / HTTP access logs**: retained for at most **7 days**, per the istari.ai [privacy policy](https://www.istari.ai/en/imprint#privacypolicy).
+* **Application request log** (the `request_log` table described above): retained for **24 months**, then deleted.
+* **Embedding cache**: embeddings of submitted reference domains are retained indefinitely. They are derived numerical features, not personal data.
 
 ## Cross-tenant isolation
 
@@ -43,11 +43,11 @@ We **do not log**: your full conversation with the AI client, the text the AI cl
 
 ## Scraping and the embedding cache
 
-When you pass a reference domain to `find_similar_organizations` or `find_similar_with_steering`, the connector tries to look up that domain in our database first. If the domain is **not** already indexed, the server fetches the public website and generates an embedding from it on demand.
+When you pass a reference domain to `find_similar_organizations` or `find_similar_with_steering`, GOI MCP tries to look up that domain in our database first. If the domain is **not** already indexed, the server fetches the public website and generates an embedding from it on demand.
 
-* The fetched URLs are **public web pages** — the same content anyone with a browser can see.
+* The fetched URLs are **public web pages**: the same content anyone with a browser can see.
 * We cache the resulting **embedding** (a numerical vector), not the raw page content. The cache is **shared across the user base** so that the same domain isn't re-fetched repeatedly. This is purely a performance optimization.
-* Subsequent requests for the same domain — from you or from any other user — re-use the cached embedding and trigger no further HTTP fetch.
+* Subsequent requests for the same domain: from you or from any other user, re-use the cached embedding and trigger no further HTTP fetch.
 
 The crawler respects standard `robots.txt` directives.
 
@@ -63,4 +63,4 @@ If you are an EU resident, you have the right to access, rectify, erase, restric
 
 ## Updates to this page
 
-Material changes to data handling will be reflected here and in the changelog of new connector revisions. For binding policy language, the [istari.ai privacy policy](https://www.istari.ai/en/imprint#privacypolicy) is authoritative.
+Material changes to data handling will be reflected here and in the changelog of new GOI MCP revisions. For binding policy language, the [istari.ai privacy policy](https://www.istari.ai/en/imprint#privacypolicy) is authoritative.

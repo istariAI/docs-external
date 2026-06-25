@@ -1,19 +1,19 @@
 ---
 title: "Quickstart"
-description: "Get from zero to your first GOI result — in the dashboard, the API, or an AI agent."
+description: "Get from zero to your first GOI result on the GOI Home page, the API, or an AI agent."
 ---
 
-ISTARI gives you three ways to work with the **Global Organization Index (GOI)** — a curated dataset of
+ISTARI gives you three ways to work with the **Global Organization Index (GOI)**: a curated dataset of
 ~20 million active, web-verified organizations across 232 countries. Pick the path that fits how you work.
 
 <CardGroup cols={3}>
-  <Card title="No code" icon="layout-dashboard" href="/goi/goi_start_page">
-    Use the GOI dashboard to search, filter, and export.
+  <Card title="No code" icon="layout-dashboard" href="#use-the-goi-home-page">
+    Use the GOI Home page to search, filter, and export.
   </Card>
   <Card title="API" icon="terminal" href="#use-the-api">
     Query GOI programmatically over HTTP.
   </Card>
-  <Card title="AI agent" icon="plug" href="/mcp/overview">
+  <Card title="AI agent" icon="plug" href="#use-an-ai-agent">
     Connect GOI to Claude, Cursor, or any MCP client.
   </Card>
 </CardGroup>
@@ -23,32 +23,32 @@ ISTARI gives you three ways to work with the **Global Organization Index (GOI)**
 <Steps>
   <Step title="Sign up">
     Create an account at [index.istari.ai](https://index.istari.ai). The same login works for the
-    dashboard, the API, and the MCP connector.
+    GOI Home page, the API, and GOI MCP.
   </Step>
   <Step title="Choose your path">
-    Explore visually in the [dashboard](/goi/goi_start_page), or generate an API key to go programmatic.
+    Explore visually on the [GOI Home page](/goi/goi_start_page), or generate an API key to go programmatic.
   </Step>
 </Steps>
 
-## Use the dashboard
+## Use the GOI Home page {#use-the-goi-home-page}
 
-The fastest way to see what GOI can do — no setup required.
+The fastest way to see what GOI can do. No setup required.
 
 1. Sign in at [index.istari.ai](https://index.istari.ai).
 2. Describe what you're looking for in the search bar, or switch to [keyword](/goi/keyword-search) or [similarity](/goi/similarity-search) search.
 3. Narrow with [location](/goi/location-filters) and [organizational](/goi/organizational-filters) filters.
 4. [Export](/goi/export-search-results) the results or save them as a [list](/goi/lists).
 
-See the [dashboard guide](/goi/goi_start_page) for the full walkthrough.
+See the [GOI Home page guide](/goi/goi_start_page) for the full walkthrough.
 
 ## Use the API
 
 <Steps>
   <Step title="Get an API key">
-    In the dashboard, open [API keys](/goi/api-keys) and create a key. Keep it secret — it carries your plan's quota.
+    On the GOI Home page, open [API keys](/goi/api-keys) and create a key. Keep it secret; it carries your plan's quota.
   </Step>
   <Step title="Make your first request">
-    Send a `POST` to `/v2/search`. The API auto-detects the search mode from your inputs — no mode name needed.
+    Send a `POST` to `/v2/search`. The API auto-detects the search mode from your inputs. No mode name needed.
 
     <CodeGroup>
 
@@ -90,19 +90,21 @@ See the [dashboard guide](/goi/goi_start_page) for the full walkthrough.
 
 ## Use an AI agent
 
-Add the GOI MCP connector and let an agent run GOI queries for you, scoped to your account and plan.
+GOI MCP is in review for publication in connector stores, including Claude and ChatGPT. Until then, request beta access and connect from your MCP client.
 
 <Steps>
-  <Step title="Add the connector">
-    In Claude, go to **Connectors → Browse Connectors → ISTARI GOI** and add it. Other MCP clients can use the
-    endpoint directly — see [Connect](/mcp/connect).
+  <Step title="Request beta access">
+    Sign in at [index.istari.ai](https://index.istari.ai), then submit the [beta access request](https://index.istari.ai/goi-mcp-access). We enable approved accounts for early use.
+  </Step>
+  <Step title="Connect GOI MCP">
+    After approval, add GOI MCP in Claude, Cursor, or another MCP client. See [Connect](/mcp/connect) for client-specific steps.
   </Step>
   <Step title="Sign in">
     Authenticate with your `index.istari.ai` account when prompted.
   </Step>
 </Steps>
 
-See the [MCP connector overview](/mcp/overview) for the available tools.
+See the [GOI MCP overview](/mcp/overview) for the available tools.
 
 ## Next steps
 
@@ -110,7 +112,7 @@ See the [MCP connector overview](/mcp/overview) for the available tools.
   <Card title="Search the API" icon="search" href="/api/goi-search">
     Keywords, semantic descriptions, similarity, filters, and pagination.
   </Card>
-  <Card title="Connect an AI agent" icon="plug" href="/mcp/overview">
-    Use the GOI MCP connector with Claude, Cursor, or any MCP client.
+  <Card title="Connect an AI agent" icon="plug" href="/mcp/connect">
+    Request beta access, then use GOI MCP with Claude, Cursor, or any MCP client.
   </Card>
 </CardGroup>

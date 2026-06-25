@@ -1,6 +1,6 @@
 ---
 title: "Reference"
-description: GOI Public API — selectable columns, filters, tiers, rate limits, and HTTP errors.
+description: GOI API, selectable columns, filters, tiers, rate limits, and HTTP errors.
 ---
 
 ## Selectable columns
@@ -49,7 +49,7 @@ All keys are optional. Lists mean **“match any of these values”** for that f
 | `company_register_court` | Court / register name |
 | `register_date_from`, `register_date_to` | Inclusive ISO dates (`YYYY-MM-DD`) on registration dates |
 | `summary_keywords` | Fast exact match on keyword array |
-| `text_keywords` | Same object shape as top-level `keywords` — BM25 sub-filter on text |
+| `text_keywords` | Same object shape as top-level `keywords`: BM25 sub-filter on text |
 
 Use **`GET …/v2/filters/options`** for values your key may actually use.
 

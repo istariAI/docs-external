@@ -1,6 +1,6 @@
 ---
 title: "Search"
-description: POST /v2/search — modes, keywords, semantic and similarity queries, filters, pagination.
+description: POST /v2/search, modes, keywords, semantic and similarity queries, filters, pagination.
 ---
 
 Search returns a JSON object with a `data` array of organisation rows and a `metadata` object (total hits, mode, timing, pagination cursor, filters applied, optional explain plan).
@@ -9,10 +9,10 @@ Search returns a JSON object with a `data` array of organisation rows and a `met
 
 You must supply **at least one** of:
 
-* `filters` — column filters only (browse / filter mode)  
-* `keywords` — BM25 text search  
-* `describe` — natural-language description → embedding search (**cannot** be combined with `similar_to`)  
-* `similar_to` — similarity to one or more reference domains (**cannot** be combined with `describe`)
+* `filters`: column filters only (browse / filter mode)  
+* `keywords`: BM25 text search  
+* `describe`: natural-language description → embedding search (**cannot** be combined with `similar_to`)  
+* `similar_to`: similarity to one or more reference domains (**cannot** be combined with `describe`)
 
 `similar_to` and `describe` are **mutually exclusive**.
 
@@ -56,7 +56,7 @@ Hybrid queries blend BM25 and vector ranking (reciprocal rank fusion). Use `sear
 | `min_score` | Optional `0.0`–`1.0` cosine similarity floor for vector / semantic / hybrid modes. |
 | `search_after` | Opaque cursor from the previous response’s `metadata.search_after` for pagination. |
 | `dedup` | If `true`, collapse rows that share the same company `name`, keeping the best match until `size` rows. |
-| `explain` | If `true`, includes PostgreSQL `EXPLAIN ANALYZE` lines in metadata — **tier_3 only**. |
+| `explain` | If `true`, includes PostgreSQL `EXPLAIN ANALYZE` lines in metadata: **tier_3 only**. |
 
 ## Keywords (`keywords`)
 
@@ -70,7 +70,7 @@ Drives BM25 search on name and description (and participates in hybrid):
 }
 ```
 
-All parts are optional, but **`must_not` alone is invalid** — you need at least one of `must_all` or `must_any` whenever `must_not` is present.
+All parts are optional, but **`must_not` alone is invalid**: you need at least one of `must_all` or `must_any` whenever `must_not` is present.
 
 ## Similar companies (`similar_to`)
 
@@ -90,8 +90,8 @@ Pass up to **three** domains as strings, or as objects for **steering** (boost /
 }
 ```
 
-* `boost`, `penalize`, `repel_domains` — up to **5** entries each.  
-* `weight` — number from **0.0** to **2.0**, or the strings **`weak`**, **`normal`**, **`strong`** (mapped to internal numeric weights). Default **1.0**.
+* `boost`, `penalize`, `repel_domains`: up to **5** entries each.  
+* `weight`: number from **0.0** to **2.0**, or the strings **`weak`**, **`normal`**, **`strong`** (mapped to internal numeric weights). Default **1.0**.
 
 ## Semantic description (`describe`)
 
@@ -99,7 +99,7 @@ Free-text description of the kind of companies you want; embedded and searched l
 
 ## Filters (`filters`)
 
-Optional on any mode. Multiple values in a list are OR-combined for that field. Full field list and semantics: [Reference — filters](/api/goi-reference#filters-object).
+Optional on any mode. Multiple values in a list are OR-combined for that field. Full field list and semantics: [Reference, filters](/api/goi-reference#filters-object).
 
 Inside `filters`, `text_keywords` uses the same shape as top-level `keywords` but acts as a **strict BM25 filter** on text (slower than `summary_keywords` for exact keyword-array matches).
 
