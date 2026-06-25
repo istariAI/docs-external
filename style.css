@@ -55,3 +55,41 @@
   border-radius: 0 !important;
   box-shadow: none !important;
 }
+
+/* maple renders navbar links/CTA at the bottom of the left sidebar and leaves
+   the top tab-strip's right side empty. Relocate "Get Started" + "Contact us"
+   into that empty top-right area (Perplexity-style); "GOI Dashboard" stays at
+   the sidebar bottom. */
+#sidebar li[data-title="Get Started"],
+#sidebar li[id^="mailto:"] {
+  position: fixed;
+  top: 0.8rem;
+  z-index: 60;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+}
+#sidebar li[data-title="Get Started"] { right: 1.5rem; }
+#sidebar li[id^="mailto:"] { right: 9.5rem; }
+
+/* "Get Started" as a primary teal button */
+#sidebar li[data-title="Get Started"] a {
+  background-color: #2797a3;
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.95rem !important;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+#sidebar li[data-title="Get Started"] a:hover {
+  background-color: #2bbdbf;
+}
+#sidebar li[data-title="Get Started"] a svg,
+#sidebar li[id^="mailto:"] a svg {
+  display: none; /* drop the external-link arrow icons */
+}
+
+/* "Contact us" as a quiet secondary link-button */
+#sidebar li[id^="mailto:"] a {
+  padding: 0.45rem 0.4rem !important;
+  font-weight: 500;
+}

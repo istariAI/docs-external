@@ -33,14 +33,18 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
+        "label": "Contact us",
         "href": "mailto:support@istari.ai"
+      },
+      {
+        "label": "GOI Dashboard",
+        "href": "https://index.istari.ai"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Get Started",
-      "href": "https://index.istari.ai"
+      "href": "https://index.istari.ai/?from=docs"
     }
   },
   "navigation": {
