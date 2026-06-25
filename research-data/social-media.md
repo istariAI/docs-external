@@ -1,5 +1,5 @@
 ---
-title: "📲 Social media"
+title: "Social media"
 description: Find social media presences of companies
 cover: ../.gitbook/assets/social_media.jpg
 coverY: -28

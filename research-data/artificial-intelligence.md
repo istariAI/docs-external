@@ -1,5 +1,5 @@
 ---
-title: "🤖 Artificial intelligence"
+title: "Artificial intelligence"
 description: Find companies that are engaged in artificial intelligence.
 cover: ../.gitbook/assets/artifical_intelligence.jpg
 coverY: 64.49257425742574

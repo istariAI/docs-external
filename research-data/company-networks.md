@@ -1,5 +1,5 @@
 ---
-title: "🎆 Company networks"
+title: "Company networks"
 description: Explore company networks.
 cover: ../.gitbook/assets/network.jpg
 coverY: -31

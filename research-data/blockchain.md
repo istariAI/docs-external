@@ -1,5 +1,5 @@
 ---
-title: "⛓️ Blockchain"
+title: "Blockchain"
 description: Find companies that are engaged in blockchain.
 cover: ../.gitbook/assets/blockchain.jpg
 coverY: 0

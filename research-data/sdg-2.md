@@ -1,5 +1,5 @@
 ---
-title: "🍞 SDG 2"
+title: "SDG 2"
 description: >-
   Find companies that are engaged in the Sustainable Development Goal 2 - "Zero
   Hunger"

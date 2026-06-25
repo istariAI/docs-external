@@ -1,5 +1,5 @@
 ---
-title: "💻 Website TechStack"
+title: "Website TechStack"
 description: See the technical framework of company websites.
 cover: ../.gitbook/assets/tech_stack.jpg
 coverY: 0

@@ -1,5 +1,5 @@
 ---
-title: "🚗 Mobility"
+title: "Mobility"
 description: Find companies that are engaged in the mobility sector.
 cover: ../.gitbook/assets/mobility.jpg
 coverY: 4

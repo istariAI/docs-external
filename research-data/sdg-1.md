@@ -1,5 +1,5 @@
 ---
-title: "💰 SDG 1"
+title: "SDG 1"
 description: >-
   Find companies that are engaged in the Sustainable Development Goal 1 - "No
   Poverty"

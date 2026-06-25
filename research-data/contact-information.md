@@ -1,5 +1,5 @@
 ---
-title: "☎️ Contact information"
+title: "Contact information"
 description: GDPR compliant phone numbers and e-mail addresses
 ---
 

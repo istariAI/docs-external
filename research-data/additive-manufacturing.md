@@ -1,5 +1,5 @@
 ---
-title: "🖨️ Additive manufacturing"
+title: "Additive manufacturing"
 description: Find companies that are engaged in additive manufacturing.
 cover: ../.gitbook/assets/iStock-638869954.jpg
 coverY: 20

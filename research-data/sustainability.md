@@ -1,5 +1,5 @@
 ---
-title: "🌳 Sustainability"
+title: "Sustainability"
 description: Find companies that are engaged in sustainability.
 cover: ../.gitbook/assets/sustainability.jpg
 coverY: -7

@@ -143,25 +143,6 @@
         ]
       },
       {
-        "tab": "Cookbooks",
-        "groups": [
-          {
-            "group": "Cookbooks",
-            "pages": [
-              "use-cases/overview"
-            ]
-          },
-          {
-            "group": "Walkthroughs",
-            "pages": [
-              "use-cases/find-producers-of-heat-pumps",
-              "use-cases/find-hotels-with-specific-web-technology",
-              "use-cases/generate-a-region-profile"
-            ]
-          }
-        ]
-      },
-      {
         "tab": "API Playground",
         "groups": [
           {

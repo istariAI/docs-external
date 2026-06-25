@@ -1,5 +1,5 @@
 ---
-title: "💡 Innovation"
+title: "Innovation"
 description: Find innovative companies.
 cover: ../images/innovation.jpg
 coverY: -4
