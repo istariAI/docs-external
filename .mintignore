@@ -2,7 +2,3 @@
 SUMMARY.md
 stylesheets/
 javascripts/
-
-# Legacy sections not in navigation
-webai-platform-legacy/
-use-cases/

@@ -1,6 +1,6 @@
 # Similarity Search
 
-Similarity Search is one of the [three ways to search](dashboard.md#three-ways-to-search) in GOI. Use this method when you already know a **reference company** and want to find similar ones.
+Similarity Search is one of the [three ways to search](/goi/dashboard#three-ways-to-search) in GOI. Use this method when you already know a **reference company** and want to find similar ones.
 
 ## How it works
 
@@ -11,7 +11,7 @@ Similarity Search is one of the [three ways to search](dashboard.md#three-ways-t
 
 This method is ideal for **competitive benchmarking**, **supplier identification**, or **peer group analysis**.
 
-<figure><img src="/images/goi_similarity_search.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/images/goi_similarity_search.png" alt="" /><figcaption></figcaption></figure>
 
 ## Refining a similarity search
 
@@ -26,5 +26,5 @@ You can combine similarity search with **Location Filters** and **Other Filters*
 
 ## See also
 
-* [Semantic Search](semantic-search.md) — when you have a market description but no specific reference company.
-* [Keyword Search](keyword-search.md) — when you want exact term matching with no semantic interpretation.
+* [Semantic Search](/goi/semantic-search) — when you have a market description but no specific reference company.
+* [Keyword Search](/goi/keyword-search) — when you want exact term matching with no semantic interpretation.

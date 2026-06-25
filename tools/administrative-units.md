@@ -8,7 +8,7 @@ description: >-
 
 In order to be able to assign the companies to a geographical region, we use a hierarchical structure inspired by the [NUTS system of the European Union](https://ec.europa.eu/eurostat/web/nuts/background). This is structure is comparable across countries. However, in some world regions, the more fine-grained categories do not exist.
 
-See also our [coverage ](country-coverage.md)(number of companies per country).
+See also our [coverage ](/tools/country-coverage)(number of companies per country).
 
 
 

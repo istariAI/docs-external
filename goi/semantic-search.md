@@ -1,6 +1,6 @@
 # Semantic Search
 
-Semantic search is one of the [three ways to search](dashboard.md#three-ways-to-search) in GOI. It is ideal when you have a **general description** or **market search idea** in mind rather than a specific reference company or exact keywords.
+Semantic search is one of the [three ways to search](/goi/dashboard#three-ways-to-search) in GOI. It is ideal when you have a **general description** or **market search idea** in mind rather than a specific reference company or exact keywords.
 
 ## How it works
 
@@ -16,9 +16,9 @@ Semantic search is one of the [three ways to search](dashboard.md#three-ways-to-
 
 Semantic search is flexible and powerful, especially for **exploratory research** where the right keywords aren't obvious yet.
 
-<figure><img src="/images/goi_semantic_search.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/images/goi_semantic_search.png" alt="" /><figcaption></figcaption></figure>
 
 ## See also
 
-* [Similarity Search](similarity-search.md) — when you know a reference company and want to find similar ones.
-* [Keyword Search](keyword-search.md) — when you want exact term matching with no semantic interpretation.
+* [Similarity Search](/goi/similarity-search) — when you know a reference company and want to find similar ones.
+* [Keyword Search](/goi/keyword-search) — when you want exact term matching with no semantic interpretation.

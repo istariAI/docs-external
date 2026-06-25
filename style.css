@@ -1,0 +1,57 @@
+/* ─────────────────────────────────────────────────────────────
+   ISTARI.AI docs — custom global styling
+   Loaded automatically by Mintlify from the repo root.
+   ───────────────────────────────────────────────────────────── */
+
+/* Grey sidebar against white content — Gmail / Anthropic-style.
+   #sidebar is the left navigation column; content stays on the
+   default page background so the two surfaces read distinctly. */
+#sidebar {
+  background-color: #f9fafb; /* --istari-surface */
+  border-right: 1px solid #e5e7eb;
+}
+
+.dark #sidebar {
+  background-color: rgba(255, 255, 255, 0.02);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Subtle divider under the top navigation. */
+#header,
+#navbar {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dark #header,
+.dark #navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* All content headings: Georgia serif, not bold. */
+#content-area h1,
+#content-area h2,
+#content-area h3,
+#content-area h4,
+#content-area h5,
+#content-area h6 {
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-weight: 400 !important;
+}
+
+/* "On this page" table-of-contents heading: Georgia, larger, not bold. */
+#table-of-contents h2,
+#table-of-contents-layout h2 {
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 1.375rem !important;
+  font-weight: 400 !important;
+  line-height: 1.3 !important;
+}
+
+/* Flatten the "Next" pagination preview — by default maple renders it as a
+   floating white card, which clashes with the plain "Previous" link. */
+#pagination a > div,
+#pagination a > div:hover {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}

@@ -1,19 +1,20 @@
 ---
-description: Programmatic access to the ISTARI Global Organization Index (GOI) via API key — API v2.
+description: Programmatic access to the ISTARI Global Organization Index (GOI) via API key.
 ---
 
-# GOI Public API (v2)
+# GOI Public API
 
 The **GOI Public API** is the supported HTTP API for querying the **ISTARI Global Organization Index (GOI)**: tens of millions of organisation records across Europe, backed by PostgreSQL with vector (DiskANN) and full-text (BM25) search.
 
 Use it to **discover** companies (keyword, semantic description, similarity to known domains, or filters alone), **look up** known domains in bulk, and (on eligible keys) run **aggregations** and read **filter option** lists.
 
-!!! tip "Interactive reference"
-    When exposed for your environment, OpenAPI / Swagger is typically at **`https://api.istari.ai/v2/docs`**.
+<Tip>
+  **Interactive reference** — when exposed for your environment, OpenAPI / Swagger is typically at **`https://api.istari.ai/v2/docs`**.
+</Tip>
 
-## Base URL (v2)
+## Base URL
 
-All GOI v2 paths are under:
+All GOI API paths are under:
 
 ```text
 https://api.istari.ai/v2/
@@ -68,8 +69,8 @@ Paths are relative to **`https://api.istari.ai/v2`**.
 
 | Method | Path | Purpose |
 | ------ | ---- | ------- |
-| `POST` | `/search` | Search and rank organisations (modes described in [Search](goi-search.md)) |
-| `POST` | `/fetch` | Bulk lookup by domain list — no scoring ([Fetch, stats & utilities](goi-fetch-stats.md)) |
+| `POST` | `/search` | Search and rank organisations (modes described in [Search](/api/goi-search)) |
+| `POST` | `/fetch` | Bulk lookup by domain list — no scoring ([Fetch, stats & utilities](/api/goi-fetch-stats)) |
 | `POST` | `/stats` | Aggregations (`COUNT` by dimension); **tier_3 only** |
 | `GET` | `/filters/options` | Allowed values for categorical filters (scoped to your key) |
 | `GET` | `/health` | Liveness / database check |
@@ -77,10 +78,6 @@ Paths are relative to **`https://api.istari.ai/v2`**.
 
 ## Documentation map
 
-* [Search](goi-search.md) — request body, auto-detected modes, keywords, `similar_to`, `describe`, filters, pagination, deduplication  
-* [Fetch, stats & utilities](goi-fetch-stats.md) — `/fetch`, `/stats`, `/filters/options`, health and test  
-* [Reference: columns, filters, limits & errors](goi-reference.md) — response fields, quotas, HTTP errors  
-
-## Previous ISTARI HTTP API (v1)
-
-If your integration still uses **`https://api.istari.ai/v1/...`** (older search and `fetch-market`-style paths), see **[Legacy API documentation](legacy/api_start_page.md)**. New work should use **GOI v2** at **`https://api.istari.ai/v2/`** (this section).
+* [Search](/api/goi-search) — request body, auto-detected modes, keywords, `similar_to`, `describe`, filters, pagination, deduplication  
+* [Fetch, stats & utilities](/api/goi-fetch-stats) — `/fetch`, `/stats`, `/filters/options`, health and test  
+* [Reference: columns, filters, limits & errors](/api/goi-reference) — response fields, quotas, HTTP errors  

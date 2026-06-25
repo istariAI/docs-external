@@ -46,7 +46,7 @@ As an example for Germany, we can say that 15.12% of the examined companies are 
 
 </details>
 
-<figure><img src="../images/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/images/image-13.png" alt="" /><figcaption></figcaption></figure>
 
 <details>
 

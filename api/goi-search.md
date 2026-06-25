@@ -52,7 +52,7 @@ Hybrid queries blend BM25 and vector ranking (reciprocal rank fusion). Use `sear
 
 | Field | Notes |
 | ----- | ----- |
-| `columns` | Subset of allowed columns; `domain` is always returned. Default `["domain", "name", "country"]`. See [Reference](goi-reference.md#selectable-columns). |
+| `columns` | Subset of allowed columns; `domain` is always returned. Default `["domain", "name", "country"]`. See [Reference](/api/goi-reference#selectable-columns). |
 | `size` | Page size, default `100`, maximum `500`. |
 | `min_score` | Optional `0.0`–`1.0` cosine similarity floor for vector / semantic / hybrid modes. |
 | `search_after` | Opaque cursor from the previous response’s `metadata.search_after` for pagination. |
@@ -100,7 +100,7 @@ Free-text description of the kind of companies you want; embedded and searched l
 
 ## Filters (`filters`)
 
-Optional on any mode. Multiple values in a list are OR-combined for that field. Full field list and semantics: [Reference — filters](goi-reference.md#filters-object).
+Optional on any mode. Multiple values in a list are OR-combined for that field. Full field list and semantics: [Reference — filters](/api/goi-reference#filters-object).
 
 Inside `filters`, `text_keywords` uses the same shape as top-level `keywords` but acts as a **strict BM25 filter** on text (slower than `summary_keywords` for exact keyword-array matches).
 
@@ -175,4 +175,4 @@ Scored modes use an offset-style cursor with a **maximum depth of 10,000** rows.
 }
 ```
 
-`total_hits` may be `null` in some filter paths. See [Errors](goi-reference.md#http-errors) for failure responses.
+`total_hits` may be `null` in some filter paths. See [Errors](/api/goi-reference#http-errors) for failure responses.

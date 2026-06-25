@@ -1,7 +1,5 @@
 ---
 description: An example use case in which we analyse a region for industrial policy.
-hidden: true
-noIndex: true
 ---
 
 # 📂 Generate a region profile
@@ -18,7 +16,7 @@ Supporting the local economy in your area typically requires you to explore vari
 
 ### 1. After subscribing to [webAI Lead](https://istari.ai/webai-lead) you login with your credentials on [dashboard.istari.ai](https://dashboard.istari.ai)
 
-<figure><img src="../images/screenshot_dashboard.png" alt=""><figcaption><p>webAI Lead dashboard after login.</p></figcaption></figure>
+<figure><img src="/images/screenshot_dashboard.png" alt="" /><figcaption><p>webAI Lead dashboard after login.</p></figcaption></figure>
 
 ### 2. Choose your region
 
@@ -30,7 +28,7 @@ For a specific area, simply use the drop-down filters to find your area, like in
 
 For more specific information about the regional units, see [administrative-units.md](../tools/administrative-units.md "mention").
 
-<figure><img src="../images/regions_frankfurt.png" alt=""><figcaption><p>Select a specific region.</p></figcaption></figure>
+<figure><img src="/images/regions_frankfurt.png" alt="" /><figcaption><p>Select a specific region.</p></figcaption></figure>
 
 **Identify a region consisting of several administrative units**
 
@@ -44,24 +42,24 @@ In some cases, like e.g. in the case of the Metropolitan Region Rhine-Neckar aro
 
 Let’s assume you want to know which companies use the word "hydrogen" or their German, Spanish or French equivalents on their website. To get the results, just enter `”hydrogen”` or `“wasserstoff”` or `“hidrógeno”` or `“hydrogène"` into the filters.
 
-<figure><img src="../images/regions_hydrogen.png" alt=""><figcaption><p>Filter for multilingual keywords.</p></figcaption></figure>
+<figure><img src="/images/regions_hydrogen.png" alt="" /><figcaption><p>Filter for multilingual keywords.</p></figcaption></figure>
 
 **By indicator**
 
-Now, take the example from above and assume that you only want to see the companies that have a high or very high sustainability indicator (click [here ](../indicators-research-data/sustainability.md)for more information). In this case, you need to add another filter under "Show advanced filters". It is sufficient to use "high", since this will also include all firms that are classified as "very high".
+Now, take the example from above and assume that you only want to see the companies that have a high or very high sustainability indicator (click [here ](/research-data/sustainability)for more information). In this case, you need to add another filter under "Show advanced filters". It is sufficient to use "high", since this will also include all firms that are classified as "very high".
 
-<figure><img src="../images/regions_sustainability_level.png" alt=""><figcaption><p>Use an advanced filter.</p></figcaption></figure>
+<figure><img src="/images/regions_sustainability_level.png" alt="" /><figcaption><p>Use an advanced filter.</p></figcaption></figure>
 
 ### 4. Results
 
 If we combine all of these search criteria, we can identify all 32 companies that mention "hydrogen" in Frankfurt am Main and that have a high sustainability intensity. We can inspect our results more closely on the interactive map on the left or in the preview table on the right. With this, all you have to do is download the data.
 
-<figure><img src="../images/regions_results.png" alt=""><figcaption><p>Results of advanced search.</p></figcaption></figure>
+<figure><img src="/images/regions_results.png" alt="" /><figcaption><p>Results of advanced search.</p></figcaption></figure>
 
 ### 5. Download your company short list
 
 All you have to do now is click on the `Download data` button below the preview. Before receiving the file, you will see how many credits this will cost you and confirm that you want to download the data.
 
-<figure><img src="../images/regions_download.png" alt="" width="563"><figcaption><p>Downloading your company short list.</p></figcaption></figure>
+<figure><img src="/images/regions_download.png" alt="" width="563" /><figcaption><p>Downloading your company short list.</p></figcaption></figure>
 
 After downloading, you can open the downloaded file with Excel, for example, or import it directly into the CMS.

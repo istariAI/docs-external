@@ -101,7 +101,6 @@ Error bodies are usually JSON with a `detail` or `error` field you can log.
 
 ## Related
 
-* [Overview & endpoint list](api_start_page.md)  
-* [Search behaviour](goi-search.md)  
-* [Fetch and stats](goi-fetch-stats.md)  
-* [Legacy ISTARI API (v1)](legacy/api_start_page.md)  
+* [Overview & endpoint list](/api/api_start_page)  
+* [Search behaviour](/api/goi-search)  
+* [Fetch and stats](/api/goi-fetch-stats)  

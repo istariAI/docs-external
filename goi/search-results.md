@@ -4,14 +4,14 @@ Once your search completes — applying your semantic, similarity, or keyword qu
 
 If you aren't satisfied with what you see, you can adjust your query directly from the compact search bar at the top of the page. You can also save the current search (**Save Search** button, top right) and reuse it later from the **Saved Searches** tab in the sidebar.
 
-<figure><img src="/images/goi_save_search.png" alt="" width="280"><figcaption></figcaption></figure>
+<figure><img src="/images/goi_save_search.png" alt="" width="280" /><figcaption></figcaption></figure>
 
 ## The results table
 
 By default, the table shows the following columns:
 
 * **Domain** — the website that was analysed.
-* **Actions** — open a dedicated [company profile](search-results.md#company-profile) for the organization.
+* **Actions** — open a dedicated [company profile](/goi/search-results#company-profile) for the organization.
 * **Name** — the organization's name as it appears on its website.
 * **Summary** — a short AI-generated description of what the organization does.
 * **Country** — where the organization is registered.
@@ -41,11 +41,11 @@ Click **View profile** on any row to open a side panel with the full profile for
 * Visit the organization's website with the external-link button.
 * **Download as PDF** to save the profile as a standalone document.
 
-<figure><img src="/images/goi_firm_profile.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/images/goi_firm_profile.png" alt="" /><figcaption></figcaption></figure>
 
 ## Next steps
 
 From the results table you can also:
 
-* **[Export](export-search-results.md)** the full list or a selection as CSV or Excel.
-* **[Create a list](lists.md)** from selected organizations and return to them later.
+* **[Export](/goi/export-search-results)** the full list or a selection as CSV or Excel.
+* **[Create a list](/goi/lists)** from selected organizations and return to them later.

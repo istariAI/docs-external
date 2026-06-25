@@ -42,7 +42,7 @@ As an example for the DACH region (Germany, Austria, Switzerland), we can say th
 
 </details>
 
-<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/images/image-14.png" alt="" /><figcaption></figcaption></figure>
 
 <details>
 

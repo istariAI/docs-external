@@ -13,7 +13,7 @@ From any results table, tick the checkboxes next to the organizations you want t
 * **Create a new list** — give the list a name and save it.
 * **Add to existing list** — append the selected organizations to a list you already have.
 
-<figure><img src="/images/goi_create_list.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/images/goi_create_list.png" alt="" /><figcaption></figcaption></figure>
 
 ## Manage your lists
 
@@ -25,7 +25,7 @@ All of your lists are accessible from the **Lists** tab in the sidebar. Each car
 
 Use the **Newest First / Oldest First** toggle to re-sort the grid.
 
-<figure><img src="/images/goi_lists.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/images/goi_lists.png" alt="" /><figcaption></figcaption></figure>
 
 ## List detail page
 
@@ -33,4 +33,4 @@ Opening a list shows every organization you've added, along with:
 
 * A header with the **list name** and creation date, plus a back arrow to return to the Lists overview.
 * A **search-source dropdown** above the table. If your list was built from multiple searches, this lets you switch between **All Searches** (every organization in the list) and any individual originating search. Each option shows the number of domains it contains. When you pick a specific search, a **View Search** button appears so you can re-run it and discover more candidates to add.
-* The full-featured table — same column management, hide-duplicates, export and other tools as on the regular [Search Results](search-results.md) page.
+* The full-featured table — same column management, hide-duplicates, export and other tools as on the regular [Search Results](/goi/search-results) page.

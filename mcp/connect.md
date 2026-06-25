@@ -20,11 +20,11 @@ The GOI MCP connector uses your ISTARI account at [index.istari.ai](https://inde
 
 ## Other MCP clients
 
-Any client that supports remote MCP connectors with OAuth can use the GOI connector. After connecting, verify access by asking the agent to run a simple `search_organizations` query or check the connector health endpoint described in the [overview](index).
+Any client that supports remote MCP connectors with OAuth can use the GOI connector. After connecting, verify access by asking the agent to run a simple `search_organizations` query or check the connector health endpoint described in the [overview](/mcp/index).
 
 ## Plan access
 
-New accounts start on the **Standard** plan. See [Standard plan quotas](index#standard-plan-quotas) on the overview page for monthly limits.
+New accounts start on the **Standard** plan. See [Standard plan quotas](/mcp/index#standard-plan-quotas) on the overview page for monthly limits.
 
 For higher quotas, see [GOI access plans](https://www.istari.ai/en/technology) on the ISTARI technology page.
 
@@ -36,6 +36,6 @@ For higher quotas, see [GOI access plans](https://www.istari.ai/en/technology) o
 
 ## See also
 
-- [Overview](index) — what the connector provides and quota tables.
-- [Tools](tools) — tool reference and when to use each one.
-- [Privacy](privacy) — logging and data retention.
+- [Overview](/mcp/index) — what the connector provides and quota tables.
+- [Tools](/mcp/tools) — tool reference and when to use each one.
+- [Privacy](/mcp/privacy) — logging and data retention.

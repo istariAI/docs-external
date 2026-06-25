@@ -1,6 +1,6 @@
 # Login & Logout
 
-<figure><img src="/images/goi_google_sso.png" alt="" width="288"><figcaption></figcaption></figure>
+<figure><img src="/images/goi_google_sso.png" alt="" width="288" /><figcaption></figcaption></figure>
 
 ### Login via Google account
 
