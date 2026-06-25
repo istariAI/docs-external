@@ -43,10 +43,8 @@
 #sidebar-content a.select-none:has(.nav-logo)::after {
   content: "Documentation";
   margin-top: 0.35rem;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
   color: #9aa4af;
 }
 
