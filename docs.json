@@ -27,7 +27,9 @@
   },
   "seo": {
     "metatags": {
-      "canonical": "https://docs.istari.ai"
+      "canonical": "https://docs.istari.ai",
+      "og:image": "https://docs.istari.ai/images/preview-img.png",
+      "twitter:image": "https://docs.istari.ai/images/preview-img.png"
     }
   },
   "navbar": {
