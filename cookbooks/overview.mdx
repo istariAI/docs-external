@@ -1,12 +1,13 @@
 ---
-title: "Cookbooks"
-description: "Copy-paste query templates that turn a fuzzy request into a clean, reproducible GOI result."
+title: "Overview"
+description: "GOI cookbooks turn fuzzy requests into clean, reproducible results with fixed parameter recipes."
 ---
 
-Each cookbook is a **fixed parameter template**: the caller supplies one or two free-text inputs, and everything else is locked in. The quality comes from the parameters, not the search string, so you get the same clean result every time without knowing the internals.
+**Cookbooks** are ready-made GOI workflows for common research tasks: supplier shortlists, lookalikes, market sizing, startup scouting, and more. Each one is a **query template** — a fixed parameter set where you supply one or two inputs and everything else stays locked in. Quality comes from the parameters, not the search string, so you get the same clean result every time without knowing the internals.
 
-All examples use the [GOI MCP](/mcp/overview) tool calls (`search_organizations`, `find_similar_organizations`, `aggregate_organizations`). The same parameters map directly to the [API](/api/api_start_page) `POST /v2/search`.
+All examples in the query templates map the same parameters as in the [API](/api/api_start_page) `POST /v2/search`.
 
+## Query templates
 <CardGroup cols={2}>
   <Card title="Supplier discovery" icon="package" href="/cookbooks/supplier-discovery">
     Given a product + location, return a supplier shortlist (makers + distributors).

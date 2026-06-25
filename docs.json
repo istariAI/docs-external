@@ -37,7 +37,7 @@
         "href": "mailto:support@istari.ai"
       },
       {
-        "label": "GOI Home page",
+        "label": "GOI Dashboard",
         "href": "https://index.istari.ai"
       }
     ],
@@ -147,13 +147,18 @@
         "tab": "Cookbooks",
         "groups": [
           {
-            "group": "Query Templates",
+            "group": "Cookbooks",
             "pages": [
               "cookbooks/overview",
-              "cookbooks/supplier-discovery",
-              "cookbooks/find-lookalikes",
-              "cookbooks/market-sizing",
-              "cookbooks/startup-scouting"
+              {
+                "group": "Query templates",
+                "pages": [
+                  "cookbooks/supplier-discovery",
+                  "cookbooks/find-lookalikes",
+                  "cookbooks/market-sizing",
+                  "cookbooks/startup-scouting"
+                ]
+              }
             ]
           }
         ]
