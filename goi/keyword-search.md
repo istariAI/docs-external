@@ -1,6 +1,8 @@
-# Keyword Search
+---
+title: "Keyword search"
+---
 
-Keyword Search is one of the [three ways to search](dashboard.md#three-ways-to-search) in GOI. Use this method when you want **exact term matching** over organization profiles, with full control over which words define a hit — no semantic interpretation, no reference company.
+Keyword Search is one of the [three ways to search](/goi/dashboard#three-ways-to-search) in GOI. Use this method when you want **exact term matching** over organization profiles, with full control over which words define a hit — no semantic interpretation, no reference company.
 
 ## How it works
 
@@ -19,11 +21,11 @@ Keyword Search is ideal when:
 
 Keyword Search can be combined with any of the usual filters to narrow the scope further:
 
-* [**Location Filters**](location-filters.md) — restrict to a country, state, district, or city.
-* [**Organizational Filters**](organizational-filters.md) — restrict by organization size, type, or NACE sector.
-* [**Keyword refinement filters**](advanced-search-filters.md) — layered *Must Include (Any / All)* and *Must Not Include* filters on top of the main keyword query, for even more precise control.
+* [**Location Filters**](/goi/location-filters) — restrict to a country, state, district, or city.
+* [**Organizational Filters**](/goi/organizational-filters) — restrict by organization size, type, or NACE sector.
+* [**Keyword refinement filters**](/goi/advanced-search-filters) — layered *Must Include (Any / All)* and *Must Not Include* filters on top of the main keyword query, for even more precise control.
 
 ## See also
 
-* [Semantic Search](semantic-search.md) — natural-language search when you don't have exact keywords.
-* [Similarity Search](similarity-search.md) — find companies similar to a reference website.
+* [Semantic Search](/goi/semantic-search) — natural-language search when you don't have exact keywords.
+* [Similarity Search](/goi/similarity-search) — find companies similar to a reference website.

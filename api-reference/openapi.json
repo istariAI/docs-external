@@ -1,0 +1,1396 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "GOI Public API",
+    "description": "Programmatic access to the ISTARI Global Organization Index (GOI) — search, bulk lookup, aggregations, and location resolution over ~20M verified organizations. Authenticate with the `x-api-key` header.",
+    "version": "v2"
+  },
+  "paths": {
+    "/search": {
+      "post": {
+        "summary": "Search",
+        "operationId": "search_v1_search_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/fetch": {
+      "post": {
+        "summary": "Fetch",
+        "operationId": "fetch_v1_fetch_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FetchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FetchResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/stats": {
+      "post": {
+        "tags": [
+          "stats"
+        ],
+        "summary": "Aggregate counts — group by dimension(s) with filters",
+        "description": "Returns `COUNT(*)` bucketed by one or two categorical dimensions with optional column filters and an optional date range. No search scoring — pure SQL `GROUP BY`.\n\n**Use cases:** NACE distribution by country, org size breakdown, top keywords for a sector, monthly registration trends.\n\n**Dimensions (`group_by` / `group_by_secondary`):** continent, country, country_code, state, state_code, region, region_code, district, district_code, municipality, municipality_code, nace_code, organization_type, organization_size, employee_class, revenue_class, summary_keywords (unnested), company_register_date, created_at.\n\n`summary_keywords` is automatically unnested — each keyword in the array counts as its own bucket.\n\nDate dimensions use `DATE_TRUNC` and are ordered chronologically (ASC). All other dimensions are ordered by count DESC.\n\n**Access:** `tier_3` keys only.",
+        "operationId": "stats_v1_stats_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Aggregation buckets with count per group, plus query metadata.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/filters/options": {
+      "get": {
+        "summary": "Filters Options",
+        "operationId": "filters_options_v1_filters_options_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/locations": {
+      "get": {
+        "tags": [
+          "locations"
+        ],
+        "summary": "List or look up locations",
+        "description": "Returns location-tree entries from the shared `goi_locations` table.\n\nModes:\n- Root: `parent_id` omitted, empty, or `null` → returns continents and countries\n- Children: `parent_id=<id>` → direct children of that location\n- Exact: `name=<name>&location_type=<type>` → exact lookup\n\nLocations are global navigation metadata — open to any caller past auth, no `regionAccess` filtering applied.",
+        "operationId": "locations_v1_locations_get",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "parent_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Parent Id"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Name"
+            }
+          },
+          {
+            "name": "location_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Location Type"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Location items plus count.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationsResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locations/search": {
+      "get": {
+        "tags": [
+          "locations"
+        ],
+        "summary": "Search locations by name",
+        "description": "Ranked search over `goi_locations.name` with exact, prefix, substring, and fuzzy (trigram) layers. Returns the same item shape as `/v1/locations`. Open to any caller past auth.",
+        "operationId": "locations_search_v1_locations_search_get",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Q"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ranked location items plus count.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationsResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_v1_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/test": {
+      "get": {
+        "summary": "Test",
+        "operationId": "test_v1_test_get",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "explain",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Explain"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DateRangeFilter": {
+        "properties": {
+          "field": {
+            "type": "string",
+            "enum": [
+              "company_register_date",
+              "created_at",
+              "updated_at"
+            ],
+            "title": "Field",
+            "description": "The date column to filter on. 'company_register_date' matches if any registration in the company's registries falls in the range. 'created_at' / 'updated_at' are TIMESTAMPTZ on the org row — the to_date boundary is inclusive of the full day."
+          },
+          "from_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "From Date",
+            "description": "Lower bound (inclusive). ISO date string: YYYY-MM-DD."
+          },
+          "to_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To Date",
+            "description": "Upper bound (inclusive for DATE, full-day inclusive for TIMESTAMPTZ). ISO date string: YYYY-MM-DD."
+          }
+        },
+        "type": "object",
+        "required": [
+          "field"
+        ],
+        "title": "DateRangeFilter"
+      },
+      "FetchMetadata": {
+        "properties": {
+          "requested": {
+            "type": "integer",
+            "title": "Requested",
+            "description": "Number of domains in the request."
+          },
+          "found": {
+            "type": "integer",
+            "title": "Found",
+            "description": "Number of domains that matched a row in the database."
+          },
+          "missing": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Missing",
+            "description": "Domains from the request that were not found."
+          }
+        },
+        "type": "object",
+        "required": [
+          "requested",
+          "found",
+          "missing"
+        ],
+        "title": "FetchMetadata",
+        "description": "Diagnostics returned alongside /v1/fetch results."
+      },
+      "FetchRequest": {
+        "properties": {
+          "domains": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 5000,
+            "minItems": 1,
+            "title": "Domains"
+          },
+          "columns": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Columns"
+          }
+        },
+        "type": "object",
+        "required": [
+          "domains"
+        ],
+        "title": "FetchRequest"
+      },
+      "FetchResponse": {
+        "properties": {
+          "data": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/FetchMetadata"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "metadata"
+        ],
+        "title": "FetchResponse"
+      },
+      "FiltersInput": {
+        "properties": {
+          "country": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Country",
+            "description": "Country name(s), OR-combined. Examples: ['Germany'], ['Germany', 'Austria', 'Switzerland']."
+          },
+          "state": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "State",
+            "description": "State / Bundesland name(s). Native spelling (e.g. 'Bayern'). Use /v1/locations/search to look up exact spellings."
+          },
+          "region": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Region",
+            "description": "Region (admin level between state and district). Native spelling."
+          },
+          "district": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "District",
+            "description": "District / Landkreis. Native spelling."
+          },
+          "municipality": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Municipality",
+            "description": "Municipality / Stadt / Gemeinde. Native spelling."
+          },
+          "organization_type": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organization Type",
+            "description": "Filter by organization type. Valid values: \"Company\", \"Startup\", \"Public\", \"Academic\", \"Other\""
+          },
+          "organization_size": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organization Size",
+            "description": "Filter by organization size. Valid values: \"Micro (0-9)\", \"Small (10-49)\", \"Medium-sized (50-249)\", \"Large enterprise (250+)\""
+          },
+          "nace_code": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nace Code",
+            "description": "Filter by NACE section code. Valid values: \"NACE A: Agriculture, forestry and fishing\", \"NACE B: Mining and quarrying\", \"NACE C: Manufacturing\", \"NACE D: Electricity, gas, steam and air conditioning supply\", \"NACE E: Water supply; sewerage, waste management and remediation activities\", \"NACE F: Construction\", \"NACE G: Wholesale and retail trade\", \"NACE H: Transportation and storage\", \"NACE I: Accommodation and food service activities\", \"NACE J: Publishing, broadcasting, and content production and distribution activities\", \"NACE K: Telecommunication, computer programming, consulting, computing infrastructure and other information service activities\", \"NACE L: Financial and insurance activities\", \"NACE M: Real estate activities\", \"NACE N: Professional, scientific and technical activities\", \"NACE O: Administrative and support service activities\", \"NACE P: Public administration and defence; compulsory social security\", \"NACE Q: Education\", \"NACE R: Human health and social work activities\", \"NACE S: Arts, sports and recreation\", \"NACE T: Other service activities\", \"NACE U: Activities of households as employers and undifferentiated goods- and service-producing activities of households for own use\", \"NACE V: Activities of extraterritorial organisations and bodies\""
+          },
+          "source": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source",
+            "description": "Filter by data source. Valid values: \"register\", \"cache\", \"request\", \"goi_02_2026\""
+          },
+          "company_register_court": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Company Register Court",
+            "description": "Filter by court of registration. Matches a company if any of its registrations is at one of the given courts (not just the primary)."
+          },
+          "register_date_from": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Register Date From",
+            "description": "Filter by registration date >= this date. Matches if any of the company's registrations is on/after this date. ISO format: YYYY-MM-DD."
+          },
+          "register_date_to": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Register Date To",
+            "description": "Filter by registration date <= this date. Matches if any of the company's registrations is on/before this date. When combined with company_register_court, both predicates must apply to the same registration. ISO format: YYYY-MM-DD."
+          },
+          "summary_keywords": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Summary Keywords",
+            "description": "Exact-match filter on each company's auto-extracted keyword tags (array containment — a company matches only if its summary_keywords contain ALL the values you pass). Discover valid values via /v1/stats with group_by='summary_keywords' on a narrower slice."
+          },
+          "text_keywords": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KeywordsInput"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Strict BM25 WHERE filter on company description — combines AND / OR / NOT the same way as a search keywords argument. Not supported in /v1/stats."
+          }
+        },
+        "type": "object",
+        "title": "FiltersInput",
+        "description": "Column-level filters applied to org rows.\n\nGeographic fields use GADM-native names (e.g. 'Bayern' not 'Bavaria').\nAll list-valued filters are OR-combined within the field. Values across\ndifferent fields are AND-combined."
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "KeywordsInput": {
+        "properties": {
+          "must_all": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Must All",
+            "description": "Terms that must ALL appear in the company description (AND logic). Example: ['open banking', 'API']."
+          },
+          "must_any": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Must Any",
+            "description": "Terms where ANY ONE must appear (OR logic). Example: ['fintech', 'payments', 'banking']."
+          },
+          "must_not": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Must Not",
+            "description": "Terms that must NOT appear in the company description. Requires must_all or must_any to also be set."
+          }
+        },
+        "type": "object",
+        "title": "KeywordsInput",
+        "description": "BM25 / fulltext keyword filter applied to the company description.\n\nCombines three lists with AND / OR / NOT logic. At least one positive\nlist (must_all or must_any) is required when must_not is set — BM25\ncannot match on pure negation."
+      },
+      "LocationItem": {
+        "properties": {
+          "location_id": {
+            "type": "string",
+            "title": "Location Id"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "location_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Location Type"
+          },
+          "parent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parent Id"
+          },
+          "path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Path"
+          },
+          "doc_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Doc Count"
+          }
+        },
+        "type": "object",
+        "required": [
+          "location_id"
+        ],
+        "title": "LocationItem"
+      },
+      "LocationsResponse": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/LocationItem"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "count": {
+            "type": "integer",
+            "title": "Count"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "count"
+        ],
+        "title": "LocationsResponse"
+      },
+      "SearchMetadata": {
+        "properties": {
+          "total_hits": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Hits",
+            "description": "Total matches found before pagination/dedup. May be null if the search engine couldn't compute a cheap total (e.g. some vector modes)."
+          },
+          "returned": {
+            "type": "integer",
+            "title": "Returned",
+            "description": "Number of rows in this response after limits and dedup."
+          },
+          "mode": {
+            "type": "string",
+            "title": "Mode",
+            "description": "Auto-detected search mode: 'vector_similarity', 'semantic', 'fulltext', 'hybrid', or 'filter'."
+          },
+          "elapsed_ms": {
+            "type": "integer",
+            "title": "Elapsed Ms",
+            "description": "Search execution time in milliseconds."
+          },
+          "search_after": {
+            "anyOf": [
+              {
+                "items": {},
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Search After",
+            "description": "Opaque pagination cursor. Pass back verbatim in the next request's `search_after` to fetch the next page. Null if no more results."
+          },
+          "filters_applied": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filters Applied",
+            "description": "Echo of the column filters that were applied (after scope/normalization)."
+          },
+          "explain_plan": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Explain Plan",
+            "description": "EXPLAIN ANALYZE output lines when `explain=true` was requested, else null."
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_hits",
+          "returned",
+          "mode",
+          "elapsed_ms"
+        ],
+        "title": "SearchMetadata",
+        "description": "Diagnostics returned alongside /v1/search results."
+      },
+      "SearchRequest": {
+        "properties": {
+          "similar_to": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "items": {
+                  "$ref": "#/components/schemas/SimilarToInput"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Similar To"
+          },
+          "describe": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Describe"
+          },
+          "keywords": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KeywordsInput"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "filters": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FiltersInput"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "excludes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Excludes"
+          },
+          "columns": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Columns"
+          },
+          "size": {
+            "type": "integer",
+            "maximum": 500.0,
+            "minimum": 1.0,
+            "title": "Size",
+            "default": 100
+          },
+          "min_score": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Min Score",
+            "default": 0.35
+          },
+          "search_balance": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Search Balance",
+            "default": 0.5
+          },
+          "search_after": {
+            "anyOf": [
+              {
+                "items": {},
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Search After"
+          },
+          "explain": {
+            "type": "boolean",
+            "title": "Explain",
+            "default": false
+          },
+          "dedup": {
+            "type": "boolean",
+            "title": "Dedup",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "SearchRequest"
+      },
+      "SearchResponse": {
+        "properties": {
+          "data": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SearchMetadata"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "metadata"
+        ],
+        "title": "SearchResponse"
+      },
+      "SimilarToInput": {
+        "properties": {
+          "domain": {
+            "type": "string",
+            "title": "Domain",
+            "description": "Domain of the reference company (e.g. 'stripe.com'). The company's embedding becomes the search anchor."
+          },
+          "boost": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 5,
+            "title": "Boost",
+            "description": "Concept terms whose embeddings are ADDED to the reference. Pushes results toward these concepts. Example: ['B2B', 'enterprise']."
+          },
+          "penalize": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 5,
+            "title": "Penalize",
+            "description": "Concept terms whose embeddings are SUBTRACTED from the reference. Pushes results away from these concepts. Example: ['consumer', 'B2C']."
+          },
+          "repel_domains": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 5,
+            "title": "Repel Domains",
+            "description": "Other company domains whose embeddings are subtracted from the reference. Use to exclude a 'flavor' of company by example."
+          },
+          "weight": {
+            "type": "number",
+            "title": "Weight",
+            "description": "Relative weight when multiple similar_to entries are provided. Accepts a number 0.0–2.0 or one of 'weak' (0.5), 'normal' (1.0), 'strong' (2.0).",
+            "default": 1.0
+          }
+        },
+        "type": "object",
+        "required": [
+          "domain"
+        ],
+        "title": "SimilarToInput",
+        "description": "Reference company for vector-similarity ('find similar to X') search.\n\nAccepts a domain plus optional embedding arithmetic: terms in `boost`\nare added to the reference embedding, `penalize` are subtracted, and\n`repel_domains` push results away from those other companies. Used by\n/v1/search when `similar_to` is provided."
+      },
+      "StatsMetadata": {
+        "properties": {
+          "group_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Group By",
+            "description": "The primary grouping column, or null if no grouping was applied."
+          },
+          "group_by_secondary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Group By Secondary",
+            "description": "The secondary grouping column, or null if not used."
+          },
+          "date_trunc": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Date Trunc",
+            "description": "The date truncation unit applied (year/month/week), or null if no date dimension was active."
+          },
+          "filters_applied": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filters Applied",
+            "description": "Echo of the column filters that were applied."
+          },
+          "date_range_applied": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Date Range Applied",
+            "description": "Echo of the date range filter that was applied, or null."
+          },
+          "total_buckets": {
+            "type": "integer",
+            "title": "Total Buckets",
+            "description": "Number of buckets returned (≤ limit)."
+          },
+          "elapsed_ms": {
+            "type": "integer",
+            "title": "Elapsed Ms",
+            "description": "Query execution time in milliseconds."
+          },
+          "explain_plan": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Explain Plan",
+            "description": "EXPLAIN ANALYZE output lines, or null if explain was not requested."
+          }
+        },
+        "type": "object",
+        "required": [
+          "group_by",
+          "group_by_secondary",
+          "date_trunc",
+          "filters_applied",
+          "date_range_applied",
+          "total_buckets",
+          "elapsed_ms"
+        ],
+        "title": "StatsMetadata"
+      },
+      "StatsRequest": {
+        "properties": {
+          "group_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Group By",
+            "description": "Primary dimension to group by. Omit for a single total COUNT(*). Allowed values — Geographic: continent, country, country_code, state, state_code, region, region_code, district, district_code, municipality, municipality_code. Classification: nace_code, organization_type, organization_size, employee_class, revenue_class. Source: source. Array (unnested per keyword): summary_keywords. Registrations (unnested per registration via the registries jsonb): company_register_court, company_register_date. A company with multiple registrations contributes one row per registration. Date (requires date_trunc): company_register_date, created_at."
+          },
+          "group_by_secondary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Group By Secondary",
+            "description": "Optional second dimension — produces a 2D breakdown. Requires group_by to be set. Allowed values — Geographic: continent, country, country_code, state, state_code, region, region_code, district, district_code, municipality, municipality_code. Classification: nace_code, organization_type, organization_size, employee_class, revenue_class. Source: source. Array (unnested per keyword): summary_keywords. Registrations (unnested per registration via the registries jsonb): company_register_court, company_register_date. A company with multiple registrations contributes one row per registration. Date (requires date_trunc): company_register_date, created_at."
+          },
+          "date_trunc": {
+            "type": "string",
+            "enum": [
+              "year",
+              "month",
+              "week"
+            ],
+            "title": "Date Trunc",
+            "description": "Truncation unit applied when group_by or group_by_secondary is a date column (company_register_date or created_at). Ignored for non-date columns. Results are ordered chronologically (ASC) when a date dimension is active.",
+            "default": "month"
+          },
+          "filters": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FiltersInput"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Column filters to narrow the counted population — same fields as /v1/search filters. text_keywords is not supported here (no BM25 in aggregation queries)."
+          },
+          "date_range": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DateRangeFilter"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional date range filter on company_register_date or created_at. Can be combined with filters and with a date group_by dimension simultaneously."
+          },
+          "limit": {
+            "type": "integer",
+            "maximum": 500.0,
+            "minimum": 1.0,
+            "title": "Limit",
+            "description": "Maximum number of buckets to return, ordered by count DESC (or ASC for date dimensions). Default 100, max 500.",
+            "default": 100
+          },
+          "explain": {
+            "type": "boolean",
+            "title": "Explain",
+            "description": "Return EXPLAIN ANALYZE plan in metadata. Sets a 120s statement timeout. Restricted to tier_3 (public) / admin (dashboard).",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "StatsRequest"
+      },
+      "StatsResponse": {
+        "properties": {
+          "data": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Data",
+            "description": "List of aggregation buckets. Each bucket contains the grouping column value(s) and a 'count' key. Ordered by count DESC, or chronologically ASC when a date dimension is active. Null values in grouping columns appear as null in the bucket."
+          },
+          "elapsed_ms": {
+            "type": "integer",
+            "title": "Elapsed Ms",
+            "description": "Query execution time in milliseconds."
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/StatsMetadata"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "elapsed_ms",
+          "metadata"
+        ],
+        "title": "StatsResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key",
+        "description": "Your GOI API key. Create one in the dashboard under API keys."
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.istari.ai/v2",
+      "description": "GOI Public API (production)"
+    }
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ]
+}

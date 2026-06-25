@@ -1,12 +1,11 @@
 ---
+title: "Overview"
 description: GOI over the Model Context Protocol — search, similarity, and analytics across ~20M verified organizations, exposed to AI agents.
 ---
 
-# GOI MCP Connector
-
 Search, similarity, and analytics across **approximately 20 million active, verified organizations across 232 countries and territories** — exposed to AI agents via the [Model Context Protocol](https://modelcontextprotocol.io).
 
-The Global Organization Index (GOI) is ISTARI's curated, organization-level dataset, built through a multi-step validation pipeline that prioritizes quality over volume. See the [GOI product documentation](../goi/goi_start_page.md) for dataset methodology, schema, and coverage statistics.
+The Global Organization Index (GOI) is ISTARI's curated, organization-level dataset, built through a multi-step validation pipeline that prioritizes quality over volume. See the [GOI product documentation](/goi/goi_start_page) for dataset methodology, schema, and coverage statistics.
 
 ## What this connector gives you
 
@@ -28,7 +27,7 @@ A single MCP endpoint that lets an AI agent run the same queries a GOI dashboard
 
 ## Plan access
 
-New accounts start on the **Standard** plan — most functionality with monthly limits (see [Connect](connect.md#standard-plan-quotas)). For higher quotas, see [GOI access plans](https://www.istari.ai/en/technology) on the ISTARI technology page.
+New accounts start on the **Standard** plan — most functionality with monthly limits (see [Connect](/mcp/connect#standard-plan-quotas)). For higher quotas, see [GOI access plans](https://www.istari.ai/en/technology) on the ISTARI technology page.
 
 ## Standard plan quotas
 
@@ -58,7 +57,7 @@ For everything else: [support@istari.ai](mailto:support@istari.ai).
 
 ## Learn more
 
-* [Tools](tools.md) — what each tool does and when to use it.
-* [Privacy](privacy.md) — what we log, where it lives, how long we keep it.
-* [GOI product docs](../goi/goi_start_page.md) — dataset, schema, dashboard features.
-* [GOI API docs](../api/api_start_page.md) — the underlying HTTP API this connector wraps.
+* [Tools](/mcp/tools) — what each tool does and when to use it.
+* [Privacy](/mcp/privacy) — what we log, where it lives, how long we keep it.
+* [GOI product docs](/goi/goi_start_page) — dataset, schema, dashboard features.
+* [GOI API docs](/api/api_start_page) — the underlying HTTP API this connector wraps.

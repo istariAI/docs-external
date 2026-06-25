@@ -1,4 +1,6 @@
-# Organizational Filters
+---
+title: "Organizational filters"
+---
 
 These filters help you control **who** appears in your results, based on structural attributes of an organization. They live under the **Other Filters** button on the search bar, on the **Organization Specific** tab.
 
@@ -12,4 +14,6 @@ These filters help you control **who** appears in your results, based on structu
 
 Selections within a single filter are combined with **OR** (e.g. pick Micro *and* Small to see both). Selections across filters are combined with **AND** (e.g. Micro + NACE C returns small manufacturers only). Use the **Clear** link next to any filter to reset it, or **Clear All** at the top to reset every Organization Specific filter at once.
 
-<figure><img src="/images/goi_organizational_filter.png" alt=""><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/goi_organizational_filter.png" alt="" />
+</Frame>

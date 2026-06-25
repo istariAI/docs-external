@@ -1,0 +1,48 @@
+---
+title: "Market sizing"
+description: "Count and break down a sector across geographies — exact, reproducible numbers for TAM and territory planning."
+---
+
+**Inputs:** a sector (`nace_code`) + scope (`country`) · a breakdown dimension (`group_by`). **Returns:** exact counts per bucket.
+
+`aggregate_organizations` answers "how many" and "distribution of" with **exact, deterministic** counts — unlike search, which scores and ranks. Use it for market sizing, territory planning, and coverage checks.
+
+## The recipe
+
+```python
+aggregate_organizations(
+    country=["Germany"],
+    nace_code=["NACE C: Manufacturing"],
+    group_by="state",          # or: country, region, organization_size, nace_code, ...
+    limit=20,
+)
+```
+
+## What each lever does
+
+| Lever | Role |
+|---|---|
+| `nace_code` / `country` / `region` / `organization_size` / `organization_type` | Structured filters that define the slice you're sizing. |
+| `group_by` | The breakdown dimension. Omit for a single total `COUNT(*)`. |
+| `group_by_secondary` | Optional 2nd dimension for a cross-tab (e.g. `country` × `nace_code`). |
+
+## Validated example
+
+German manufacturers (`NACE C`) by state:
+
+| State | Companies |
+|---|---:|
+| Nordrhein-Westfalen | 37,627 |
+| Bayern | 31,543 |
+| Baden-Württemberg | 29,705 |
+| Niedersachsen | 13,190 |
+| Hessen | 11,675 |
+
+## Notes
+
+<Warning>
+  **Aggregate ignores keyword filters.** `aggregate_organizations` honors structured filters (country, NACE, size, type, region, dates, `summary_keywords`) but **silently ignores** `keywords_*`. So an aggregate is a *sector + geography* denominator — never a product-specific count. Label it honestly ("manufacturers + traders in DE"), not "suppliers of product X".
+</Warning>
+
+- For a **product-specific** count, there's no exact tool — deliver the [supplier shortlist](/cookbooks/supplier-discovery) instead, and quote the aggregate only as a labeled sector denominator.
+- Discover valid `summary_keywords` tags by running `aggregate_organizations(group_by="summary_keywords")` on a narrow slice rather than guessing.

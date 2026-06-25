@@ -1,26 +1,26 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "name": "ISTARI.AI Documentation",
+  "name": "Documentation",
   "theme": "maple",
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
   "logo": {
-    "light": "/images/logo/logo1.png",
-    "dark": "/images/logo/logo1.png",
+    "light": "/logo/istari-expanded-light.svg",
+    "dark": "/logo/istari-expanded-dark.svg",
     "href": "https://www.istari.ai"
   },
   "colors": {
-    "primary": "#00D2D4",
-    "light": "#33DCE0",
-    "dark": "#00A8AA"
+    "primary": "#2797a3",
+    "light": "#2bbdbf",
+    "dark": "#1d7882"
   },
   "fonts": {
-    "family": "Barlow",
+    "family": "Open Sans",
     "heading": {
-      "family": "Barlow"
+      "family": "Georgia"
     }
   },
   "appearance": {
-    "default": "system"
+    "default": "dark"
   },
   "icons": {
     "library": "lucide"
@@ -33,7 +33,7 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
+        "label": "Contact us",
         "href": "mailto:support@istari.ai"
       },
       {
@@ -43,9 +43,138 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Sign in",
+      "label": "Get Started",
       "href": "https://index.istari.ai"
     }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Docs",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "index",
+              "docs/quickstart"
+            ]
+          },
+          {
+            "group": "Global Organization Index",
+            "pages": [
+              "goi/goi_start_page",
+              "goi/login-logout",
+              "goi/dashboard",
+              {
+                "group": "Search methods",
+                "pages": [
+                  "goi/semantic-search",
+                  "goi/similarity-search",
+                  "goi/keyword-search"
+                ]
+              },
+              {
+                "group": "Filters",
+                "pages": [
+                  "goi/advanced-search-filters",
+                  "goi/location-filters",
+                  "goi/organizational-filters"
+                ]
+              },
+              "goi/search-results",
+              "goi/export-search-results",
+              "goi/saved-searches",
+              "goi/lists",
+              "goi/new-companies",
+              "goi/api-keys",
+              "goi/subscription-billing",
+              "goi/help-section",
+              "tools/country-coverage",
+              "tools/administrative-units"
+            ]
+          },
+          {
+            "group": "GOI Public API",
+            "pages": [
+              "api/api_start_page",
+              "api/goi-search",
+              "api/goi-fetch-stats",
+              "api/goi-reference"
+            ]
+          },
+          {
+            "group": "MCP Connector",
+            "pages": [
+              "mcp/index",
+              "mcp/connect",
+              "mcp/tools",
+              "mcp/privacy"
+            ]
+          },
+          {
+            "group": "Research Data",
+            "pages": [
+              "research-data/research_data_start_page",
+              "research-data/additive-manufacturing",
+              "research-data/artificial-intelligence",
+              "research-data/blockchain",
+              "research-data/company-networks",
+              "research-data/contact-information",
+              "research-data/digital-health",
+              "research-data/energy",
+              "research-data/innovation",
+              "research-data/mobility",
+              "research-data/sdg-1",
+              "research-data/sdg-2",
+              "research-data/sdg-3",
+              "research-data/social-innovation",
+              "research-data/social-media",
+              "research-data/standards",
+              "research-data/sustainability",
+              "research-data/website-techstack"
+            ]
+          },
+          {
+            "group": "Tools & Admin",
+            "pages": [
+              "tools/imprint"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Cookbooks",
+        "groups": [
+          {
+            "group": "Query Templates",
+            "pages": [
+              "cookbooks/overview",
+              "cookbooks/supplier-discovery",
+              "cookbooks/find-lookalikes",
+              "cookbooks/market-sizing",
+              "cookbooks/startup-scouting"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Playground",
+        "groups": [
+          {
+            "group": "API Reference",
+            "openapi": "/api-reference/openapi.json",
+            "pages": [
+              "POST /search",
+              "POST /fetch",
+              "POST /stats",
+              "GET /filters/options",
+              "GET /locations",
+              "GET /locations/search"
+            ]
+          }
+        ]
+      }
+    ]
   },
   "footer": {
     "links": [
@@ -70,10 +199,6 @@
             "href": "mailto:support@istari.ai"
           },
           {
-            "label": "Feedback & Changelog",
-            "href": "/tools/feedback-and-changelog"
-          },
-          {
             "label": "Imprint",
             "href": "/tools/imprint"
           }
@@ -94,110 +219,6 @@
       "mcp",
       "cursor",
       "vscode"
-    ]
-  },
-  "navigation": {
-    "groups": [
-      {
-        "group": "Home",
-        "pages": ["index"]
-      },
-      {
-        "group": "ISTARI Global Organization Index",
-        "pages": [
-          "goi/goi_start_page",
-          "goi/login-logout",
-          "goi/dashboard",
-          {
-            "group": "Search methods",
-            "pages": [
-              "goi/semantic-search",
-              "goi/similarity-search",
-              "goi/keyword-search"
-            ]
-          },
-          {
-            "group": "Filters",
-            "pages": [
-              "goi/advanced-search-filters",
-              "goi/location-filters",
-              "goi/organizational-filters"
-            ]
-          },
-          "goi/search-results",
-          "goi/export-search-results",
-          "goi/saved-searches",
-          "goi/lists",
-          "goi/new-companies",
-          "goi/api-keys",
-          "goi/subscription-billing",
-          "goi/help-section"
-        ]
-      },
-      {
-        "group": "ISTARI API",
-        "pages": [
-          "api/api_start_page",
-          {
-            "group": "GOI Public API (v2)",
-            "pages": [
-              "api/goi-search",
-              "api/goi-fetch-stats",
-              "api/goi-reference"
-            ]
-          },
-          {
-            "group": "Legacy ISTARI API (v1)",
-            "pages": [
-              "api/legacy/api_start_page",
-              "api/legacy/search-endpoints",
-              "api/legacy/column-information",
-              "api/legacy/variable-overview"
-            ]
-          }
-        ]
-      },
-      {
-        "group": "GOI MCP Connector",
-        "pages": [
-          "mcp/index",
-          "mcp/connect",
-          "mcp/tools",
-          "mcp/privacy"
-        ]
-      },
-      {
-        "group": "ISTARI Research Data",
-        "pages": [
-          "research-data/research_data_start_page",
-          "research-data/additive-manufacturing",
-          "research-data/artificial-intelligence",
-          "research-data/blockchain",
-          "research-data/company-networks",
-          "research-data/contact-information",
-          "research-data/digital-health",
-          "research-data/energy",
-          "research-data/innovation",
-          "research-data/mobility",
-          "research-data/sdg-1",
-          "research-data/sdg-2",
-          "research-data/sdg-3",
-          "research-data/social-innovation",
-          "research-data/social-media",
-          "research-data/standards",
-          "research-data/sustainability",
-          "research-data/website-techstack"
-        ]
-      },
-      {
-        "group": "Tools & Admin",
-        "pages": [
-          "tools/administrative-units",
-          "tools/country-coverage",
-          "tools/feedback-and-changelog",
-          "tools/imprint"
-        ]
-      }
     ]
   }
 }

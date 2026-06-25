@@ -1,8 +1,7 @@
 ---
+title: "Fetch & statistics"
 description: v2 /fetch bulk lookup, /stats aggregations, /filters/options, health and test.
 ---
-
-# GOI Public API — Fetch, stats & utilities
 
 Base URL prefix: **`https://api.istari.ai/v2`**.
 
@@ -20,7 +19,7 @@ Returns current GOI rows for domains you already know. There is **no** relevance
 ```
 
 * **domains** — required, non-empty list, **maximum 5,000** domains per request.  
-* **columns** — same rules as search; default `["domain", "name", "country"]`. See [Reference — columns](goi-reference.md#selectable-columns).
+* **columns** — same rules as search; default `["domain", "name", "country"]`. See [Reference — columns](/api/goi-reference#selectable-columns).
 
 Domains your key is not allowed to see are treated like missing and appear in `metadata.missing`.
 

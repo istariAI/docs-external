@@ -1,14 +1,15 @@
 ---
+title: "Subscription and billing"
 description: Manage your subscription, credits, invoices, and transactions.
 ---
-
-# Subscription and Billing
 
 The **Subscription and Billing** page is where you track your credits, review invoices, and look back over the API calls and on-demand actions that have consumed credits.
 
 To open it, click your **profile avatar** in the bottom-left of the sidebar and choose **Subscription and Billing** from the dropdown. You can also click the **credits balance** number under your avatar — it links straight here.
 
-<figure><img src="/images/goi_billing_overview.png" alt="Subscription and Billing page"><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/goi_billing_overview.png" alt="Subscription and Billing page" />
+</Frame>
 
 ## Total credits
 

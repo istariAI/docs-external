@@ -1,4 +1,5 @@
 ---
+title: "SDG 1"
 description: >-
   Find companies that are engaged in the Sustainable Development Goal 1 - "No
   Poverty"
@@ -6,46 +7,30 @@ cover: ../images/slum.jpg
 coverY: -119
 ---
 
-# 💰 SDG 1
-
-<details>
-
-<summary>What do we measure?</summary>
-
+<AccordionGroup>
+<Accordion title="What do we measure?">
 The webAI SDG 1 Agent was trained by ISTARI.AI to derive companies’ commitment to Sustainable Development Goal 1 (No Poverty) from their websites and to display it as an individual SDG 1 Intensity Score. This numerical indicator reflects how centrally the topic of Sustainable Development Goal 1 is communicated by the company on its own website and presented as essential for its own business model.&#x20;
 
 SDG 1 is to be understood as a broad concept. This includes services and products that are used directly to reduce poverty (e.g., microfinance institutions or affordable housing developers), but also, for example, suppliers of basic necessities and companies providing essential services or products for impoverished communities. Thus, among others, players from various industries like agriculture, education, healthcare, and basic utilities are considered.&#x20;
 
 However, WebAI also finds, for example, companies that specialize in the development of affordable technology solutions, organizations that provide financial literacy training, or manufacturers who produce affordable clothing and essential goods for low-income populations.
+</Accordion>
 
-</details>
-
-<details>
-
-<summary>How do we measure?</summary>
-
+<Accordion title="How do we measure?">
 Our webAI reads the website of the company under investigation and searches for text sections (paragraphs) that deal with the topic of SDG 1. To do this, webAI first searches for keywords that are potentially related to SDG 1, analyzes the paragraphs identified in this way, and determines whether or not they are actually relevant texts. If webAI has assigned a corresponding paragraph to the topic of SDG 1 with a high probability, webAI remembers this paragraph and continues searching. In this way, webAI searches the entire company website or the particularly relevant “top-level” sub-pages if it is a very extensive website with hundreds of sub-pages.
 
 In this way, webAI finds a certain number of paragraphs per company website that deal with the topic of SDG 1. WebAI then puts this number in relation to the total amount of text content read on the website. In this way, webAI determines a SDG 1 intensity for each company.
+</Accordion>
 
-</details>
-
-<details>
-
-<summary>How do you interpret the data?</summary>
-
+<Accordion title="How do you interpret the data?">
 The SDG 1 Intensity Score calculated in this way would be 0.0 for a company with no SDG1-related texts. For a consulting company, for example, the value could be 0.25, and for a startup that is particularly focused on SDG 1-related topics, it could be 2.37. The SDG 1 Intensity Score has no upper limit.
 
 In addition, we integrate an auxiliary column into our data as an interpretation and reading aid. It categorizes the intensities from “low” to “very high”. In the example above, the consulting company would be classified as “low” intensity and the startup as “very high” intensity.
 
 Unlike simpler, binary classifications (“SDG 1 YES/NO”), webAI therefore outputs a continuous score at company level. This makes it possible to distinguish between companies for which SDG 1-related topics are only a marginal issue and those for which they play a central role. Users of webAI data can thus easily determine for themselves how strongly a company should focus on SDG 1 in order for it to be relevant to them.
+</Accordion>
 
-</details>
-
-<details>
-
-<summary>How do we ensure the data quality?</summary>
-
+<Accordion title="How do we ensure the data quality?">
 Like all our webAI agents, the webAI SDG1 Agent was developed and validated together with independent subject matter experts. This ensures that we train the webAI agent with real expert knowledge and that it then delivers expert-level results. The SDG1 Intensity Scores are currently also being validated in a not yet published study.
-
-</details>
+</Accordion>
+</AccordionGroup>

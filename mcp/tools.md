@@ -1,8 +1,7 @@
 ---
+title: "Tools"
 description: The eight read-only MCP tools exposed by the GOI connector — search, similarity, filter, fetch, aggregate, and metadata helpers.
 ---
-
-# Tools
 
 The MCP server exposes eight tools. All eight are read-only. When a client connects, it discovers them automatically via MCP's `tools/list` — there is no separate REST surface to learn.
 
@@ -26,7 +25,7 @@ Use this for "find me companies that …" and exploratory market research questi
 
 Find companies similar to up to three reference domains via embedding similarity. Optional `keywords_must_all` / `keywords_must_not` are applied as post-filters.
 
-If a reference domain is not already in GOI, the public site is fetched and embedded on demand. The resulting embedding is cached across users — see [Privacy](privacy.md#scraping-and-the-embedding-cache).
+If a reference domain is not already in GOI, the public site is fetched and embedded on demand. The resulting embedding is cached across users — see [Privacy](/mcp/privacy#scraping-and-the-embedding-cache).
 
 Use for "companies like X" — competitive benchmarking, supplier discovery, peer-group analysis.
 
@@ -80,7 +79,7 @@ All filter-accepting tools (`search_organizations`, `find_similar_*`, `filter_or
 | Tags | `summary_keywords` |
 | Registry | `company_register_court`, `register_date_from`, `register_date_to` |
 
-Values within a single field combine with **OR**. Different fields combine with **AND**. See the [GOI dashboard docs](../goi/advanced-search-filters.md) for the same filters as they appear in the web UI.
+Values within a single field combine with **OR**. Different fields combine with **AND**. See the [GOI dashboard docs](/goi/advanced-search-filters) for the same filters as they appear in the web UI.
 
 ### A note on commercial-register data
 
@@ -109,7 +108,7 @@ The bracketed code is stable across releases and lets a client (or LLM) route on
 | `INVALID_FILTER_COLUMN` | `describe_filters` was called with a column that is not an enumerable filter | Pass one of the `Allowed:` values, or omit `column` to see all |
 | `INVALID_DATE_TRUNC` | `date_trunc` not in `year` / `month` / `week` | Pass a valid value |
 | `OUT_OF_SCOPE` | A filter value is outside your account's allowed scope (region or commercial-register court) | Use one of the `Allowed values:` in the message; this only fires for accounts with a configured scope |
-| `RATE_LIMITED_REQUESTS` | Monthly request budget for this bucket exceeded | Wait until the start of next month, or upgrade — see [Connect](connect.md#standard-plan-quotas) |
+| `RATE_LIMITED_REQUESTS` | Monthly request budget for this bucket exceeded | Wait until the start of next month, or upgrade — see [Connect](/mcp/connect#standard-plan-quotas) |
 | `RATE_LIMITED_RESULTS` | Monthly result budget for this bucket exceeded | Same |
 | `ROUTE_BLOCKED` | This tool is gated and not available on your plan | Upgrade plan — see [GOI access plans](https://www.istari.ai/en/technology) |
 | `REFERENCE_DOMAIN_UNAVAILABLE` | `find_similar_*` got a reference domain that is not in GOI and whose website could not be fetched | Try a different reference domain, or remove the unreachable one |

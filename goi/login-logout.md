@@ -1,8 +1,12 @@
-# Login & Logout
+---
+title: "Logging in and out"
+---
 
-<figure><img src="/images/goi_google_sso.png" alt="" width="288"><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/goi_google_sso.png" alt="" width="288" />
+</Frame>
 
-### Login via Google account
+### Log in with your Google account
 
 You can log in quickly and securely using your existing Google account. Click the **Sign in with Google** button on the login page and select your account — Google handles authentication for you.
 

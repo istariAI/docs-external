@@ -1,4 +1,6 @@
-# Export Search Results
+---
+title: "Export search results"
+---
 
 You can export your research results — for all organizations in the result set or a subset that you selected — by clicking the **Export** button above the results table.
 
@@ -10,4 +12,6 @@ In the export dialog you can:
 
 Export is capped at **5,000 organizations** per file. If your result set is larger, narrow it down with filters first or export in chunks.
 
-<figure><img src="/images/goi_export.png" alt="" width="462"><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/goi_export.png" alt="" width="462" />
+</Frame>

@@ -1,0 +1,112 @@
+---
+title: "ISTARI.AI Documentation"
+description: "Real-time organization intelligence on ~20M verified companies — via dashboard, API, and MCP."
+mode: "wide"
+---
+
+<div className="mx-auto max-w-6xl px-6 pt-10">
+  <div className="rounded-2xl px-8 py-14 shadow-[0_10px_34px_rgba(24,52,55,0.35)] sm:px-12" style={{ background: "radial-gradient(150% 130% at 78% 15%, rgba(45,189,191,0.18) 0%, rgba(45,189,191,0) 78%), #183a3e" }}>
+    <p className="text-sm font-medium uppercase tracking-widest text-white/70">ISTARI.AI</p>
+    <h1 className="mt-3 text-4xl font-normal tracking-tight text-white sm:text-5xl" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
+      Organization intelligence,<br className="hidden sm:block" /> built on the live web.
+    </h1>
+    <p className="mt-5 max-w-2xl text-lg text-white/85">
+      Search, filter, and analyze <strong className="text-white">~20 million active, web-verified organizations</strong> across
+      232 countries — through the GOI dashboard, a public API, or any MCP-compatible AI agent.
+    </p>
+    <div className="mt-8 flex flex-wrap gap-3">
+      <a href="/docs/quickstart" className="rounded-lg bg-white px-5 py-2.5 text-sm font-semibold no-underline transition hover:bg-white/90" style={{ color: "#176b73" }}>Get started</a>
+      <a href="/goi/api-keys" className="rounded-lg border border-white/40 px-5 py-2.5 text-sm font-semibold text-white no-underline transition hover:border-white hover:bg-white/10">Get an API key</a>
+    </div>
+  </div>
+</div>
+
+<div className="mx-auto max-w-6xl px-6 py-12">
+
+<h2 className="text-2xl font-normal mt-10 mb-4 text-gray-900 dark:text-white" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>Quickstart</h2>
+
+<Card title="Make your first call in minutes" icon="rocket" href="/docs/quickstart" horizontal>
+  Sign in at [index.istari.ai](https://index.istari.ai), generate an API key, and run your first GOI search.
+</Card>
+
+<h2 className="text-2xl font-normal mt-10 mb-4 text-gray-900 dark:text-white" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>Try the API</h2>
+
+A single `POST /v2/search` call discovers companies by keyword, natural-language description, similarity to a known domain, or structured filters.
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.istari.ai/v2/search \
+  -H "Authorization: Bearer $ISTARI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "describe": "B2B companies that manufacture industrial heat pumps",
+    "filters": { "country": ["Germany"] },
+    "columns": ["domain", "name", "country"],
+    "size": 50
+  }'
+```
+
+```python Python
+import os, requests
+
+resp = requests.post(
+    "https://api.istari.ai/v2/search",
+    headers={"Authorization": f"Bearer {os.environ['ISTARI_API_KEY']}"},
+    json={
+        "describe": "B2B companies that manufacture industrial heat pumps",
+        "filters": {"country": ["Germany"]},
+        "columns": ["domain", "name", "country"],
+        "size": 50,
+    },
+)
+
+for row in resp.json()["data"]:
+    print(row["domain"], "—", row["name"])
+```
+
+```typescript TypeScript
+const resp = await fetch("https://api.istari.ai/v2/search", {
+  method: "POST",
+  headers: {
+    Authorization: `Bearer ${process.env.ISTARI_API_KEY}`,
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    describe: "B2B companies that manufacture industrial heat pumps",
+    filters: { country: ["Germany"] },
+    columns: ["domain", "name", "country"],
+    size: 50,
+  }),
+});
+
+const { data } = await resp.json();
+data.forEach((row) => console.log(row.domain, "—", row.name));
+```
+
+</CodeGroup>
+
+<h2 className="text-2xl font-normal mt-10 mb-4 text-gray-900 dark:text-white" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>Explore the docs</h2>
+
+<CardGroup cols={3}>
+  <Card title="GOI Dashboard" icon="layout-dashboard" href="/goi/goi_start_page">
+    Search, filter, save, and export companies in the no-code Global Organization Index dashboard.
+  </Card>
+  <Card title="Public API" icon="terminal" href="/api/api_start_page">
+    Programmatic search, bulk lookup, and aggregations over GOI via the HTTP API.
+  </Card>
+  <Card title="MCP Connector" icon="plug" href="/mcp/index">
+    Expose GOI search and analytics to Claude, Cursor, and any MCP-compatible agent.
+  </Card>
+  <Card title="Cookbooks" icon="book-open" href="/cookbooks/overview">
+    Copy-paste query templates for suppliers, lookalikes, market sizing, and more.
+  </Card>
+  <Card title="Research Data" icon="flask-conical" href="/research-data/research_data_start_page">
+    Peer-reviewed indicators — AI adoption, sustainability, innovation, and more.
+  </Card>
+  <Card title="Country Coverage" icon="globe" href="/tools/country-coverage">
+    See how many verified organizations GOI holds per country and type.
+  </Card>
+</CardGroup>
+
+</div>

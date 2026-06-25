@@ -1,0 +1,58 @@
+/* ─────────────────────────────────────────────────────────────
+   ISTARI.AI docs — custom global styling
+   Loaded automatically by Mintlify from the repo root.
+   ───────────────────────────────────────────────────────────── */
+
+/* Grey sidebar against white content — Gmail / Anthropic-style. */
+#sidebar {
+  background-color: #f9fafb;
+  border-right: 1px solid #e5e7eb;
+}
+
+.dark #sidebar {
+  background-color: rgba(255, 255, 255, 0.02);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* All content headings: Georgia serif, not bold. */
+#content-area h1,
+#content-area h2,
+#content-area h3,
+#content-area h4,
+#content-area h5,
+#content-area h6 {
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-weight: 400 !important;
+}
+
+/* "On this page" table-of-contents heading: Georgia, larger, not bold. */
+#table-of-contents h2,
+#table-of-contents-layout h2 {
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 1.375rem !important;
+  font-weight: 400 !important;
+  line-height: 1.3 !important;
+}
+
+/* Add a small "Documentation" label under the logo in the sidebar. */
+#sidebar-content a.select-none:has(.nav-logo) {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+#sidebar-content a.select-none:has(.nav-logo)::after {
+  content: "Documentation";
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #9aa4af;
+}
+
+/* Flatten the "Next" pagination preview so it doesn't render as a floating
+   white card that clashes with the plain "Previous" link. */
+#pagination a > div,
+#pagination a > div:hover {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
