@@ -1,13 +1,16 @@
 ---
 title: "Overview"
-description: "GOI cookbooks turn fuzzy requests into clean, reproducible results with fixed parameter recipes."
+description: "Best-practice recipes for getting clean, reproducible results from the GOI API and MCP connector."
 ---
 
-**Cookbooks** are ready-made GOI workflows for common research tasks: supplier shortlists, niche & deep-tech finders, lookalikes, market sizing, and more. Each one is a **query template** — a fixed parameter set where you supply one or two inputs and everything else stays locked in. Quality comes from the parameters, not the search string, so you get the same clean result every time without knowing the internals.
-
-All examples in the query templates map the same parameters as in the [API](/api/api_start_page) `POST /v2/search`.
+**Cookbooks** are battle-tested recipes for the research tasks people run against GOI most often — supplier shortlists, lookalikes, market sizing, niche and deep-tech discovery, and agent workflows. Each one is a fixed pattern: you supply one or two inputs, everything else stays locked in, and you get the same clean result every time.
 
 ## Query templates
+
+The GOI API is deliberately powerful. A single [`POST /v2/search`](/api/api_start_page) endpoint runs semantic, full-text (BM25), hybrid, and similarity search across **~20M web-verified organizations**, with structured filters for geography, sector, size, and more. That flexibility is the point — but it also means there are many ways to phrase any given query, and the gap between an *okay* result and an *excellent* one lives entirely in the parameters.
+
+**Query templates are the recommended way to harness that power.** Each one distills a common use case into a fixed, validated parameter recipe — the disciplined combination of `query`, `keywords`, `nace_code`, and filters that reliably returns the right organizations. Think of them as the canonical "best way to do *X* with the GOI API": copy the recipe, swap in your inputs, and ship — no need to rediscover the winning combination yourself. Every template maps one-to-one to `POST /v2/search` (and the equivalent MCP tool call), so the same discipline works from code or from an agent.
+
 <CardGroup cols={2}>
   <Card title="Supplier discovery" icon="package" href="/cookbooks/supplier-discovery">
     Given a product + location, return a supplier shortlist (makers + distributors).
