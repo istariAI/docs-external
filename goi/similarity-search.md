@@ -11,7 +11,9 @@ Similarity Search is one of the [three ways to search](/goi/dashboard#three-ways
 
 This method is ideal for **competitive benchmarking**, **supplier identification**, or **peer group analysis**.
 
-<figure><img src="/images/goi_similarity_search.png" alt="" /><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/goi_similarity_search.png" alt="" />
+</Frame>
 
 ## Refining a similarity search
 

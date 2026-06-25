@@ -35,7 +35,9 @@ It is important to note here that our approach does not differentiate whether co
 
 </details>
 
-<figure><img src="/images/image-15.png" alt="" /><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/image-15.png" alt="" />
+</Frame>
 
 <details>
 

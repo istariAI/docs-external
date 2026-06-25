@@ -4,7 +4,9 @@ Once your search completes — applying your semantic, similarity, or keyword qu
 
 If you aren't satisfied with what you see, you can adjust your query directly from the compact search bar at the top of the page. You can also save the current search (**Save Search** button, top right) and reuse it later from the **Saved Searches** tab in the sidebar.
 
-<figure><img src="/images/goi_save_search.png" alt="" width="280" /><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/goi_save_search.png" alt="" width="280" />
+</Frame>
 
 ## The results table
 
@@ -41,7 +43,9 @@ Click **View profile** on any row to open a side panel with the full profile for
 * Visit the organization's website with the external-link button.
 * **Download as PDF** to save the profile as a standalone document.
 
-<figure><img src="/images/goi_firm_profile.png" alt="" /><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/goi_firm_profile.png" alt="" />
+</Frame>
 
 ## Next steps
 

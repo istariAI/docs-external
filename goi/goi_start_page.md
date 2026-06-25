@@ -2,7 +2,9 @@
 
 The Global Organization Index (GOI) is our curated, organization-level dataset containing **approximately 20 million active organizations** across **232 countries and territories**. It serves as the canonical source for firmographic data at ISTARI, covering organization identity, location, industry classification, size, and more.
 
-<figure><img src="/images/goi_example_query.png" alt="" /><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/goi_example_query.png" alt="" />
+</Frame>
 
 ## Data Pipeline & Methodology
 

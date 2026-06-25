@@ -8,7 +8,9 @@ The **Subscription and Billing** page is where you track your credits, review in
 
 To open it, click your **profile avatar** in the bottom-left of the sidebar and choose **Subscription and Billing** from the dropdown. You can also click the **credits balance** number under your avatar — it links straight here.
 
-<figure><img src="/images/goi_billing_overview.png" alt="Subscription and Billing page" /><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/goi_billing_overview.png" alt="Subscription and Billing page" />
+</Frame>
 
 ## Total credits
 

@@ -42,7 +42,9 @@ As an example for the DACH region (Germany, Austria, Switzerland), we can say th
 
 </details>
 
-<figure><img src="/images/image-14.png" alt="" /><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/image-14.png" alt="" />
+</Frame>
 
 <details>
 

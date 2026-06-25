@@ -13,7 +13,9 @@ From any results table, tick the checkboxes next to the organizations you want t
 * **Create a new list** — give the list a name and save it.
 * **Add to existing list** — append the selected organizations to a list you already have.
 
-<figure><img src="/images/goi_create_list.png" alt="" /><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/goi_create_list.png" alt="" />
+</Frame>
 
 ## Manage your lists
 
@@ -25,7 +27,9 @@ All of your lists are accessible from the **Lists** tab in the sidebar. Each car
 
 Use the **Newest First / Oldest First** toggle to re-sort the grid.
 
-<figure><img src="/images/goi_lists.png" alt="" /><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/goi_lists.png" alt="" />
+</Frame>
 
 ## List detail page
 

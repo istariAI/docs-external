@@ -16,7 +16,9 @@ Semantic search is one of the [three ways to search](/goi/dashboard#three-ways-t
 
 Semantic search is flexible and powerful, especially for **exploratory research** where the right keywords aren't obvious yet.
 
-<figure><img src="/images/goi_semantic_search.png" alt="" /><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/goi_semantic_search.png" alt="" />
+</Frame>
 
 ## See also
 

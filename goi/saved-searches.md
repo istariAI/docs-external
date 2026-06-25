@@ -10,7 +10,9 @@ A **Saved Search** captures everything about a query — the search type, your d
 
 From any results page, click **Save Search** in the top-right corner. Give the search a descriptive name (e.g. *"German aluminium recyclers"*) and confirm. The search appears immediately in the **Saved Searches** tab in the sidebar.
 
-<figure><img src="/images/goi_save_search.png" alt="" width="280" /><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/goi_save_search.png" alt="" width="280" />
+</Frame>
 
 ## Manage your saved searches
 
@@ -22,7 +24,9 @@ The **Saved Searches** page lists every search you've saved as a card. Each card
 * The keywords and location filters applied, shown as a short summary.
 * The date you saved the search.
 
-<figure><img src="/images/goi_saved_searches_grid.png" alt="Saved searches grid" /><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/goi_saved_searches_grid.png" alt="Saved searches grid" />
+</Frame>
 
 From each card you can:
 

@@ -8,7 +8,9 @@ The **New Companies** page (also called *New organization registrations*) gives 
 
 To open it, click the **"X new companies recently added in the DACH region"** pill that sits above the search panel on the home page.
 
-<figure><img src="/images/goi_new_companies_overview.png" alt="New organization registrations page" /><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/goi_new_companies_overview.png" alt="New organization registrations page" />
+</Frame>
 
 ## Filters
 

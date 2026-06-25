@@ -6,7 +6,9 @@ description: Discover the GOI dashboard and find your way around.
 
 When you first log in to the ISTARI Global Organization Index, you land on the **dashboard** — the central hub for searching, exploring, and organising the organizations you care about.
 
-<figure><img src="/images/goi_start_page.png" alt="" /><figcaption></figcaption></figure>
+<Frame>
+  <img src="/images/goi_start_page.png" alt="" />
+</Frame>
 
 ## What you see on the home screen
 
