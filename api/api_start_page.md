@@ -9,6 +9,10 @@ Use it to **discover** organizations (keyword, semantic description, similarity 
   **Interactive reference:** try endpoints in the [API Playground](/api-reference/search).
 </Tip>
 
+<Note>
+  Don't have a key yet? Create one under [API keys](/goi/api-keys) in the GOI dashboard.
+</Note>
+
 ## Base URL
 
 All GOI API paths are under:
