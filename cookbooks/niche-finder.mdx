@@ -9,28 +9,52 @@ This is the template for the long tail: corrugated cardboard, solid-state batter
 
 ## The recipe
 
+Set `ISTARI_API_KEY`, then swap in your `what` and `anchor` terms. The request maps to `POST /v2/search`.
+
 ```python
-search_organizations(
-    query=f"{what}",                       # rich description — carries the specifics
-    keywords_must_all=["<anchor term>"],   # the one word that MUST be in the description
-    keywords_must_not=["consulting", "recruitment", "marketing agency"],
-    nace_code=["NACE C: Manufacturing"],   # optional — add to keep makers only
-    size=15,
-    dedup=True,
-)
+import os
+import requests
+
+API_KEY = os.environ["ISTARI_API_KEY"]
+
+
+def find_niche_companies(what: str, anchor: str) -> list[dict]:
+    body = {
+        "describe": what,  # rich description — carries the specifics
+        "keywords": {
+            "must_all": [anchor],  # the one word that MUST be in the description
+            "must_not": ["consulting", "recruitment", "marketing agency"],
+        },
+        "filters": {
+            "nace_code": ["NACE C: Manufacturing"],  # optional — drop to include services
+        },
+        "columns": ["domain", "name", "country", "nace_code"],
+        "size": 15,
+        "dedup": True,
+    }
+    resp = requests.post(
+        "https://api.istari.ai/v2/search",
+        headers={"x-api-key": API_KEY, "Content-Type": "application/json"},
+        json=body,
+    )
+    return resp.json()["data"]
+
+
+for row in find_niche_companies("quantum computing", "quantum"):
+    print(row["domain"], "-", row["name"])
 ```
 
-The **anchor** (`keywords_must_all`) is what turns a fuzzy semantic match into a precise one. The `query` carries the nuance the anchor can't (`solid-state`, `green hydrogen`, `fault-tolerant`).
+The **anchor** (`keywords.must_all`) is what turns a fuzzy semantic match into a precise one. The `describe` field carries the nuance the anchor can't (`solid-state`, `green hydrogen`, `fault-tolerant`).
 
 ## What each lever does
 
 | Lever | Role |
 |---|---|
-| `query` | Full natural-language description. Carries specificity the single anchor word can't. |
-| `keywords_must_all` | **The anchor.** The defining term that must appear in the company's description. This is what removes drift. |
-| `keywords_must_any` | Use *instead* of `must_all` for spelling/synonym variants (`electrolyzer`/`electrolyser`, `e-bike`/`electric bike`). |
-| `keywords_must_not` | Strips perennial noise — consultancies, recruiters, agencies. Add `"distributor","reseller"` to keep only makers. |
-| `nace_code` = C | Optional. Restricts to manufacturers when you want builders, not services. |
+| `describe` | Full natural-language description. Carries specificity the single anchor word can't. |
+| `keywords.must_all` | **The anchor.** The defining term that must appear in the company's description. This is what removes drift. |
+| `keywords.must_any` | Use *instead* of `must_all` for spelling/synonym variants (`electrolyzer`/`electrolyser`, `e-bike`/`electric bike`). |
+| `keywords.must_not` | Strips perennial noise — consultancies, recruiters, agencies. Add `"distributor","reseller"` to keep only makers. |
+| `filters.nace_code` = C | Optional. Restricts to manufacturers when you want builders, not services. |
 
 ## Validated examples
 
@@ -46,7 +70,7 @@ One pattern, five wildly different niches — all returned the real players:
 
 ## Notes
 
-- **The anchor is everything.** Drop `keywords_must_all` and the semantic query drifts to neighbors (battery analytics, packaging consultants). Keep it tight and literal.
+- **The anchor is everything.** Drop `keywords.must_all` and the semantic query drifts to neighbors (battery analytics, packaging consultants). Keep it tight and literal.
 - **Handle spelling/synonyms with `must_any`.** `["electrolyzer","electrolyser","electrolysis"]` caught makers using any spelling. Same for regional terms.
 - **One anchor word beats two.** `["corrugated"]` pulled some corrugated-*metal* makers; `["corrugated","cardboard"]` (both required) fixes it. Add a second anchor only to disambiguate.
 - **Ignore the `Total` field** in keyword mode — it shows `0` while returning a full page. Count the rows.

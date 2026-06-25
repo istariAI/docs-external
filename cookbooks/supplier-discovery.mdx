@@ -5,38 +5,62 @@ description: "Given a product and a location, return a clean supplier shortlist,
 
 **Inputs:** `product` (free text) · `location` (a country). **Returns:** a deduped shortlist of suppliers.
 
-A bare `search_organizations(query="macbook dubai")` mixes in repair shops, rental firms, and parts makers, and the order drifts between runs. The quality comes from disciplined parameters that this template bakes in.
+A bare `POST /v2/search` with only a free-text `describe` field mixes in repair shops, rental firms, and parts makers, and the order drifts between runs. The quality comes from disciplined parameters that this template bakes in.
 
 ## The recipe
 
+Set `ISTARI_API_KEY`, then swap in your `product` and `country`. The request maps to `POST /v2/search`.
+
 ```python
-search_organizations(
-    query=f"{product} supplier manufacturer distributor wholesale vendor",
-    country=[country],
-    nace_code=[
-        "NACE C: Manufacturing",
-        "NACE G: Wholesale and retail trade",
-    ],
-    keywords_must_any=[
-        "supplier", "distributor", "wholesale",
-        "manufacturer", "reseller", "vendor", "trading",
-    ],
-    keywords_must_not=[
-        "repair", "rental", "service center", "maintenance", "recruitment",
-    ],
-    size=12,
-    dedup=True,
-)
+import os
+import requests
+
+API_KEY = os.environ["ISTARI_API_KEY"]
+
+
+def find_suppliers(product: str, country: str) -> list[dict]:
+    body = {
+        "describe": f"{product} supplier manufacturer distributor wholesale vendor",
+        "keywords": {
+            "must_any": [
+                "supplier", "distributor", "wholesale",
+                "manufacturer", "reseller", "vendor", "trading",
+            ],
+            "must_not": [
+                "repair", "rental", "service center", "maintenance", "recruitment",
+            ],
+        },
+        "filters": {
+            "country": [country],
+            "nace_code": [
+                "NACE C: Manufacturing",
+                "NACE G: Wholesale and retail trade",
+            ],
+        },
+        "columns": ["domain", "name", "country", "nace_code", "organization_type"],
+        "size": 12,
+        "dedup": True,
+    }
+    resp = requests.post(
+        "https://api.istari.ai/v2/search",
+        headers={"x-api-key": API_KEY, "Content-Type": "application/json"},
+        json=body,
+    )
+    return resp.json()["data"]
+
+
+for row in find_suppliers("industrial valves", "Spain"):
+    print(row["domain"], "-", row["name"])
 ```
 
 ## What each lever does
 
 | Lever | Role |
 |---|---|
-| `nace_code` = **C + G** | The main levers. Admits makers (C) and traders (G); excludes repair, rental, consulting by category. This is what removes the noise: don't drop it. |
-| `query` | Weights the product + supply intent. Self-adjusts: leans distributor for imported goods, manufacturer where made locally. |
-| `keywords_must_any` | Forces supply-side language to be present (also required so `must_not` can run). |
-| `keywords_must_not` | A soft down-weight, **not** a hard filter: real exclusion comes from NACE. |
+| `filters.nace_code` = **C + G** | The main levers. Admits makers (C) and traders (G); excludes repair, rental, consulting by category. This is what removes the noise: don't drop it. |
+| `describe` | Weights the product + supply intent. Self-adjusts: leans distributor for imported goods, manufacturer where made locally. |
+| `keywords.must_any` | Forces supply-side language to be present (also required so `must_not` can run). |
+| `keywords.must_not` | A soft down-weight, **not** a hard filter: real exclusion comes from NACE. |
 | `dedup` | Collapses duplicate organization names. |
 
 ## Validated example
@@ -59,4 +83,4 @@ The same template was validated across different use cases like MacBooks (UAE, d
 - **Country is activity-based.** GOI resolves location by where an organization is *active*, not solely legal HQ: a firm operating in your market can appear even if incorporated abroad. If strict incorporation matters, post-validate.
 - **City filters are coarse.** `municipality=["Dubai"]` can return zero (geocoding granularity). Prefer `country`, or `region`/`state` via [`resolve_location`](/mcp/tools).
 - **Ignore the `Total` field** in keyword mode: it reports `0` while returning a full page. Count the returned rows.
-- **For strict product matching**, add `keywords_must_all=["<core noun>"]` (fewer results, higher precision).
+- **For strict product matching**, add `"must_all": ["<core noun>"]` inside `keywords` (fewer results, higher precision).

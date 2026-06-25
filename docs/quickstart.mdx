@@ -54,7 +54,7 @@ See the [GOI dashboard guide](/goi/dashboard) for the full walkthrough.
 
     ```bash cURL
     curl -X POST https://api.istari.ai/v2/search \
-      -H "Authorization: Bearer $ISTARI_API_KEY" \
+      -H "x-api-key: $ISTARI_API_KEY" \
       -H "Content-Type: application/json" \
       -d '{
         "describe": "organizations that manufacture industrial heat pumps",
@@ -69,7 +69,7 @@ See the [GOI dashboard guide](/goi/dashboard) for the full walkthrough.
 
     resp = requests.post(
         "https://api.istari.ai/v2/search",
-        headers={"Authorization": f"Bearer {os.environ['ISTARI_API_KEY']}"},
+        headers={"x-api-key": os.environ["ISTARI_API_KEY"]},
         json={
             "describe": "organizations that manufacture industrial heat pumps",
             "filters": {"country": ["Germany"]},

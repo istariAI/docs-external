@@ -37,7 +37,7 @@ A single `POST /v2/search` call discovers organizations by keyword, natural-lang
 
 ```bash cURL
 curl -X POST https://api.istari.ai/v2/search \
-  -H "Authorization: Bearer $ISTARI_API_KEY" \
+  -H "x-api-key: $ISTARI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "describe": "B2B organizations that manufacture industrial heat pumps",
@@ -52,7 +52,7 @@ import os, requests
 
 resp = requests.post(
     "https://api.istari.ai/v2/search",
-    headers={"Authorization": f"Bearer {os.environ['ISTARI_API_KEY']}"},
+    headers={"x-api-key": os.environ["ISTARI_API_KEY"]},
     json={
         "describe": "B2B organizations that manufacture industrial heat pumps",
         "filters": {"country": ["Germany"]},
@@ -63,25 +63,6 @@ resp = requests.post(
 
 for row in resp.json()["data"]:
     print(row["domain"], "-", row["name"])
-```
-
-```typescript TypeScript
-const resp = await fetch("https://api.istari.ai/v2/search", {
-  method: "POST",
-  headers: {
-    Authorization: `Bearer ${process.env.ISTARI_API_KEY}`,
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    describe: "B2B organizations that manufacture industrial heat pumps",
-    filters: { country: ["Germany"] },
-    columns: ["domain", "name", "country"],
-    size: 50,
-  }),
-});
-
-const { data } = await resp.json();
-data.forEach((row) => console.log(row.domain, "-", row.name));
 ```
 
 </CodeGroup>

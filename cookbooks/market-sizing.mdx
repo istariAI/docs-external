@@ -5,24 +5,50 @@ description: "Count and break down a sector across geographies, exact, reproduci
 
 **Inputs:** a sector (`nace_code`) + scope (`country`) · a breakdown dimension (`group_by`). **Returns:** exact counts per bucket.
 
-`aggregate_organizations` answers "how many" and "distribution of" with **exact, deterministic** counts, unlike search, which scores and ranks. Use it for market sizing, territory planning, and coverage checks.
+`POST /v2/stats` answers "how many" and "distribution of" with **exact, deterministic** counts, unlike search, which scores and ranks. Use it for market sizing, territory planning, and coverage checks.
 
 ## The recipe
 
+Set `ISTARI_API_KEY`, then swap in your filters and `group_by` dimension. The request maps to `POST /v2/stats`.
+
 ```python
-aggregate_organizations(
-    country=["Germany"],
-    nace_code=["NACE C: Manufacturing"],
-    group_by="state",          # or: country, region, organization_size, nace_code, ...
-    limit=20,
-)
+import os
+import requests
+
+API_KEY = os.environ["ISTARI_API_KEY"]
+
+
+def aggregate_market(
+    country: str,
+    nace_code: str,
+    group_by: str = "state",
+    limit: int = 20,
+) -> list[dict]:
+    body = {
+        "filters": {
+            "country": [country],
+            "nace_code": [nace_code],
+        },
+        "group_by": group_by,  # or: country, region, organization_size, nace_code, ...
+        "limit": limit,
+    }
+    resp = requests.post(
+        "https://api.istari.ai/v2/stats",
+        headers={"x-api-key": API_KEY, "Content-Type": "application/json"},
+        json=body,
+    )
+    return resp.json()["data"]
+
+
+for bucket in aggregate_market("Germany", "NACE C: Manufacturing"):
+    print(bucket["state"], bucket["count"])
 ```
 
 ## What each lever does
 
 | Lever | Role |
 |---|---|
-| `nace_code` / `country` / `region` / `organization_size` / `organization_type` | Structured filters that define the slice you're sizing. |
+| `filters` (`nace_code`, `country`, `region`, `organization_size`, `organization_type`, …) | Structured filters that define the slice you're sizing. |
 | `group_by` | The breakdown dimension. Omit for a single total `COUNT(*)`. |
 | `group_by_secondary` | Optional 2nd dimension for a cross-tab (e.g. `country` × `nace_code`). |
 
@@ -39,8 +65,8 @@ The same tool, three different breakdowns — all exact:
 ## Notes
 
 <Warning>
-  **Aggregate ignores keyword filters.** `aggregate_organizations` honors structured filters (country, NACE, size, type, region, dates, `summary_keywords`) but **silently ignores** `keywords_*`. So an aggregate is a *sector + geography* denominator: never a product-specific count. Label it honestly ("manufacturers + traders in DE"), not "suppliers of product X".
+  **Aggregate ignores keyword filters.** `POST /v2/stats` honors structured `filters` (country, NACE, size, type, region, dates, `summary_keywords`) but **silently ignores** `keywords`. So an aggregate is a *sector + geography* denominator: never a product-specific count. Label it honestly ("manufacturers + traders in DE"), not "suppliers of product X".
 </Warning>
 
 - For a **product-specific** count, there's no exact tool: deliver the [supplier shortlist](/cookbooks/supplier-discovery) instead, and quote the aggregate only as a labeled sector denominator.
-- Discover valid `summary_keywords` tags by running `aggregate_organizations(group_by="summary_keywords")` on a narrow slice rather than guessing.
+- Discover valid `summary_keywords` tags by running `POST /v2/stats` with `group_by: "summary_keywords"` on a narrow slice rather than guessing.

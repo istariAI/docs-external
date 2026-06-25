@@ -9,25 +9,45 @@ Use this when you have a known organization and want "more like this", competito
 
 ## The recipe
 
+Set `ISTARI_API_KEY`, then swap in your reference `domains` and optional `country`. The request maps to `POST /v2/search` with `similar_to`.
+
 ```python
-find_similar_organizations(
-    domains=["n26.com"],            # 1–3 reference domains (fused if multiple)
-    exclude_domains=["n26.com"],    # always exclude your references
-    country=["Germany"],            # optional geographic scope
-    min_score=0.55,                 # raise toward 0.6 if results look loose
-    size=20,
-    dedup=True,
-)
+import os
+import requests
+
+API_KEY = os.environ["ISTARI_API_KEY"]
+
+
+def find_lookalikes(domains: list[str], country: str | None = "Germany") -> list[dict]:
+    body = {
+        "similar_to": domains,
+        "excludes": domains,  # always exclude your references
+        "filters": {"country": [country]} if country else {},
+        "columns": ["domain", "name", "country", "nace_code"],
+        "min_score": 0.55,  # raise toward 0.6 if results look loose
+        "size": 20,
+        "dedup": True,
+    }
+    resp = requests.post(
+        "https://api.istari.ai/v2/search",
+        headers={"x-api-key": API_KEY, "Content-Type": "application/json"},
+        json=body,
+    )
+    return resp.json()["data"]
+
+
+for row in find_lookalikes(["n26.com"]):
+    print(row["domain"], "-", row["name"])
 ```
 
 ## What each lever does
 
 | Lever | Role |
 |---|---|
-| `domains` | The reference set. Pass 2–3 to define a "centroid" (e.g. three competitors) and find the cluster around them. |
-| `exclude_domains` | Removes the references from results. |
+| `similar_to` | The reference set. Pass 2–3 domains to define a "centroid" (e.g. three competitors) and find the cluster around them. |
+| `excludes` | Removes the references from results. |
 | `min_score` | Tightens similarity. Default `0.35` is broad; `0.55–0.65` keeps only close matches; `0.8+` near-duplicates only. |
-| `country` / `nace_code` / `organization_size` | Optional post-filters to scope the lookalikes. |
+| `filters.country` / `filters.nace_code` / `filters.organization_size` | Optional post-filters to scope the lookalikes. |
 
 ## Validated examples
 
@@ -41,7 +61,7 @@ Embedding similarity is the corpus's strongest signal — it holds for famous br
 
 ## Notes
 
-- **Exclusion is by exact domain.** A reference's sister domains can still appear (here `number26.de`, N26's alternate, surfaced). Add every known domain to `exclude_domains`.
+- **Exclusion is by exact domain.** A reference's sister domains can still appear (here `number26.de`, N26's alternate, surfaced). Add every known domain to `excludes`.
 - **Multi-domain queries are fused** with reciprocal-rank fusion: great for "organizations like A, B *and* C".
 - **To steer** toward or away from concepts (boost/penalize terms, repel specific organizations), use [`find_similar_with_steering`](/mcp/tools).
-- Pair with [`get_organization_details`](/mcp/tools) to hydrate full profiles for the shortlist.
+- Pair with [`POST /v2/fetch`](/api/goi-fetch-stats) to hydrate full profiles for the shortlist.
