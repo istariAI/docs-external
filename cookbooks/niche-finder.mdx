@@ -1,0 +1,54 @@
+---
+title: "Niche & deep-tech finder"
+description: "Find the companies that actually do one specific thing — a niche product or a frontier technology — anywhere in the world."
+---
+
+**Inputs:** `what` (free text — a product, technology, or capability) · optional `location`. **Returns:** the companies whose business *is* that thing.
+
+This is the template for the long tail: corrugated cardboard, solid-state batteries, hydrogen electrolyzers, quantum computing. GOI's corpus is SME- and niche-heavy and web-verified, so the companies exist — the trick is precision. A bare semantic search drifts to adjacent topics; the fix is to **anchor**.
+
+## The recipe
+
+```python
+search_organizations(
+    query=f"{what}",                       # rich description — carries the specifics
+    keywords_must_all=["<anchor term>"],   # the one word that MUST be in the description
+    keywords_must_not=["consulting", "recruitment", "marketing agency"],
+    nace_code=["NACE C: Manufacturing"],   # optional — add to keep makers only
+    size=15,
+    dedup=True,
+)
+```
+
+The **anchor** (`keywords_must_all`) is what turns a fuzzy semantic match into a precise one. The `query` carries the nuance the anchor can't (`solid-state`, `green hydrogen`, `fault-tolerant`).
+
+## What each lever does
+
+| Lever | Role |
+|---|---|
+| `query` | Full natural-language description. Carries specificity the single anchor word can't. |
+| `keywords_must_all` | **The anchor.** The defining term that must appear in the company's description. This is what removes drift. |
+| `keywords_must_any` | Use *instead* of `must_all` for spelling/synonym variants (`electrolyzer`/`electrolyser`, `e-bike`/`electric bike`). |
+| `keywords_must_not` | Strips perennial noise — consultancies, recruiters, agencies. Add `"distributor","reseller"` to keep only makers. |
+| `nace_code` = C | Optional. Restricts to manufacturers when you want builders, not services. |
+
+## Validated examples
+
+One pattern, five wildly different niches — all returned the real players:
+
+| Niche (`what`) | Anchor | Representative hits |
+|---|---|---|
+| Quantum computing | `quantum` | Rigetti, PsiQuantum, Quantum Circuits, Anyon, SEMIQON |
+| Solid-state batteries | `battery` | Solid Power, QuantumScape, QingTao, Jinyu |
+| Vertical farming | `vertical farming` | Netled, GoodLeaf, 4D Bios, AGEYE |
+| Hydrogen electrolyzers | `electrolyzer`/`electrolyser` (`must_any`) | Exion Hydrogen, CENmat, PERIC, Electrogenos |
+| Corrugated cardboard | `corrugated`, `cardboard` | Kartonex, Bipack, EICSA, SouthEastern |
+
+## Notes
+
+- **The anchor is everything.** Drop `keywords_must_all` and the semantic query drifts to neighbors (battery analytics, packaging consultants). Keep it tight and literal.
+- **Handle spelling/synonyms with `must_any`.** `["electrolyzer","electrolyser","electrolysis"]` caught makers using any spelling. Same for regional terms.
+- **One anchor word beats two.** `["corrugated"]` pulled some corrugated-*metal* makers; `["corrugated","cardboard"]` (both required) fixes it. Add a second anchor only to disambiguate.
+- **Ignore the `Total` field** in keyword mode — it shows `0` while returning a full page. Count the rows.
+- **Don't set `min_score`** — hybrid retrieval collapses under a floor here.
+- This is also how you find **"innovative / deep-tech companies in X"**: anchor on the technology, not on a company `type` (startup typing is sparse in the corpus and will cost you real matches).
