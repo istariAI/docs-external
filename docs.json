@@ -6,7 +6,7 @@
   "logo": {
     "light": "/logo/istari-expanded-light.svg",
     "dark": "/logo/istari-expanded-dark.svg",
-    "href": "https://www.istari.ai"
+    "href": "/"
   },
   "colors": {
     "primary": "#2797a3",
