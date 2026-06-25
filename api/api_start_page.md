@@ -6,7 +6,7 @@ description: Programmatic access to the ISTARI Global Organization Index (GOI) v
 Use it to **discover** organizations (keyword, semantic description, similarity to known domains, or filters alone), **look up** known domains in bulk, and (on eligible tiers) run **aggregations** and read **filter option** lists.
 
 <Tip>
-  **Interactive reference:** try endpoints in the [API Playground](/api-playground/post-search?playground=open).
+  **Interactive reference:** try endpoints in the [API Playground](/api-reference/search).
 </Tip>
 
 ## Base URL
