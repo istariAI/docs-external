@@ -144,6 +144,21 @@
         ]
       },
       {
+        "tab": "Cookbooks",
+        "groups": [
+          {
+            "group": "Query Templates",
+            "pages": [
+              "cookbooks/overview",
+              "cookbooks/supplier-discovery",
+              "cookbooks/find-lookalikes",
+              "cookbooks/market-sizing",
+              "cookbooks/startup-scouting"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "API Playground",
         "groups": [
           {

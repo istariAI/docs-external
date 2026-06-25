@@ -1,0 +1,47 @@
+---
+title: "Find lookalikes"
+description: "Given one or more reference companies, return similar companies — for competitive mapping, M&A screening, or prospecting."
+---
+
+**Inputs:** 1–3 reference `domains` · optional `location`. **Returns:** companies similar to the references by embedding similarity.
+
+Use this when you have a known company and want "more like this" — competitors, acquisition targets, or lookalike prospects for an ABM list.
+
+## The recipe
+
+```python
+find_similar_organizations(
+    domains=["n26.com"],            # 1–3 reference domains (fused if multiple)
+    exclude_domains=["n26.com"],    # always exclude your references
+    country=["Germany"],            # optional geographic scope
+    min_score=0.55,                 # raise toward 0.6 if results look loose
+    size=20,
+    dedup=True,
+)
+```
+
+## What each lever does
+
+| Lever | Role |
+|---|---|
+| `domains` | The reference set. Pass 2–3 to define a "centroid" (e.g. three competitors) and find the cluster around them. |
+| `exclude_domains` | Removes the references from results. |
+| `min_score` | Tightens similarity. Default `0.35` is broad; `0.55–0.65` keeps only close matches; `0.8+` near-duplicates only. |
+| `country` / `nace_code` / `organization_size` | Optional post-filters to scope the lookalikes. |
+
+## Validated example
+
+`domains=["n26.com"]`, `country="Germany"` → the German neobank / fintech cluster:
+
+| Company | Note |
+|---|---|
+| Trade Republic, C24 Bank, ING | Digital banks |
+| Evergreen, Vancelian, ownfin | Wealth / personal-finance apps |
+| Gini | Fintech infrastructure |
+
+## Notes
+
+- **Exclusion is by exact domain.** A reference's sister domains can still appear (here `number26.de`, N26's alternate, surfaced). Add every known domain to `exclude_domains`.
+- **Multi-domain queries are fused** with reciprocal-rank fusion — great for "companies like A, B *and* C".
+- **To steer** toward or away from concepts (boost/penalize terms, repel specific companies), use [`find_similar_with_steering`](/mcp/tools).
+- Pair with [`get_organization_details`](/mcp/tools) to hydrate full profiles for the shortlist.
