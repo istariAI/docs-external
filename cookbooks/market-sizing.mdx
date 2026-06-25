@@ -26,17 +26,15 @@ aggregate_organizations(
 | `group_by` | The breakdown dimension. Omit for a single total `COUNT(*)`. |
 | `group_by_secondary` | Optional 2nd dimension for a cross-tab (e.g. `country` × `nace_code`). |
 
-## Validated example
+## Validated examples
 
-German manufacturers (`NACE C`) by state:
+The same tool, three different breakdowns — all exact:
 
-| State | Organizations |
-|---|---:|
-| Nordrhein-Westfalen | 37,627 |
-| Bayern | 31,543 |
-| Baden-Württemberg | 29,705 |
-| Niedersachsen | 13,190 |
-| Hessen | 11,675 |
+**German manufacturers (`NACE C`) by `state`:** Nordrhein-Westfalen 37,627 · Bayern 31,543 · Baden-Württemberg 29,705 · Niedersachsen 13,190 · Hessen 11,675
+
+**German manufacturers by `organization_size`:** Small (10–49) 81,270 · Micro (0–9) 62,792 · Medium (50–249) 17,598 · Large (250+) 9,473
+
+**Switzerland by `nace_code` (sector mix):** Professional/scientific (N) 53,397 · Wholesale/retail (G) 27,872 · Manufacturing (C) 21,985 · Health (R) 19,996 · Construction (F) 19,874
 
 ## Notes
 

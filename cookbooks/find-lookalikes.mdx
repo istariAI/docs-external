@@ -29,15 +29,15 @@ find_similar_organizations(
 | `min_score` | Tightens similarity. Default `0.35` is broad; `0.55–0.65` keeps only close matches; `0.8+` near-duplicates only. |
 | `country` / `nace_code` / `organization_size` | Optional post-filters to scope the lookalikes. |
 
-## Validated example
+## Validated examples
 
-`domains=["n26.com"]`, `country="Germany"` → the German neobank / fintech cluster:
+Embedding similarity is the corpus's strongest signal — it holds for famous brands *and* unknown SMEs:
 
-| Organization | Note |
+| Reference | Returns |
 |---|---|
-| Trade Republic, C24 Bank, ING | Digital banks |
-| Evergreen, Vancelian, ownfin | Wealth / personal-finance apps |
-| Gini | Fintech infrastructure |
+| `n26.com` (neobank) | Trade Republic, C24 Bank, ING, Evergreen, Gini |
+| `celonis.com` (process mining) | Mimica, mindzie, iGrafx, ARIS, Wang Fan Xin |
+| `bipack.it` (corrugated-box SME) | CARPACK (MX), Scatolificio Valverde (IT), Cartoembal (ES), SBC (BR) |
 
 ## Notes
 

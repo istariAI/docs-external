@@ -156,9 +156,16 @@
                 "group": "Query templates",
                 "pages": [
                   "cookbooks/supplier-discovery",
+                  "cookbooks/niche-finder",
                   "cookbooks/find-lookalikes",
-                  "cookbooks/market-sizing",
-                  "cookbooks/startup-scouting"
+                  "cookbooks/market-sizing"
+                ]
+              },
+              {
+                "group": "MCP & agents",
+                "pages": [
+                  "mcp/research-workflows",
+                  "mcp/agent-skill"
                 ]
               }
             ]
