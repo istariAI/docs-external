@@ -42,7 +42,7 @@ All keys are optional. Lists mean **“match any of these values”** for that f
 | Field | Matches |
 | ----- | ------- |
 | `country`, `state`, `region`, `district`, `municipality` | Exact string on the corresponding column |
-| `organization_type` | e.g. `Company`, `Startup`, `Public`, `Academic`, `Other` |
+| `organization_type` | e.g. `Organization`, `Startup`, `Public`, `Academic`, `Other` |
 | `organization_size` | e.g. `Micro (0-9)`, `Small (10-49)`, `Medium-sized (50-249)`, `Large enterprise (250+)` |
 | `nace_code` | Section letter (e.g. `K`) or detailed code (e.g. `62.01`) |
 | `source` | Data provenance bucket |

@@ -55,7 +55,7 @@ Hybrid queries blend BM25 and vector ranking (reciprocal rank fusion). Use `sear
 | `size` | Page size, default `100`, maximum `500`. |
 | `min_score` | Optional `0.0`–`1.0` cosine similarity floor for vector / semantic / hybrid modes. |
 | `search_after` | Opaque cursor from the previous response’s `metadata.search_after` for pagination. |
-| `dedup` | If `true`, collapse rows that share the same company `name`, keeping the best match until `size` rows. |
+| `dedup` | If `true`, collapse rows that share the same organization `name`, keeping the best match until `size` rows. |
 | `explain` | If `true`, includes PostgreSQL `EXPLAIN ANALYZE` lines in metadata: **tier_3 only**. |
 
 ## Keywords (`keywords`)
@@ -72,7 +72,7 @@ Drives BM25 search on name and description (and participates in hybrid):
 
 All parts are optional, but **`must_not` alone is invalid**: you need at least one of `must_all` or `must_any` whenever `must_not` is present.
 
-## Similar companies (`similar_to`)
+## Similar organizations (`similar_to`)
 
 Pass up to **three** domains as strings, or as objects for **steering** (boost / penalize terms, repel domains, weight):
 
@@ -95,7 +95,7 @@ Pass up to **three** domains as strings, or as objects for **steering** (boost /
 
 ## Semantic description (`describe`)
 
-Free-text description of the kind of companies you want; embedded and searched like a vector query. Cannot be used together with `similar_to`.
+Free-text description of the kind of organizations you want; embedded and searched like a vector query. Cannot be used together with `similar_to`.
 
 ## Filters (`filters`)
 
@@ -134,7 +134,7 @@ Scored modes use an offset-style cursor with a **maximum depth of 10,000** rows.
 }
 ```
 
-**Similar to a reference company:**
+**Similar to a reference organization:**
 
 ```json
 {

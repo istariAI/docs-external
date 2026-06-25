@@ -3,11 +3,15 @@ title: "Scoring and relevance"
 description: "How GOI ranks your search results and decides what counts as a relevant match."
 ---
 
-Every GOI search returns organizations in order of **relevance**: the best matches first. This page explains, in plain terms, how that ordering is decided across the [three search methods](/goi/dashboard#three-ways-to-search), and what the relevance score next to each result actually means.
+Every GOI search returns organizations in order of **relevance**: the best matches first. This page explains, how that ordering is decided across the [three search methods](/goi/dashboard#three-ways-to-search), and what the relevance score next to each result actually means.
 
 ## The relevance score
 
-Most searches attach a **relevance score** to each result. It runs from **0 to 1** (often shown as a percentage), where a higher number means a closer match to what you asked for. We use it to sort the table, so the organization at the top is the one we're most confident about.
+Most searches attach a **relevance score** to each result. It runs from **0 to 1** (often shown as a percentage), where a higher number means a closer match to what you asked for. The score value of each organization can be seen in the respective profiles of the organizations. We use it to sort the table, so the organization at the top is the one we're most confident about.
+
+<Frame>
+  <img src="/images/search-score.png" alt="Relevance score shown on an organization profile" width="360" />
+</Frame>
 
 How that score is calculated depends on which search method you used.
 
@@ -18,14 +22,14 @@ How that score is calculated depends on which search method you used.
 When you [describe what you're looking for](/goi/semantic-search), we don't match your words literally. Instead, we turn both your description **and** every organization's profile into a numerical "meaning fingerprint" (an embedding), then measure how close each organization's fingerprint sits to yours.
 
 * The closer the meaning, the higher the score.
-* This is why a search for *"recycled aluminium producers"* can surface a company that never uses those exact words but clearly does that work.
+* This is why a search for *"recycled aluminium producers"* can surface an organization that never uses those exact words but clearly does that work.
 * Results are ranked from most to least semantically similar.
 
 ### Similarity search
 
-[Similarity search](/goi/similarity-search) works the same way, but instead of starting from a description, we start from a **reference company**. We build a rich profile of that company from its public footprint, turn it into a meaning fingerprint, and find the organizations whose fingerprints sit closest to it.
+[Similarity search](/goi/similarity-search) works the same way, but instead of starting from a description, we start from a **reference organization**. We build a rich profile of that organization from its public footprint, turn it into a meaning fingerprint, and find the organizations whose fingerprints sit closest to it.
 
-If you add **prioritize** or **avoid** keywords to steer the search, we nudge that fingerprint toward the terms you want and away from the ones you don't *before* scoring, so the ranking reflects your emphasis, not just the raw reference company.
+If you add **prioritize** or **avoid** keywords to steer the search, we nudge that fingerprint toward the terms you want and away from the ones you don't *before* scoring, so the ranking reflects your emphasis, not just the raw reference organization.
 
 ### Keyword search
 
@@ -63,6 +67,6 @@ Scores are about *closeness*, not absolute truth, so small differences near the 
 ## See also
 
 * [Semantic search](/goi/semantic-search): meaning-based search from a description.
-* [Similarity search](/goi/similarity-search): meaning-based search from a reference company.
+* [Similarity search](/goi/similarity-search): meaning-based search from a reference organization.
 * [Keyword search](/goi/keyword-search): exact-term matching with BM25 ranking.
 * [Search results](/goi/search-results): reading and working with the results table.

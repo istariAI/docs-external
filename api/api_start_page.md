@@ -3,12 +3,10 @@ title: "Overview"
 description: Programmatic access to the ISTARI Global Organization Index (GOI) via API key.
 ---
 
-The **GOI API** is the supported HTTP API for querying the **ISTARI Global Organization Index (GOI)**: tens of millions of organisation records across Europe, backed by PostgreSQL with vector (DiskANN) and full-text (BM25) search.
-
-Use it to **discover** companies (keyword, semantic description, similarity to known domains, or filters alone), **look up** known domains in bulk, and (on eligible keys) run **aggregations** and read **filter option** lists.
+Use it to **discover** organizations (keyword, semantic description, similarity to known domains, or filters alone), **look up** known domains in bulk, and (on eligible tiers) run **aggregations** and read **filter option** lists.
 
 <Tip>
-  **Interactive reference**: when exposed for your environment, OpenAPI / Swagger is typically at **`https://api.istari.ai/v2/docs`**.
+  **Interactive reference:** try endpoints in the [API Playground](/api-playground/post-search?playground=open).
 </Tip>
 
 ## Base URL
@@ -42,7 +40,7 @@ curl --location 'https://api.istari.ai/v2/search' \
   --header 'x-api-key: your-api-key' \
   --header 'Content-Type: application/json' \
   --data '{
-    "describe": "SaaS companies in the US",
+    "describe": "SaaS organizations in the US",
     "keywords": {
       "must_all": [],
       "must_any": [],

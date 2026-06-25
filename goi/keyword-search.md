@@ -2,7 +2,7 @@
 title: "Keyword search"
 ---
 
-Keyword Search is one of the [three ways to search](/goi/dashboard#three-ways-to-search) in GOI. Use this method when you want **exact term matching** over organization profiles, with full control over which words define a hit, no semantic interpretation, no reference company.
+Keyword Search is one of the [three ways to search](/goi/dashboard#three-ways-to-search) in GOI. Use this method when you want **exact term matching** over organization profiles, with full control over which words define a hit, no semantic interpretation, no reference organization.
 
 ## How it works
 
@@ -28,4 +28,4 @@ Keyword Search can be combined with any of the usual filters to narrow the scope
 ## See also
 
 * [Semantic Search](/goi/semantic-search): natural-language search when you don't have exact keywords.
-* [Similarity Search](/goi/similarity-search): find companies similar to a reference website.
+* [Similarity Search](/goi/similarity-search): find organizations similar to a reference website.

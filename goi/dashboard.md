@@ -12,7 +12,7 @@ When you first log in to the ISTARI Global Organization Index, you land on the *
 ## What you see on the home screen
 
 * **Search panel (centre):** where you enter queries to begin discovering organizations.
-* **New companies pill (above the search panel):** shows how many organizations have been newly registered in the DACH region today. Click it to open the [New Companies](/goi/new-companies) page.
+* **New organizations pill (above the search panel):** shows how many organizations have been newly registered in the DACH region today. Click it to open the [New organizations](/goi/new-companies) page.
 * **Example searches (below the search panel):** ready-made queries you can click to try out the search.
 
 ## Sidebar (left)
@@ -28,7 +28,7 @@ At the bottom of the sidebar you'll find:
 
 * The **help menu** (question-mark icon). See the [Help Section](/goi/help-section) for what's inside.
 * Your **profile avatar**. Click it to open your account dropdown: see below.
-* If you have credit-based features, your **credits balance** is displayed under the avatar. Click the number to open [Subscription and Billing](/goi/subscription-billing).
+* If you have credit-based features, your **credits balance** is displayed under the avatar. Click the number to open **Subscription and Billing**.
 
 ## Profile dropdown
 
@@ -36,7 +36,7 @@ Clicking your avatar at the bottom-left opens a dropdown showing your name, emai
 
 * **Manage Account**: open your user profile to change name, password, etc.
 * **API Keys**: open the [API Keys](/goi/api-keys) page (only shown if your account has API access).
-* **Subscription and Billing**: open [Subscription and Billing](/goi/subscription-billing) (only shown if your account has billing).
+* **Subscription and Billing**: track credits, invoices, and transactions (only shown if your account has billing).
 * **Manage Organization**: manage your organization's members and settings (only shown if you're part of an organization).
 * **Sign out**: end your session.
 
@@ -53,8 +53,8 @@ In Advanced mode, the search panel has a dropdown that lets you pick between thr
 
 | Search method | When to use it | Page |
 |---|---|---|
-| **Describe organizations** | You have a market description or idea in your head but no specific company or keywords. Natural-language semantic search. | [Semantic Search](/goi/semantic-search) |
-| **Use a similar website** | You know a reference company and want to find others like it. | [Similarity Search](/goi/similarity-search) |
+| **Describe organizations** | You have a market description or idea in your head but no specific organization or keywords. Natural-language semantic search. | [Semantic Search](/goi/semantic-search) |
+| **Use a similar website** | You know a reference organization and want to find others like it. | [Similarity Search](/goi/similarity-search) |
 | **Use keywords** | You want exact term matching with full control over which words define a hit. | [Keyword Search](/goi/keyword-search) |
 
 All three methods can be combined with [Location Filters](/goi/location-filters), [Organizational Filters](/goi/organizational-filters), and [keyword refinement filters](/goi/advanced-search-filters) to narrow results further. In Easy mode you don't pick the method, the agent does, but the same filter system is available.

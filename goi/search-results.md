@@ -14,15 +14,13 @@ If you aren't satisfied with what you see, you can adjust your query directly fr
 
 By default, the table shows the following columns:
 
-* **Domain**: the website that was analysed.
-* **Actions**: open a dedicated [company profile](/goi/search-results#company-profile) for the organization.
 * **Name**: the organization's name as it appears on its website.
 * **Summary**: a short AI-generated description of what the organization does.
 * **Country**: where the organization is registered.
-* **Employee class**: a proxy for organizational size.
+* **Organization Size**: Employee classes which are treated as a proxy for organizational size.
 * **Summary keywords**: the most relevant keywords for the organization. Click **Show all** to expand the full list.
 
-A lot more information is available beyond the defaults. Click **Re-arrange columns** to open the column manager, where you can:
+A lot more information is available beyond the defaults. Click **Add columns** to open the column manager, where you can:
 
 * Toggle additional columns on or off (address, NACE code, registration date, and more).
 * Reorder columns by dragging them.
@@ -36,14 +34,11 @@ Above the table you'll find a **Show Map View** button. Click it to switch from 
 
 ## Hiding duplicates
 
-Some organizations are reachable through several domain aliases (e.g. `example.de` and `example.com` pointing to the same company). Toggle **Hide duplicates** to collapse these into a single row so each organization only shows up once. The toggle sits next to the **Show Map View** button when you're in table view.
+Some organizations are reachable through several domain aliases (e.g. `example.de` and `example.com` pointing to the same organization). Toggle **Hide duplicates** to collapse these into a single row so each organization only shows up once. The toggle sits next to the **Show Map View** button when you're in table view.
 
-## Company profile
+## Organization profile
 
-Click **View profile** on any row to open a side panel with the full profile for that organization. The panel groups everything we know, name, summary, addresses, contact info, keywords, classification, coordinates, and more, into one scrollable view. From here you can:
-
-* Visit the organization's website with the external-link button.
-* **Download as PDF** to save the profile as a standalone document.
+Click **View profile** on any row to open a side panel with the full profile for that organization. The panel groups everything we know, name, summary, addresses, contact info, keywords, classification, coordinates, and more, into one scrollable view. From here you can visit the organization's website with the external-link button.
 
 <Frame>
   <img src="/images/goi_firm_profile.png" alt="" />

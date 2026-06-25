@@ -1,11 +1,11 @@
 ---
 title: "Startup scouting"
-description: "Find early-stage companies working on a specific theme, scoped to startups, for sourcing, partnerships, or trend mapping."
+description: "Find early-stage organizations working on a specific theme, scoped to startups, for sourcing, partnerships, or trend mapping."
 ---
 
 **Inputs:** `theme` (free text) · optional `location`. **Returns:** a ranked list of startups matching the theme.
 
-Combine a semantic `query` (the theme) with a structured `organization_type=["Startup"]` filter so you get only early-stage companies, not incumbents or consultancies.
+Combine a semantic `query` (the theme) with a structured `organization_type=["Startup"]` filter so you get only early-stage organizations, not incumbents or consultancies.
 
 ## The recipe
 
@@ -25,7 +25,7 @@ search_organizations(
 | Lever | Role |
 |---|---|
 | `query` | The theme, in natural language: describe the problem space, not just a keyword. |
-| `organization_type` = **Startup** | The key filter. Restricts to companies typed as startups. |
+| `organization_type` = **Startup** | The key filter. Restricts to organizations typed as startups. |
 | `organization_size` | Optional: narrows to early-stage headcount bands. |
 | `min_score` | Optional. Raise to `~0.5` if the tail drifts off-theme (semantic relevance decays past the top results). |
 
@@ -33,7 +33,7 @@ search_organizations(
 
 `theme="climate tech building carbon accounting and emissions tracking software"`:
 
-| Company | Location |
+| Organization | Location |
 |---|---|
 | Cozero | Berlin, Germany |
 | Atoma Research | United States |

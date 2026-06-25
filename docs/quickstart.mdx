@@ -57,7 +57,7 @@ See the [GOI Home page guide](/goi/goi_start_page) for the full walkthrough.
       -H "Authorization: Bearer $ISTARI_API_KEY" \
       -H "Content-Type: application/json" \
       -d '{
-        "describe": "companies that manufacture industrial heat pumps",
+        "describe": "organizations that manufacture industrial heat pumps",
         "filters": { "country": ["Germany"] },
         "columns": ["domain", "name", "country"],
         "size": 25
@@ -71,7 +71,7 @@ See the [GOI Home page guide](/goi/goi_start_page) for the full walkthrough.
         "https://api.istari.ai/v2/search",
         headers={"Authorization": f"Bearer {os.environ['ISTARI_API_KEY']}"},
         json={
-            "describe": "companies that manufacture industrial heat pumps",
+            "describe": "organizations that manufacture industrial heat pumps",
             "filters": {"country": ["Germany"]},
             "columns": ["domain", "name", "country"],
             "size": 25,

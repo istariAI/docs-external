@@ -9,13 +9,13 @@ The Global Organization Index (GOI) is ISTARI's curated, organization-level data
 
 ## What GOI MCP gives you
 
-A single MCP endpoint that lets an AI agent run the same queries a GOI Home page user would run, with all results scoped to that user's account and plan:
+A single MCP endpoint that lets an AI agent run the same queries a GOI user would run, with all results scoped to that user's account and plan:
 
-* **Search** companies by natural-language description, exact keywords, or a hybrid of both.
-* **Find lookalikes** to one or more reference companies via embedding similarity, optionally steered with boost / penalize terms.
+* **Search** organizations by natural-language description, exact keywords, or a hybrid of both.
+* **Find lookalikes** to one or more reference organizations via embedding similarity, optionally steered with boost / penalize terms.
 * **Filter and list** by country, state, region, district, municipality, NACE sector, organization type, size, and commercial-register attributes.
 * **Aggregate** counts and distributions across any combination of those dimensions (one- or two-dimensional breakdowns, with optional time bucketing).
-* **Look up** full company profiles by exact domain.
+* **Look up** full organization profiles by exact domain.
 * **Resolve** free-text place names to canonical filter values.
 
 <Note>
@@ -49,7 +49,7 @@ When a call would exceed the limit, the tool returns an error string beginning w
 
 To raise your quotas, see the [GOI access plans on the istari.ai technology page](https://www.istari.ai/en/technology).
 
-A server-level burst cap (60 requests / minute per IP via Cloud Armor) also applies, independent of the monthly plan quota.
+A server-level burst cap (60 requests / minute per IP) also applies, independent of the monthly plan quota to maintain fair usage.
 
 ## Troubleshooting
 

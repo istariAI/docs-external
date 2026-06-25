@@ -16,7 +16,7 @@ On the **Keywords** tab of the Other Filters dialog you can build three separate
 * **Must Include (All):** All listed keywords must appear.
 * **Must Not Include:** Organizations mentioning these keywords are filtered out.
 
-Use this to fine-tune thematic relevance or exclude irrelevant segments. For example, a semantic query for *"automotive interior suppliers"* combined with a *Must Not Include* of *recycling* narrows the results to companies that do **not** advertise recycling activities.
+Use this to fine-tune thematic relevance or exclude irrelevant segments. For example, a semantic query for *"automotive interior suppliers"* combined with a *Must Not Include* of *recycling* narrows the results to organizations that do **not** advertise recycling activities.
 
 **Keyword filters vs. Keyword Search.** Keyword filters are a *refinement layer*: they apply on top of any search method. [Keyword Search](/goi/keyword-search), on the other hand, is a standalone search method you pick from the search-type dropdown, where keywords are the main query rather than a filter.
 

@@ -1,6 +1,6 @@
 ---
 title: "Overview"
-description: "Real-time organization intelligence on 20M active and verified companies via the GOI Home page, API, or GOI MCP."
+description: "Real-time organization intelligence on 20M active and verified organizations via the GOI Home page, API, or GOI MCP."
 mode: "wide"
 ---
 
@@ -31,7 +31,7 @@ mode: "wide"
 
 <h2 className="text-2xl font-normal mt-10 mb-4 text-gray-900 dark:text-white" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>Try the API</h2>
 
-A single `POST /v2/search` call discovers companies by keyword, natural-language description, similarity to a known domain, or structured filters.
+A single `POST /v2/search` call discovers organizations by keyword, natural-language description, similarity to a known domain, or structured filters.
 
 <CodeGroup>
 
@@ -40,7 +40,7 @@ curl -X POST https://api.istari.ai/v2/search \
   -H "Authorization: Bearer $ISTARI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "describe": "B2B companies that manufacture industrial heat pumps",
+    "describe": "B2B organizations that manufacture industrial heat pumps",
     "filters": { "country": ["Germany"] },
     "columns": ["domain", "name", "country"],
     "size": 50
@@ -54,7 +54,7 @@ resp = requests.post(
     "https://api.istari.ai/v2/search",
     headers={"Authorization": f"Bearer {os.environ['ISTARI_API_KEY']}"},
     json={
-        "describe": "B2B companies that manufacture industrial heat pumps",
+        "describe": "B2B organizations that manufacture industrial heat pumps",
         "filters": {"country": ["Germany"]},
         "columns": ["domain", "name", "country"],
         "size": 50,
@@ -73,7 +73,7 @@ const resp = await fetch("https://api.istari.ai/v2/search", {
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    describe: "B2B companies that manufacture industrial heat pumps",
+    describe: "B2B organizations that manufacture industrial heat pumps",
     filters: { country: ["Germany"] },
     columns: ["domain", "name", "country"],
     size: 50,
@@ -90,7 +90,7 @@ data.forEach((row) => console.log(row.domain, "-", row.name));
 
 <CardGroup cols={3}>
   <Card title="GOI Home page" icon="layout-dashboard" href="/goi/goi_start_page">
-    Search, filter, save, and export companies in the no-code Global Organization Index.
+    Search, filter, save, and export organizations in the no-code Global Organization Index.
   </Card>
   <Card title="API" icon="terminal" href="/api/api_start_page">
     Programmatic search, bulk lookup, and aggregations over GOI via the HTTP API.

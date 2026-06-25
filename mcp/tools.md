@@ -19,15 +19,15 @@ Search the GOI corpus with auto-detected mode:
 
 Add filters (country, state, NACE sector, organization size / type, register attributes, summary keyword tags) to narrow the scope. Results are deduplicated by name and paginated with an opaque `search_after` cursor.
 
-Use this for "find me companies that …" and exploratory market research questions.
+Use this for "find me organizations that …" and exploratory market research questions.
 
 ## find\_similar\_organizations
 
-Find companies similar to up to three reference domains via embedding similarity. Optional `keywords_must_all` / `keywords_must_not` are applied as post-filters.
+Find organizations similar to up to three reference domains via embedding similarity. Optional `keywords_must_all` / `keywords_must_not` are applied as post-filters.
 
 If a reference domain is not already in GOI, the public site is fetched and embedded on demand. The resulting embedding is cached across users, see [Privacy](/mcp/privacy#scraping-and-the-embedding-cache).
 
-Use for "companies like X", competitive benchmarking, supplier discovery, peer-group analysis.
+Use for "organizations like X", competitive benchmarking, supplier discovery, peer-group analysis.
 
 ## find\_similar\_with\_steering
 
@@ -35,24 +35,24 @@ Same as `find_similar_organizations` but with **embedding arithmetic** to steer 
 
 * `boost`: up to five terms whose averaged embedding is _added_ to the reference vector. Pulls the search toward a concept.
 * `penalize`: up to five terms whose embedding is _subtracted_. Pushes the search away.
-* `repel_domains`: up to five domains whose embeddings are subtracted. Pushes the search away from a specific company.
+* `repel_domains`: up to five domains whose embeddings are subtracted. Pushes the search away from a specific organization.
 * `weight`: `weak` (0.5), `normal` (1.0), or `strong` (2.0) to scale every adjustment.
 
-Use this when a plain similarity search returns too much of the wrong thing, for example _"companies like Stripe, but enterprise-focused"_ maps to `domains=["stripe.com"], boost=["enterprise"]`.
+Use this when a plain similarity search returns too much of the wrong thing, for example _"organizations like Stripe, but enterprise-focused"_ maps to `domains=["stripe.com"], boost=["enterprise"]`.
 
 ## filter\_organizations
 
-Enumerate companies matching structured criteria, with no relevance scoring. Supports the same filter dimensions as `search_organizations`, plus optional keyword filters that trigger a BM25 query. Useful when you know exactly what you want and don't need ranking.
+Enumerate organizations matching structured criteria, with no relevance scoring. Supports the same filter dimensions as `search_organizations`, plus optional keyword filters that trigger a BM25 query. Useful when you know exactly what you want and don't need ranking.
 
 ## get\_organization\_details
 
-Fetch full company profiles by exact domain. Up to 20 domains per call. Returns identity, location, classification (NACE, type, size), description, keywords, and registry filings for each.
+Fetch full organization profiles by exact domain. Up to 20 domains per call. Returns identity, location, classification (NACE, type, size), description, keywords, and registry filings for each.
 
-Use this after a search to drill into specific companies, or when you already have a list of domains to look up.
+Use this after a search to drill into specific organizations, or when you already have a list of domains to look up.
 
 ## aggregate\_organizations
 
-Count companies grouped by one or two dimensions, optionally with a date bucket. Supports the full set of filterable dimensions plus `continent`, `country_code`, `state_code`, `region_code`, `district_code`, `municipality_code`, `employee_class`, `revenue_class`, `source`, `summary_keywords`, `company_register_date`, and `created_at`.
+Count organizations grouped by one or two dimensions, optionally with a date bucket. Supports the full set of filterable dimensions plus `continent`, `country_code`, `state_code`, `region_code`, `district_code`, `municipality_code`, `employee_class`, `revenue_class`, `source`, `summary_keywords`, `company_register_date`, and `created_at`.
 
 Use for _"how many"_, _"share of"_, _"distribution of"_, and _"trend of"_ questions. Returns a table the caller can chart directly.
 
@@ -83,7 +83,7 @@ Values within a single field combine with **OR**. Different fields combine with 
 
 ### A note on commercial-register data
 
-The registry fields (`company_register_court`, `register_date_*`) are populated **only for German, Austrian, and Swiss companies** today, and only for entries appearing in the commercial register from January 2026 onwards. Companies outside that scope have null register attributes and are excluded from any filter on those fields. The rest of the dataset (~20M companies across 232 countries) is unaffected.
+The registry fields (`company_register_court`, `register_date_*`) are populated **only for German, Austrian, and Swiss organizations** today, and only for entries appearing in the commercial register from January 2026 onwards. Organizations outside that scope have null register attributes and are excluded from any filter on those fields. The rest of the dataset (~20M organizations across 232 countries) is unaffected.
 
 This isn't an API restriction, it's the current state of the underlying source data. Coverage expands over time.
 

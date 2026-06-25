@@ -1,9 +1,9 @@
 ---
-title: "New companies"
+title: "New organizations"
 description: Browse newly registered organizations across the DACH region.
 ---
 
-The **New Companies** page (also called *New organization registrations*) gives you a continuously updated view of organizations that have just appeared in public registers across the DACH region, **Germany**, **Austria**, and **Switzerland**. It's the fastest way to spot market entrants, new competitors, or fresh prospects right after they're formed.
+The **New organizations** page (also called *New organization registrations*) gives you a continuously updated view of organizations that have just appeared in public registers across the DACH region, **Germany**, **Austria**, and **Switzerland**. It's the fastest way to spot market entrants, new competitors, or fresh prospects right after they're formed.
 
 To open it, click the **"X new companies recently added in the DACH region"** pill that sits above the search panel on the home page.
 
@@ -29,7 +29,7 @@ Use this chart to:
 * Compare activity across countries.
 * Pick a day or period worth drilling into with the table below.
 
-## Profiles of companies recently added
+## Profiles of organizations recently added
 
 Below the chart, a paginated table shows the actual newly registered organizations. The summary line above the table (for example, *"Showing profiles for 72 of 863 verified active entities added in the DACH region"*) indicates:
 
@@ -38,4 +38,4 @@ Below the chart, a paginated table shows the actual newly registered organizatio
 
 **Why the numbers differ.** Not every registered organization gets a profile immediately. Some entities don't yet have a detectable domain. We periodically recheck and update these records as more domains become available.
 
-Typical columns include **Name**, **Domain**, **Summary**, **Country**, **Organization Size**, **Organization Type**, **NACE code**, **Registration date**, **Register court**, and **Address**. Click a row to open the company's [full profile](/goi/search-results#company-profile), just like in regular search results. You can rearrange columns, hide duplicates, and use the standard table tools from there.
+Typical columns include **Name**, **Domain**, **Summary**, **Country**, **Organization Size**, **Organization Type**, **NACE code**, **Registration date**, **Register court**, and **Address**. Click a row to open the organization's [full profile](/goi/search-results#company-profile), just like in regular search results. You can rearrange columns, hide duplicates, and use the standard table tools from there.

@@ -37,13 +37,13 @@ search_organizations(
 | `query` | Weights the product + supply intent. Self-adjusts: leans distributor for imported goods, manufacturer where made locally. |
 | `keywords_must_any` | Forces supply-side language to be present (also required so `must_not` can run). |
 | `keywords_must_not` | A soft down-weight, **not** a hard filter: real exclusion comes from NACE. |
-| `dedup` | Collapses duplicate company names. |
+| `dedup` | Collapses duplicate organization names. |
 
 ## Validated example
 
 `product="industrial valves"`, `country="Spain"` → a clean mix of manufacturers and distributors:
 
-| Company | Type | NACE |
+| Organization | Type | NACE |
 |---|---|---|
 | Babcock Valves, Tecval, FHT, ICP Valves | Manufacturer | C |
 | VAINDUSA, ACOM, DIMAC | Distributor | G |
@@ -56,7 +56,7 @@ The same template was validated across MacBooks (UAE, distributor-heavy), hydrau
   **Don't set `min_score`.** Keywords trigger hybrid retrieval, where a `min_score` of ~0.45 can collapse a clean 12-result query down to 1. Let NACE + keywords do the precision work.
 </Warning>
 
-- **Country is activity-based.** GOI resolves location by where a company is *active*, not solely legal HQ: a firm operating in your market can appear even if incorporated abroad. If strict incorporation matters, post-validate.
+- **Country is activity-based.** GOI resolves location by where an organization is *active*, not solely legal HQ: a firm operating in your market can appear even if incorporated abroad. If strict incorporation matters, post-validate.
 - **City filters are coarse.** `municipality=["Dubai"]` can return zero (geocoding granularity). Prefer `country`, or `region`/`state` via [`resolve_location`](/mcp/tools).
 - **Ignore the `Total` field** in keyword mode: it reports `0` while returning a full page. Count the returned rows.
 - **For strict product matching**, add `keywords_must_all=["<core noun>"]` (fewer results, higher precision).
