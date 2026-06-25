@@ -73,6 +73,7 @@
                   "goi/keyword-search"
                 ]
               },
+              "goi/search-scoring",
               {
                 "group": "Filters",
                 "pages": [
