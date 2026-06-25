@@ -111,8 +111,6 @@
               "mcp/overview",
               "mcp/connect",
               "mcp/tools",
-              "mcp/research-workflows",
-              "mcp/agent-skill",
               "mcp/privacy"
             ]
           },
@@ -161,6 +159,13 @@
                   "cookbooks/niche-finder",
                   "cookbooks/find-lookalikes",
                   "cookbooks/market-sizing"
+                ]
+              },
+              {
+                "group": "MCP & agents",
+                "pages": [
+                  "mcp/research-workflows",
+                  "mcp/agent-skill"
                 ]
               }
             ]

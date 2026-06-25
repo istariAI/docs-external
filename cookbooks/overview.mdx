@@ -3,7 +3,7 @@ title: "Overview"
 description: "GOI cookbooks turn fuzzy requests into clean, reproducible results with fixed parameter recipes."
 ---
 
-**Cookbooks** are ready-made GOI workflows for common research tasks: supplier shortlists, lookalikes, market sizing, startup scouting, and more. Each one is a **query template** — a fixed parameter set where you supply one or two inputs and everything else stays locked in. Quality comes from the parameters, not the search string, so you get the same clean result every time without knowing the internals.
+**Cookbooks** are ready-made GOI workflows for common research tasks: supplier shortlists, niche & deep-tech finders, lookalikes, market sizing, and more. Each one is a **query template** — a fixed parameter set where you supply one or two inputs and everything else stays locked in. Quality comes from the parameters, not the search string, so you get the same clean result every time without knowing the internals.
 
 All examples in the query templates map the same parameters as in the [API](/api/api_start_page) `POST /v2/search`.
 
@@ -20,6 +20,19 @@ All examples in the query templates map the same parameters as in the [API](/api
   </Card>
   <Card title="Niche & deep-tech finder" icon="microscope" href="/cookbooks/niche-finder">
     Find the organizations that actually do one specific thing — a niche product or frontier tech.
+  </Card>
+</CardGroup>
+
+## MCP & agents
+
+Recipes for driving GOI through the [MCP connector](/mcp/overview) in Claude, Cursor, or any agent.
+
+<CardGroup cols={2}>
+  <Card title="Research workflows" icon="workflow" href="/mcp/research-workflows">
+    Chain tools end to end — resolve a place, size a market, pull the players, profile one.
+  </Card>
+  <Card title="Agent skill" icon="wand-sparkles" href="/mcp/agent-skill">
+    A drop-in skill so an agent applies the right parameters automatically.
   </Card>
 </CardGroup>
 
