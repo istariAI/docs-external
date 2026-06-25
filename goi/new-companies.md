@@ -1,8 +1,7 @@
 ---
+title: "New companies"
 description: Browse newly registered organizations across the DACH region.
 ---
-
-# New Companies
 
 The **New Companies** page (also called *New organization registrations*) gives you a continuously updated view of organizations that have just appeared in public registers across the DACH region — **Germany**, **Austria**, and **Switzerland**. It's the fastest way to spot market entrants, new competitors, or fresh prospects right after they're formed.
 

@@ -1,4 +1,6 @@
-# Organizational Filters
+---
+title: "Organizational filters"
+---
 
 These filters help you control **who** appears in your results, based on structural attributes of an organization. They live under the **Other Filters** button on the search bar, on the **Organization Specific** tab.
 

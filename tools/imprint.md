@@ -1,8 +1,7 @@
 ---
+title: "Imprint"
 hidden: true
 ---
-
-# Imprint
 
 **Designation of the responsible body**
 

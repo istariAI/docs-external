@@ -1,4 +1,6 @@
-# Search Results
+---
+title: "Search results"
+---
 
 Once your search completes — applying your semantic, similarity, or keyword query together with any filters — you'll land on the **Search Results** page showing up to **100 matching organizations**.
 

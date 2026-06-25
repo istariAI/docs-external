@@ -1,12 +1,11 @@
 ---
+title: "🍞 SDG 2"
 description: >-
   Find companies that are engaged in the Sustainable Development Goal 2 - "Zero
   Hunger"
 cover: ../.gitbook/assets/food_security.jpg
 coverY: -9
 ---
-
-# 🍞 SDG 2
 
 <details>
 

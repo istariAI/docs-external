@@ -1,10 +1,9 @@
 ---
+title: "🏨 Find hotels with specific web technology"
 description: >-
   An example use case where we search for hotels based in France that use
   specific web technologies.
 ---
-
-# 🏨 Find hotels with specific web technology
 
 Searching France-based hotel websites with contact forms for a mailing campaign
 
@@ -12,13 +11,13 @@ _Imagine you are a startup that has developed a new AI tool for communication sp
 
 Let's take a look at how you can compile and download a list of such leads in a few minutes so that you can then import them into the CRM system of your choice.
 
-### 1. After subscribing to [webAI Lead](https://istari.ai/webai-lead) you login with your credentials on [dashboard.istari.ai](https://dashboard.istari.ai)
+### 1. After subscribing to [webAI Lead](https://istari.ai/webai-lead) you log in with your credentials on [dashboard.istari.ai](https://dashboard.istari.ai)
 
 <Frame caption="webAI Lead dashboard after login.">
   <img src="/images/screenshot_dashboard.png" alt="" />
 </Frame>
 
-### &#x20;Search for "hotels"
+### Search for "hotels"
 
 We start simple and enter the search term "hotel" in the search bar and press enter.&#x20;
 

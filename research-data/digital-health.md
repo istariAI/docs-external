@@ -1,10 +1,9 @@
 ---
+title: "💉 Digital health"
 description: Find companies that are engaged in digital health.
 cover: ../images/digital_health.jpg
 coverY: -145
 ---
-
-# 💉 Digital Health
 
 <details>
 

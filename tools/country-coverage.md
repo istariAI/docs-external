@@ -1,4 +1,6 @@
-# Country coverage
+---
+title: "Country coverage"
+---
 
 The following table provides an overview of the **17,162,821 organizations** featured in the ISTARI Global Organization Index.
 

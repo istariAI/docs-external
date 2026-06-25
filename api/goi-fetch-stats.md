@@ -1,8 +1,7 @@
 ---
+title: "Fetch & statistics"
 description: v2 /fetch bulk lookup, /stats aggregations, /filters/options, health and test.
 ---
-
-# GOI Public API — Fetch, stats & utilities
 
 Base URL prefix: **`https://api.istari.ai/v2`**.
 

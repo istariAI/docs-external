@@ -1,4 +1,6 @@
-# Help Section
+---
+title: "Help"
+---
 
 In the lower-left corner of GOI, just above your profile avatar, you'll find the **question-mark icon** that opens the help menu.
 

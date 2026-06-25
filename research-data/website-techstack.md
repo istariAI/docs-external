@@ -1,10 +1,9 @@
 ---
+title: "💻 Website TechStack"
 description: See the technical framework of company websites.
 cover: ../.gitbook/assets/tech_stack.jpg
 coverY: 0
 ---
-
-# 💻 Website TechStack
 
 <details>
 
@@ -40,11 +39,11 @@ Like all our webAI agents, the webAI TechStack agent has been validated together
 
 </details>
 
-## TechStack Categories
+## TechStack categories
 
 <table data-view="cards"><thead><tr><th>Category</th><th>Number of technologies</th></tr></thead><tbody><tr><td><strong>Add-ons</strong></td><td><ul><li>Shopify apps 135</li><li>WordPress plugins 125</li><li>WordPress themes 134</li></ul></td></tr><tr><td><strong>Analytics</strong></td><td><ul><li>A/B Testing 37</li><li>Analytics 187</li><li>Browser fingerprinting 5</li><li>Customer data platform 31</li><li>Surveys 17</li><li>Tag managers 11</li></ul></td></tr><tr><td><strong>Booking</strong></td><td><ul><li>Appointment scheduling 43</li><li>Reservations &#x26; delivery 30</li><li>Ticket booking 1</li></ul></td></tr><tr><td><strong>Business Tools</strong></td><td><ul><li>Accounting 2</li><li>CRM 34</li><li>Live chat 93</li><li>Recruitment &#x26; staffing 18</li></ul></td></tr><tr><td><strong>Communication</strong></td><td><ul><li>Email 36</li><li>Live chat 93</li><li>Message boards 29</li><li>Remote access 4</li><li>Webmail 10</li></ul></td></tr><tr><td><strong>Content</strong></td><td><ul><li>Blogs 28</li><li>CMS 286</li><li>Comment systems 5</li><li>DMS 4</li><li>Documentation 26</li><li>Feed readers 1</li><li>Issue trackers 54</li><li>LMS 13</li><li>Message boards 29</li><li>Photo galleries 15</li><li>Rich text editors 11</li><li>Search engines 36</li><li>Translation 12</li><li>Wikis 12</li></ul></td></tr><tr><td><strong>Location</strong></td><td><ul><li>Geolocation 13</li><li>Maps 16</li></ul></td></tr><tr><td><strong>Marketing</strong></td><td><ul><li>Advertising 139</li><li>Affiliate programs 39</li><li>CRM 34</li><li>Content curation 14</li><li>Customer data platform 31</li><li>Email 36</li><li>Marketing automation 128</li><li>Personalisation 90</li><li>RUM 27</li><li>Referral marketing 15</li><li>Retargeting 14</li><li>Reviews 34</li><li>SEO 10</li><li>Segmentation 7</li></ul></td></tr><tr><td><strong>Media</strong></td><td><ul><li>Augmented reality 9</li><li>Digital asset management 21</li><li>Livestreaming 12</li><li>Network storage 4</li><li>Photo galleries 15</li><li>Video players 23</li></ul></td></tr><tr><td><strong>Privacy</strong></td><td><ul><li>Cookie compliance 49</li></ul></td></tr><tr><td><strong>Sales</strong></td><td><ul><li>Buy now pay later 54</li><li>Cart abandonment 10</li><li>Cross border ecommerce 12</li><li>Ecommerce 332</li><li>Fulfilment 5</li><li>Livestreaming 12</li><li>Loyalty &#x26; rewards 17</li><li>Payment processors 96</li><li>Referral marketing 15</li><li>Returns 10</li><li>Shipping carriers 62</li></ul></td></tr><tr><td><strong>Security</strong></td><td><ul><li>Authentication 21</li><li>SSL/TLS certificate authorities 5</li><li>Security 50</li></ul></td></tr><tr><td><strong>Servers</strong></td><td><ul><li>CDN 48</li><li>Caching 13</li><li>Containers 2</li><li>Databases 14</li><li>Hosting 53</li><li>Hosting panels 9</li><li>IaaS 5</li><li>Load balancers 4</li><li>Operating systems 17</li><li>PaaS 44</li><li>Performance 42</li><li>Reverse proxies 5</li><li>Web server extensions 14</li><li>Web servers 84</li></ul></td></tr><tr><td><strong>User generated content</strong></td><td><ul><li>Comment systems 5</li><li>Content curation 14</li><li>Issue trackers 54</li><li>Message boards 29</li><li>Reviews 34</li></ul></td></tr><tr><td><strong>Utilities</strong></td><td><ul><li>Cryptominers 8</li><li>Database managers 5</li><li>Hosting panels 9</li></ul></td></tr><tr><td><strong>Web Development</strong></td><td><ul><li>Accessibility 25</li><li>CI 3</li><li>Development 30</li><li>Editors 18</li><li>Feature management 3</li><li>Font scripts 15</li><li>JavaScript frameworks 69</li><li>JavaScript graphics 41</li><li>JavaScript libraries 110</li><li>Mobile frameworks 7</li><li>Page builders 72</li><li>Programming languages 26</li><li>Static site generator 17</li><li>UI frameworks 43</li><li>Web frameworks 80</li></ul></td></tr><tr><td><strong>Other</strong></td><td><ul><li>Miscellaneous 86</li><li>Recruitment &#x26; staffing 18</li><li>User onboarding 11</li><li>Widgets 114</li></ul></td></tr></tbody></table>
 
-## TechStack Technologies
+## TechStack technologies
 
 
 

@@ -1,4 +1,6 @@
-# Location Filters
+---
+title: "Location filters"
+---
 
 After defining your search criteria, you can narrow the scope geographically using our **location filters**.
 

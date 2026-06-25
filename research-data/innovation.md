@@ -1,10 +1,9 @@
 ---
+title: "💡 Innovation"
 description: Find innovative companies.
 cover: ../images/innovation.jpg
 coverY: -4
 ---
-
-# 💡 Innovation
 
 <mark style="color:red;">`This indicator is available for companies based in Germany and Austria only.`</mark>
 

@@ -1,10 +1,9 @@
 ---
+title: "📲 Social media"
 description: Find social media presences of companies
 cover: ../.gitbook/assets/social_media.jpg
 coverY: -28
 ---
-
-# 📲 Social Media
 
 Many companies have presences on various social media platforms (e.g. LinkedIn, Twitter/X). We collect the links on the respective company websites that lead to these social media accounts. This makes it easier for you to contact companies or even individuals.
 

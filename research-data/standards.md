@@ -1,10 +1,9 @@
 ---
+title: "📂 Standards"
 description: Find companies with standards and certifications.
 cover: ../.gitbook/assets/standards.jpg
 coverY: -55
 ---
-
-# 📂 Standards
 
 <details>
 

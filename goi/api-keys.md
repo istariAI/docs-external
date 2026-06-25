@@ -1,8 +1,7 @@
 ---
+title: "API keys"
 description: Create and manage API keys for programmatic access to ISTARI GOI.
 ---
-
-# API Keys
 
 If you want to query ISTARI GOI directly from your own scripts, products, or data pipelines, you do so through the **ISTARI API** using a personal **API key**. This page is about creating and managing those keys from inside the platform. For endpoint details, parameters, and request/response formats see the [ISTARI API documentation](/api/api_start_page).
 

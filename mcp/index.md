@@ -1,8 +1,7 @@
 ---
+title: "Overview"
 description: GOI over the Model Context Protocol — search, similarity, and analytics across ~20M verified organizations, exposed to AI agents.
 ---
-
-# GOI MCP Connector
 
 Search, similarity, and analytics across **approximately 20 million active, verified organizations across 232 countries and territories** — exposed to AI agents via the [Model Context Protocol](https://modelcontextprotocol.io).
 

@@ -1,11 +1,10 @@
 ---
+title: "⛽ Find producers of heat pumps"
 description: >-
   An example use case where we search for firms from the energy sector that
   produce heat pumps and that are based in the German State of
   Baden-Württemberg.
 ---
-
-# ⛽ Find producers of heat pumps
 
 Searching Hesse-based firms that produce heat pumps.
 
@@ -13,7 +12,7 @@ _Imagine you are a public institution that wants to find all companies in a spec
 
 Let's take a look at how you can compile and download a list of such leads in a few minutes so that you can analyse and contact them immediately.
 
-### 1. After subscribing to [webAI Insights](https://istari.ai/webai-insights) you login with your credentials on [dashboard.istari.ai](https://dashboard.istari.ai)
+### 1. After subscribing to [webAI Insights](https://istari.ai/webai-insights) you log in with your credentials on [dashboard.istari.ai](https://dashboard.istari.ai)
 
 <Frame caption="webAI Insights dashboard after login.">
   <img src="/images/screenshot_dashboard.png" alt="" />

@@ -1,10 +1,9 @@
 ---
+title: "📂 Generate a region profile"
 description: An example use case in which we analyse a region for industrial policy.
 ---
 
-# 📂 Generate a region profile
-
-## Analysing economic topics in a region&#x20;
+## Analysing economic topics in a region
 
 _Assume you are someone working for a city or district, and you want to find out:_
 
@@ -14,7 +13,7 @@ _Assume you are someone working for a city or district, and you want to find out
 
 Supporting the local economy in your area typically requires you to explore various topics and company profiles. That's why the webAI tool offers several ways to search for these topics.
 
-### 1. After subscribing to [webAI Lead](https://istari.ai/webai-lead) you login with your credentials on [dashboard.istari.ai](https://dashboard.istari.ai)
+### 1. After subscribing to [webAI Lead](https://istari.ai/webai-lead) you log in with your credentials on [dashboard.istari.ai](https://dashboard.istari.ai)
 
 <Frame caption="webAI Lead dashboard after login.">
   <img src="/images/screenshot_dashboard.png" alt="" />

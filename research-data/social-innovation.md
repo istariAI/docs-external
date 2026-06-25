@@ -1,10 +1,9 @@
 ---
+title: "🤰 Social innovation"
 description: Find socially innovative companies.
 cover: ../.gitbook/assets/social_innovation.jpg
 coverY: -42
 ---
-
-# 🤰 Social Innovation
 
 <details>
 

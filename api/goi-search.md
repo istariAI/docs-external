@@ -1,8 +1,7 @@
 ---
+title: "Search"
 description: POST /v2/search — modes, keywords, semantic and similarity queries, filters, pagination.
 ---
-
-# GOI Public API — Search (`POST …/v2/search`)
 
 Search returns a JSON object with a `data` array of organisation rows and a `metadata` object (total hits, mode, timing, pagination cursor, filters applied, optional explain plan).
 

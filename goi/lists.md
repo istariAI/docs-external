@@ -1,8 +1,7 @@
 ---
+title: "Lists"
 description: Group relevant organizations into a list for further analysis.
 ---
-
-# Lists
 
 A **List** is a saved collection of organizations you've curated from your search results — think of it as a shortlist or a working set you can come back to, export, or analyse with AI.
 

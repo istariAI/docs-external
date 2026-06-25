@@ -1,12 +1,11 @@
 ---
+title: "💰 SDG 1"
 description: >-
   Find companies that are engaged in the Sustainable Development Goal 1 - "No
   Poverty"
 cover: ../images/slum.jpg
 coverY: -119
 ---
-
-# 💰 SDG 1
 
 <details>
 

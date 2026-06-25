@@ -1,4 +1,6 @@
-# Welcome to the ISTARI Global Organization Index
+---
+title: "Overview"
+---
 
 The Global Organization Index (GOI) is our curated, organization-level dataset containing **approximately 20 million active organizations** across **232 countries and territories**. It serves as the canonical source for firmographic data at ISTARI, covering organization identity, location, industry classification, size, and more.
 
@@ -6,7 +8,7 @@ The Global Organization Index (GOI) is our curated, organization-level dataset c
   <img src="/images/goi_example_query.png" alt="" />
 </Frame>
 
-## Data Pipeline & Methodology
+## Data pipeline & methodology
 
 GOI is built through a multi-step validation pipeline designed to prioritize quality over volume:
 
@@ -16,11 +18,11 @@ GOI is built through a multi-step validation pipeline designed to prioritize qua
 
 This process ensures that every record in GOI is web domain-verified and confirmed active.
 
-### Quality vs. Volume
+### Quality vs. volume
 
 Our final dataset is smaller than comparable, traditional databases. However, in contrast, our dataset contains exclusively verified and active organizations — no inactive records or dormant entities. The key differentiator is not size, but data timliness, operational relevance, and verification depth.
 
-### Data Sources
+### Data sources
 
 | Source Type | Role | Examples |
 |---|---|---|
@@ -31,13 +33,13 @@ Our final dataset is smaller than comparable, traditional databases. However, in
 
 ## Schema
 
-### Key Definitions
+### Key definitions
 
 - **NACE Code** — The EU's standard statistical classification of economic activities. Used as GOI's primary industry taxonomy. [Learn more](https://ec.europa.eu/eurostat/web/nace)
 - **Organization Type** — Categorized as Company, Startup, Academic, Public, or Other based on registry data and web content analysis.
 - **Organization Size** — Derived from employee and revenue signals, bucketed into Micro, Small, Medium-sized, and Large enterprise per EU SME definitions.
 
-### Core Fields
+### Core fields
 
 | Column | Type | Description |
 |---|---|---|
@@ -56,7 +58,7 @@ Our final dataset is smaller than comparable, traditional databases. However, in
 | `latitude` | FLOAT64 | Latitude coordinate |
 | `longitude` | FLOAT64 | Longitude coordinate |
 
-### Classification Fields
+### Classification fields
 
 | Column | Type | Description |
 |---|---|---|
@@ -69,9 +71,9 @@ Our final dataset is smaller than comparable, traditional databases. However, in
 
 **Note:** Reasoning fields are not published in the standard dataset.
 
-## Coverage Statistics
+## Coverage statistics
 
-### At a Glance
+### At a glance
 
 | Metric | Value |
 |---|---|
@@ -80,7 +82,7 @@ Our final dataset is smaller than comparable, traditional databases. However, in
 | Industry sectors (NACE) | 22 |
 | Last updated | February 2026 |
 
-### Top 20 Countries by Volume
+### Top 20 countries by volume
 
 | Country | Organizations |
 |---|---|
@@ -105,7 +107,7 @@ Our final dataset is smaller than comparable, traditional databases. However, in
 | Austria | 158,644 |
 | Denmark | 140,840 |
 
-### Organization Size Distribution
+### Organization size distribution
 
 | Size | Employee Range | Count | Share |
 |---|---|---|---|
@@ -114,7 +116,7 @@ Our final dataset is smaller than comparable, traditional databases. However, in
 | Medium-sized | 50–249 | 1,501,655 | 8.75% |
 | Large enterprise | 250+ | 824,126 | 4.80% |
 
-### Top 10 Industries (NACE)
+### Top 10 industries (NACE)
 
 | NACE Code | Industry | Count | Share |
 |---|---|---|---|
@@ -129,7 +131,7 @@ Our final dataset is smaller than comparable, traditional databases. However, in
 | Q | Education | 584,430 | 3.41% |
 | J | Publishing, broadcasting & content | 554,985 | 3.23% |
 
-### Notes on Geographic Data
+### Notes on geographic data
 
 Approximately 2.7 million organizations in the dataset do not have a standardized administrative region.
 

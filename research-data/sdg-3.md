@@ -1,12 +1,11 @@
 ---
+title: "👩‍⚕️ SDG 3"
 description: >-
   Find companies that are engaged in the Sustainable Development Goal 3 - "Good
   Health and Well-Being"
 cover: ../images/syringe.jpg
 coverY: 0
 ---
-
-# 👩‍⚕️ SDG 3
 
 <details>
 

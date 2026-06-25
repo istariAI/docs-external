@@ -1,8 +1,7 @@
 ---
+title: "Saved searches"
 description: Save a search configuration and re-run it later.
 ---
-
-# Saved Searches
 
 A **Saved Search** captures everything about a query — the search type, your description or reference domain, all keyword filters, locations, and organization-specific filters — so you can re-run it later with one click. Use it for recurring market scans, ongoing prospecting, or anything you'd otherwise re-type by hand.
 

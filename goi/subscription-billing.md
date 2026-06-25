@@ -1,8 +1,7 @@
 ---
+title: "Subscription and billing"
 description: Manage your subscription, credits, invoices, and transactions.
 ---
-
-# Subscription and Billing
 
 The **Subscription and Billing** page is where you track your credits, review invoices, and look back over the API calls and on-demand actions that have consumed credits.
 

@@ -1,4 +1,6 @@
-# Export Search Results
+---
+title: "Export search results"
+---
 
 You can export your research results — for all organizations in the result set or a subset that you selected — by clicking the **Export** button above the results table.
 

@@ -1,4 +1,6 @@
-# Similarity Search
+---
+title: "Similarity search"
+---
 
 Similarity Search is one of the [three ways to search](/goi/dashboard#three-ways-to-search) in GOI. Use this method when you already know a **reference company** and want to find similar ones.
 

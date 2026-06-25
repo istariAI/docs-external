@@ -1,4 +1,6 @@
-# Keyword Search
+---
+title: "Keyword search"
+---
 
 Keyword Search is one of the [three ways to search](/goi/dashboard#three-ways-to-search) in GOI. Use this method when you want **exact term matching** over organization profiles, with full control over which words define a hit — no semantic interpretation, no reference company.
 

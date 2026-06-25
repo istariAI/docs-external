@@ -1,4 +1,6 @@
-# Advanced Search Filters
+---
+title: "Advanced search filters"
+---
 
 Whichever of the [three search methods](/goi/dashboard#three-ways-to-search) you use, you can refine the results with **keyword refinement filters**. These filters sit on top of your main query and are accessed from the **Other Filters** button below the search bar, on the **Keywords** tab.
 

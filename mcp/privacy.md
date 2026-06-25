@@ -1,8 +1,7 @@
 ---
+title: "Privacy"
 description: Data handling for the GOI MCP Connector — what we log, where it lives, retention, embedding cache, and GDPR rights.
 ---
-
-# Privacy
 
 This page covers data handling specific to the GOI MCP Connector. For istari.ai's full privacy policy and legal notices, see the [imprint](https://www.istari.ai/en/imprint#privacypolicy).
 

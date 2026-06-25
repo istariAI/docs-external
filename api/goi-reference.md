@@ -1,8 +1,7 @@
 ---
+title: "Reference"
 description: GOI Public API — selectable columns, filters, tiers, rate limits, and HTTP errors.
 ---
-
-# GOI Public API — Reference
 
 ## Selectable columns
 

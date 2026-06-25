@@ -1,4 +1,6 @@
-# Semantic Search
+---
+title: "Semantic search"
+---
 
 Semantic search is one of the [three ways to search](/goi/dashboard#three-ways-to-search) in GOI. It is ideal when you have a **general description** or **market search idea** in mind rather than a specific reference company or exact keywords.
 

@@ -1,8 +1,7 @@
 ---
+title: "Tools"
 description: The eight read-only MCP tools exposed by the GOI connector — search, similarity, filter, fetch, aggregate, and metadata helpers.
 ---
-
-# Tools
 
 The MCP server exposes eight tools. All eight are read-only. When a client connects, it discovers them automatically via MCP's `tools/list` — there is no separate REST surface to learn.
 

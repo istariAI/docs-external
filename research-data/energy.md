@@ -1,10 +1,9 @@
 ---
+title: "🔌 Energy"
 description: Find companies that are engaged in the energy sector.
 cover: ../.gitbook/assets/Energy.jpg
 coverY: -211
 ---
-
-# 🔌 Energy
 
 <details>
 

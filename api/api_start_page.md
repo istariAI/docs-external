@@ -1,8 +1,7 @@
 ---
+title: "Overview"
 description: Programmatic access to the ISTARI Global Organization Index (GOI) via API key.
 ---
-
-# GOI Public API
 
 The **GOI Public API** is the supported HTTP API for querying the **ISTARI Global Organization Index (GOI)**: tens of millions of organisation records across Europe, backed by PostgreSQL with vector (DiskANN) and full-text (BM25) search.
 
