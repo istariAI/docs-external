@@ -7,7 +7,7 @@
    #sidebar is the left navigation column; content stays on the
    default page background so the two surfaces read distinctly. */
 #sidebar {
-  background-color: #f9fafb; /* --istari-surface */
+  background-color: #f9fafb;
   border-right: 1px solid #e5e7eb;
 }
 
