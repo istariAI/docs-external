@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "name": "Documentation",
-  "theme": "maple",
+  "theme": "mint",
   "favicon": "/favicon.png",
   "logo": {
     "light": "/logo/istari-expanded-light.svg",
