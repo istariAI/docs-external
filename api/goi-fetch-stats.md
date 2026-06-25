@@ -38,11 +38,11 @@ Domains your key is not allowed to see are treated like missing and appear in `m
 
 ---
 
-## `POST /stats` : aggregations (**tier_3**)
+## `POST /stats` : aggregations
 
 Returns `COUNT(*)` buckets over the filtered population. No text or vector scoring, plain SQL grouping.
 
-**Requires tier_3.** Other tiers receive `403`.
+Available on all tiers. Monthly **request** quotas apply by tier (see [Reference: rate limits](/api/goi-reference#rate-limits-and-tiers)). `explain` remains **tier_3** only.
 
 ### Request (shape)
 

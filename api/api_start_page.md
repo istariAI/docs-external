@@ -68,7 +68,7 @@ Paths are relative to **`https://api.istari.ai/v2`**.
 | ------ | ---- | ------- |
 | `POST` | `/search` | Search and rank organisations (modes described in [Search](/api/goi-search)) |
 | `POST` | `/fetch` | Bulk lookup by domain list: no scoring ([Fetch, stats & utilities](/api/goi-fetch-stats)) |
-| `POST` | `/stats` | Aggregations (`COUNT` by dimension); **tier_3 only** |
+| `POST` | `/stats` | Aggregations (`COUNT` by dimension); monthly quota by tier |
 | `GET` | `/filters/options` | Allowed values for categorical filters (scoped to your key) |
 | `GET` | `/health` | Liveness / database check |
 | `GET` | `/test` | Internal smoke suite: **tier_3 only** |

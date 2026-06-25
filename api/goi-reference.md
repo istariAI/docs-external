@@ -42,7 +42,7 @@ All keys are optional. Lists mean **“match any of these values”** for that f
 | Field | Matches |
 | ----- | ------- |
 | `country`, `state`, `region`, `district`, `municipality` | Exact string on the corresponding column |
-| `organization_type` | e.g. `Organization`, `Startup`, `Public`, `Academic`, `Other` |
+| `organization_type` | e.g. `Company`, `Startup`, `Public`, `Academic`, `Other` |
 | `organization_size` | e.g. `Micro (0-9)`, `Small (10-49)`, `Medium-sized (50-249)`, `Large enterprise (250+)` |
 | `nace_code` | Section letter (e.g. `K`) or detailed code (e.g. `62.01`) |
 | `source` | Data provenance bucket |
@@ -67,7 +67,15 @@ Typical **public** tier profile:
 | `tier_2` | 5 | 10 | 50,000 |
 | `tier_3` | 10 | 20 | Unlimited (subject to fair use) |
 
-Result rows also count against monthly **result** quotas where configured.
+Monthly **`POST /stats`** request quotas (per key, per calendar month):
+
+| Tier | `/stats` requests/month |
+| ---- | ----------------------- |
+| `tier_1` | 500 |
+| `tier_2` | 5,000 |
+| `tier_3` | 25,000 |
+
+Result rows also count against monthly **result** quotas where configured (`/search` and `/fetch`). `/stats` counts requests only.
 
 Responses may include rate-limit headers, for example:
 
@@ -89,7 +97,7 @@ When limits are exceeded, the API returns **`429 Too Many Requests`**.
 | ------ | ------- |
 | `400` | Malformed or inconsistent input |
 | `401` | Missing or invalid API key |
-| `403` | Authenticated but action not allowed for this tier (e.g. `explain`, `/stats`, `/test`) |
+| `403` | Authenticated but action not allowed for this tier (e.g. `explain`, `/test`) |
 | `422` | Validation error (body fails schema or business rules) |
 | `429` | Rate or quota exceeded |
 | `500` | Unexpected server error |
