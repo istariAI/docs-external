@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "name": "Documentation",
-  "theme": "aspen",
+  "theme": "maple",
   "favicon": "/favicon.png",
   "logo": {
     "light": "/logo/istari-expanded-light.svg",
@@ -44,7 +44,7 @@
     "primary": {
       "type": "button",
       "label": "Get Started",
-      "href": "https://index.istari.ai/?from=docs"
+      "href": "https://index.istari.ai"
     }
   },
   "navigation": {

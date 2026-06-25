@@ -3,9 +3,7 @@
    Loaded automatically by Mintlify from the repo root.
    ───────────────────────────────────────────────────────────── */
 
-/* Grey sidebar against white content — Gmail / Anthropic-style.
-   #sidebar is the left navigation column; content stays on the
-   default page background so the two surfaces read distinctly. */
+/* Grey sidebar against white content — Gmail / Anthropic-style. */
 #sidebar {
   background-color: #f9fafb;
   border-right: 1px solid #e5e7eb;
@@ -34,56 +32,6 @@
   font-size: 1.375rem !important;
   font-weight: 400 !important;
   line-height: 1.3 !important;
-}
-
-/* Center the section tabs in the navbar (Perplexity-style). */
-#navbar .nav-tabs {
-  flex: 1 1 auto;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-/* Pill-style tabs (Docs / API Playground). */
-#navbar .nav-tabs-item {
-  height: auto !important;
-  padding: 0.3rem 0.9rem !important;
-  border-radius: 9999px !important;
-}
-#navbar .nav-tabs-item:hover {
-  background-color: rgba(127, 127, 127, 0.14);
-}
-#navbar .nav-tabs-item[data-active="true"] {
-  background-color: rgba(39, 151, 163, 0.16) !important;
-  color: #2bbdbf !important;
-}
-/* hide aspen's animated underline indicator beneath the tabs */
-#navbar .nav-tabs > div[class*="absolute"],
-#navbar .nav-tabs > span[class*="absolute"] {
-  display: none !important;
-}
-
-/* Tighter sidebar left margin. */
-#sidebar-content {
-  margin-left: -0.6rem !important;
-  padding-left: 0.25rem !important;
-}
-#navigation-items .sidebar-group-header {
-  padding-left: 0.5rem !important;
-}
-#navigation-items a.group {
-  padding-left: 0.5rem !important;
-}
-
-/* Move search out of the navbar and into the sidebar top (Claude-style). */
-#search-bar-entry {
-  position: fixed !important;
-  top: 6.25rem;
-  left: 0.75rem;
-  width: 15rem;
-  z-index: 30;
-}
-#sidebar-content {
-  padding-top: 3.5rem !important;
 }
 
 /* Flatten the "Next" pagination preview so it doesn't render as a floating
