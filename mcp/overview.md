@@ -19,16 +19,14 @@ A single MCP endpoint that lets an AI agent run the same queries a GOI user woul
 * **Resolve** free-text place names to canonical filter values.
 
 <Note>
-GOI MCP is undergoing review for publication in connector stores, including Claude and ChatGPT. Until it is listed there, [request beta access](https://index.istari.ai/goi-mcp-access) with your ISTARI account.
+GOI MCP is not yet listed in connector directories for Claude or ChatGPT. Add it as a custom connector — see [Connect](/mcp/connect). Once store approval is complete, we will update the docs with one-click install instructions.
 </Note>
 
 ## Get access
 
 1. Sign up or sign in at [index.istari.ai](https://index.istari.ai). The same account works for the GOI dashboard, the API, and GOI MCP.
-2. [Request beta access](https://index.istari.ai/goi-mcp-access). We enable approved accounts for early use.
-3. After approval, follow [Connect](/mcp/connect) to add GOI MCP in Claude, Cursor, or another MCP client.
-
-Once GOI MCP is published in a connector store, you can add it from that store's directory (for example **Connectors → Browse Connectors → ISTARI GOI** in Claude).
+2. Submit the [GOI MCP access request](https://index.istari.ai/goi-mcp-access). We email you **Client ID**, **Secret**, and connection details when your account is enabled.
+3. Follow [Connect](/mcp/connect) to add GOI MCP as a custom connector in Claude, ChatGPT, Cursor, or another MCP client.
 
 ## Plan access
 
