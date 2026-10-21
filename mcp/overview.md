@@ -25,12 +25,12 @@ GOI MCP is not yet listed in connector directories for Claude or ChatGPT. Add it
 ## Get access
 
 1. Sign up or sign in at [index.istari.ai](https://index.istari.ai). The same account works for the GOI dashboard, the API, and GOI MCP.
-2. Submit the [GOI MCP access request](https://index.istari.ai/goi-mcp-access). We email you **Client ID**, **Secret**, and connection details when your account is enabled.
+2. Submit the [GOI MCP access request](https://index.istari.ai/goi-mcp-access). No approval is needed: we email you the **Client ID**, **Secret**, and connection details.
 3. Follow [Connect](/mcp/connect) to add GOI MCP as a custom connector in Claude, ChatGPT, Cursor, or another MCP client.
 
 ## Plan access
 
-New accounts start on the **Standard** plan, most functionality with monthly limits (see [Connect](/mcp/connect#standard-plan-quotas)). For higher quotas, see [GOI access plans](https://www.istari.ai/en/technology) on the ISTARI technology page.
+New accounts start on the **Standard** plan, most functionality with monthly limits (see [Standard plan quotas](#standard-plan-quotas)). For higher quotas, [book a demo](https://calendar.istari.ai/team/istari-sales-team/exploration?source=external-docs) to talk about Premium.
 
 ## Standard plan quotas
 
@@ -38,20 +38,20 @@ All new accounts start on the **Standard** plan. Quotas reset on the first of ea
 
 | Capability | Tool group | Monthly limit |
 | --- | --- | ---: |
-| Search | `search_organizations`, `find_similar_organizations`, `find_similar_with_steering`, `filter_organizations` | 100 requests / 1,000 results |
-| Fetch | `get_organization_details` | 100 requests / 1,000 results |
-| Aggregate | `aggregate_organizations` | 100 requests |
+| Search | `search_organizations`, `find_similar_organizations`, `find_similar_with_steering`, `filter_organizations` | 500 requests / 5,000 results |
+| Fetch | `get_organization_details` | 500 requests / 5,000 results |
+| Aggregate | `aggregate_organizations` | 500 requests |
 | Metadata | `describe_filters`, `resolve_location` | unlimited |
 
-When a call would exceed the limit, the tool returns an error string beginning with `Error:`. A short consumption indicator appears in the response footer once you cross 80% of any limit.
+When a call would exceed the limit, the tool returns an error in the format `Error [CODE]: message`, for example `Error [RATE_LIMITED_REQUESTS]: ...`. A short consumption indicator appears in the response footer once you cross 80% of any limit.
 
-For full quota tables across dashboard, MCP, and API, see [Pricing and limits](/docs/pricing). For higher quotas on a commercial plan, see [GOI access plans](https://www.istari.ai/en/technology) or contact [support@istari.ai](mailto:support@istari.ai).
+For full quota tables across dashboard, MCP, and API, see [Pricing and limits](/docs/pricing). For higher quotas on a commercial plan, [book a demo](https://calendar.istari.ai/team/istari-sales-team/exploration?source=external-docs) or contact [support@istari.ai](mailto:support@istari.ai).
 
-A server-level burst cap (60 requests / minute per IP) also applies, independent of the monthly plan quota to maintain fair usage.
+A per-IP safety limit of 60 requests/minute also applies on all GOI endpoints, independent of the monthly plan quota.
 
 ## Troubleshooting
 
-* **`Monthly request quota exceeded`**: quotas reset on the first of the month (UTC). To raise your limits, see [GOI access plans](https://www.istari.ai/en/technology).
+* **`Monthly request quota exceeded`**: quotas reset on the first of the month (UTC). To raise your limits, [book a demo](https://calendar.istari.ai/team/istari-sales-team/exploration?source=external-docs).
 * **`/health`** returns `200 OK` with `{"healthy": true, "service": "goi-mcp"}` whenever the service is reachable.
 
 For everything else: [support@istari.ai](mailto:support@istari.ai).

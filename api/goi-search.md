@@ -28,7 +28,7 @@ You do **not** send a mode name. The API infers it from your inputs:
 | `vector_similarity` | `similar_to` only |
 | `hybrid` | `keywords` together with `similar_to` **or** with `describe` |
 
-Hybrid queries blend BM25 and vector ranking (reciprocal rank fusion). Use `search_balance` from `0.0` (BM25-heavy) to `1.0` (vector-heavy); default `0.5`.
+Hybrid queries blend BM25 and vector ranking (reciprocal rank fusion). Use `search_balance` from `0.0` (BM25 only) to `1.0` (vector only); default `0.5`. It only affects hybrid mode.
 
 ## Request body (overview)
 
@@ -41,7 +41,7 @@ Hybrid queries blend BM25 and vector ranking (reciprocal rank fusion). Use `sear
   "excludes": [],
   "columns": ["domain", "name", "country"],
   "size": 100,
-  "min_score": null,
+  "min_score": 0.35,
   "search_balance": 0.5,
   "search_after": null,
   "dedup": false
@@ -51,8 +51,10 @@ Hybrid queries blend BM25 and vector ranking (reciprocal rank fusion). Use `sear
 | Field | Notes |
 | ----- | ----- |
 | `columns` | Subset of allowed columns; `domain` is always returned. Default `["domain", "name", "country"]`. See [Reference](/api/goi-reference#selectable-columns). |
-| `size` | Page size, default `100`, maximum `500`. |
-| `min_score` | Optional `0.0`–`1.0` cosine similarity floor for vector / semantic / hybrid modes. |
+| `similar_to` | Up to **3** reference domains, as strings or steering objects. See [Similar organizations](#similar-organizations-similar_to). Cannot be combined with `describe`. |
+| `size` | Page size, default `100`, range `1`–`500`. |
+| `min_score` | `0.0`–`1.0` cosine similarity floor for vector / semantic / hybrid modes. Default `0.35`. |
+| `search_balance` | `0.0`–`1.0`, hybrid mode only. `0` = BM25 only, `1` = vector only. Default `0.5`. |
 | `search_after` | Opaque cursor from the previous response’s `metadata.search_after` for pagination. |
 | `dedup` | If `true`, collapse rows that share the same organization `name`, keeping the best match until `size` rows. |
 
@@ -97,7 +99,7 @@ Free-text description of the kind of organizations you want; embedded and search
 
 ## Filters (`filters`)
 
-Optional on any mode. Multiple values in a list are OR-combined for that field. Full field list and semantics: [Reference, filters](/api/goi-reference#filters-object).
+Optional on any mode. Multiple values in a list are OR-combined for that field, except `summary_keywords`, where all listed keywords must be present. Full field list and semantics: [Reference, filters](/api/goi-reference#filters-object).
 
 Inside `filters`, `text_keywords` uses the same shape as top-level `keywords` but acts as a **strict BM25 filter** on text (slower than `summary_keywords` for exact keyword-array matches).
 

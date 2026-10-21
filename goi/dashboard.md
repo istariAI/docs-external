@@ -12,7 +12,7 @@ When you first log in to the ISTARI Global Organization Index, you land on the *
 ## What you see on the home screen
 
 * **Search panel (centre):** where you enter queries to begin discovering organizations.
-* **New organizations pill (above the search panel):** shows how many organizations have been newly registered in the DACH region today. Click it to open the [New organizations](/goi/new-companies) page.
+* **New organizations pill (above the search panel):** shows how many new companies were recently added across supported countries (Germany, Austria, Switzerland, France, the United Kingdom, and Spain). Click it to open the [New organizations](/goi/new-companies) page.
 * **Example searches (below the search panel):** ready-made queries you can click to try out the search.
 
 ## Sidebar (left)

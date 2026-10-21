@@ -54,7 +54,7 @@ The **anchor** (`keywords.must_all`) is what turns a fuzzy semantic match into a
 | `keywords.must_all` | **The anchor.** The defining term that must appear in the company's description. This is what removes drift. |
 | `keywords.must_any` | Use *instead* of `must_all` for spelling/synonym variants (`electrolyzer`/`electrolyser`, `e-bike`/`electric bike`). |
 | `keywords.must_not` | Strips perennial noise — consultancies, recruiters, agencies. Add `"distributor","reseller"` to keep only makers. |
-| `filters.nace_code` = C | Optional. Restricts to manufacturers when you want builders, not services. |
+| `filters.nace_code` = `"NACE C: Manufacturing"` | Optional. Restricts to manufacturers when you want builders, not services. |
 
 ## Validated examples
 

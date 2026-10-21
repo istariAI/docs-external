@@ -7,7 +7,7 @@ The MCP server exposes eight tools. All eight are read-only. When a client conne
 
 The same server also exposes this documentation as MCP **resources**. A client can list them via `resources/list` and fetch the raw Markdown via `resources/read`, with URIs like `https://mcp.goi.istari.ai/docs/tools.md`. Pick whichever discovery path your client supports.
 
-A successful tool call returns a Markdown-formatted response. On errors, the response is a string beginning with `Error:` followed by a human-readable explanation. Every successful response (above an 80% quota threshold) gets a footer disclosing your active scope and remaining monthly budget.
+A successful tool call returns a Markdown-formatted response. On errors, the response is a string in the format `Error [<CODE>]: <message>` (see [Errors](#errors)). Every successful response (above an 80% quota threshold) gets a footer disclosing your active scope and remaining monthly budget.
 
 ## search\_organizations
 
@@ -83,7 +83,7 @@ Values within a single field combine with **OR**. Different fields combine with 
 
 ### A note on commercial-register data
 
-The registry fields (`company_register_court`, `register_date_*`) are populated **only for German, Austrian, and Swiss organizations** today, and only for entries appearing in the commercial register from January 2026 onwards. Organizations outside that scope have null register attributes and are excluded from any filter on those fields. The rest of the dataset (~20M organizations across 232 countries) is unaffected.
+The registry fields (`company_register_court`, `register_date_*`) are populated for organizations in **Germany, Austria, Switzerland, France, the United Kingdom, and Spain** today, and only for entries appearing in the commercial register from January 2026 onwards. Organizations outside that scope have null register attributes and are excluded from any filter on those fields. The rest of the dataset (~20M organizations across 232 countries) is unaffected.
 
 This isn't an API restriction, it's the current state of the underlying source data. Coverage expands over time.
 
@@ -108,9 +108,9 @@ The bracketed code is stable across releases and lets a client (or LLM) route on
 | `INVALID_FILTER_COLUMN` | `describe_filters` was called with a column that is not an enumerable filter | Pass one of the `Allowed:` values, or omit `column` to see all |
 | `INVALID_DATE_TRUNC` | `date_trunc` not in `year` / `month` / `week` | Pass a valid value |
 | `OUT_OF_SCOPE` | A filter value is outside your account's allowed scope (region or commercial-register court) | Use one of the `Allowed values:` in the message; this only fires for accounts with a configured scope |
-| `RATE_LIMITED_REQUESTS` | Monthly request budget for this bucket exceeded | Wait until the start of next month, or upgrade: see [Connect](/mcp/connect#standard-plan-quotas) |
+| `RATE_LIMITED_REQUESTS` | Monthly request budget for this bucket exceeded | Wait until the start of next month, or [book a demo](https://calendar.istari.ai/team/istari-sales-team/exploration?source=external-docs) to talk about Premium. See [Standard plan quotas](/mcp/overview#standard-plan-quotas) |
 | `RATE_LIMITED_RESULTS` | Monthly result budget for this bucket exceeded | Same |
-| `ROUTE_BLOCKED` | This tool is gated and not available on your plan | Upgrade plan: see [GOI access plans](https://www.istari.ai/en/technology) |
+| `ROUTE_BLOCKED` | This tool is gated and not available on your plan | [Book a demo](https://calendar.istari.ai/team/istari-sales-team/exploration?source=external-docs) to talk about Premium |
 | `REFERENCE_DOMAIN_UNAVAILABLE` | `find_similar_*` got a reference domain that is not in GOI and whose website could not be fetched | Try a different reference domain, or remove the unreachable one |
 | `INTERNAL` | An unexpected server-side error. The message contains a short **reference ID** (8 hex characters): quote it when contacting support so we can correlate to logs | Retry once; if the same ID class repeats, contact `support@istari.ai` with the reference ID |
 
