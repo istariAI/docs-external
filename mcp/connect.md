@@ -13,13 +13,13 @@ GOI MCP is not yet listed in connector directories for Claude or ChatGPT. Reques
 
 1. Sign up or sign in at [index.istari.ai](https://index.istari.ai).
 2. Submit the [GOI MCP access request](https://index.istari.ai/goi-mcp-access).
-3. After we enable your account, you receive an email titled **Your GOI MCP credentials** with everything you need to connect:
+3. No approval is needed. You receive an email titled **Your GOI MCP credentials** with everything you need to connect:
 
 | Field | Example | Notes |
 | --- | --- | --- |
 | **Name** | `istari-goi` | Use this as the server or connector name in your MCP client. |
 | **MCP URL** | `https://mcp.goi.istari.ai/mcp` | The remote MCP endpoint. |
-| **Client ID** | *(in your email)* | OAuth client ID for your account. |
+| **Client ID** | *(in your email)* | Shared OAuth client ID for GOI MCP. You still sign in with your own account. |
 | **Secret** | *(in your email)* | OAuth client secret. Treat it like a password. |
 
 Keep your **Client ID** and **Secret** private. Do not commit them to git or share them in chat logs. Use environment variables or your client's secure credential storage where supported.
@@ -142,13 +142,13 @@ Ask the agent to search for organizations or call `search_organizations` with a 
 
 ## Plan access
 
-New accounts start on the **Standard** plan. See [Standard plan quotas](/mcp/overview#standard-plan-quotas) on the overview page for monthly limits.
+Each person signs in with their own `index.istari.ai` account, and that account's plan sets the quota. New accounts start on the **Standard** plan. See [Standard plan quotas](/mcp/overview#standard-plan-quotas) on the overview page for monthly limits.
 
-For higher quotas, see [GOI access plans](https://www.istari.ai/en/technology) on the ISTARI technology page.
+For higher quotas, [book a demo](https://calendar.istari.ai/team/istari-sales-team/exploration?source=external-docs) to talk about Premium.
 
 ## Troubleshooting
 
-- **`Monthly request quota exceeded`**: quotas reset on the first of the month (UTC). To raise limits, see [GOI access plans](https://www.istari.ai/en/technology).
+- **`Monthly request quota exceeded`**: quotas reset on the first of the month (UTC). To raise limits, [book a demo](https://calendar.istari.ai/team/istari-sales-team/exploration?source=external-docs).
 - **Authentication errors**: confirm you are signed in at [index.istari.ai](https://index.istari.ai/) with the same account used to request access, and that your **Client ID** and **Secret** match the values in your credentials email.
 - **No credentials email**: confirm you submitted the [access request](https://index.istari.ai/goi-mcp-access) with the same email you use at `index.istari.ai`. Contact [support@istari.ai](mailto:support@istari.ai) if it has been more than a few business days.
 - **ChatGPT cannot connect**: confirm Developer mode is on, the URL ends with `/mcp`, and OAuth is selected as the authentication method.

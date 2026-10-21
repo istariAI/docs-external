@@ -53,7 +53,7 @@ The crawler respects standard `robots.txt` directives.
 
 ## Authentication and tokens
 
-Authentication uses **OAuth 2.1 with Dynamic Client Registration**, backed by [Clerk](https://clerk.com/). Access tokens are issued to your AI client (not stored on istari.ai side beyond verification caches), are short-lived, and are refreshed automatically by the client.
+Authentication uses **OAuth 2.1 with a pre-registered client**, backed by [Clerk](https://clerk.com/). The client ID and secret in your credentials email are shared by all GOI MCP users, and each user signs in with their own ISTARI account. Access tokens are issued to your AI client (not stored on istari.ai side beyond verification caches), are short-lived, and are refreshed automatically by the client.
 
 We verify JWTs against Clerk's JWKS and fetch your profile metadata (tier, scope) via Clerk's userinfo endpoint with a five-minute in-memory cache. We do not see your password.
 

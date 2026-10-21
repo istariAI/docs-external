@@ -34,7 +34,7 @@ Every request must include your API key:
 x-api-key: <your-api-key>
 ```
 
-Keys are issued for GOI access tiers (`tier_1` or `tier_2`). Quotas and rate limits depend on the tier assigned to your key (see [Reference](/api/goi-reference#rate-limits-and-tiers)).
+Each key has an API tier. New keys get `tier_1`; `tier_2` is available on request. Quotas and rate limits depend on your key's tier (see [Reference](/api/goi-reference#rate-limits-and-tiers)).
 
 ## Quick example : search
 
@@ -74,10 +74,12 @@ Paths are relative to **`https://api.istari.ai/v2`**.
 | `POST` | `/fetch` | Bulk lookup by domain list: no scoring ([Fetch, stats & utilities](/api/goi-fetch-stats)) |
 | `POST` | `/stats` | Aggregations (`COUNT` by dimension); monthly quota by tier |
 | `GET` | `/filters/options` | Allowed values for categorical filters (scoped to your key) |
+| `GET` | `/locations` | Browse administrative areas for geographic filters |
+| `GET` | `/locations/search` | Find the exact place name for a geographic filter |
 | `GET` | `/health` | Liveness / database check |
 
 ## Documentation map
 
 * [Search](/api/goi-search): request body, auto-detected modes, keywords, `similar_to`, `describe`, filters, pagination, deduplication  
-* [Fetch, stats & utilities](/api/goi-fetch-stats): `/fetch`, `/stats`, `/filters/options`, and health  
+* [Fetch, stats & utilities](/api/goi-fetch-stats): `/fetch`, `/stats`, `/filters/options`, `/locations`, and health  
 * [Reference: columns, filters, limits & errors](/api/goi-reference): response fields, quotas, HTTP errors  
