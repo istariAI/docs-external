@@ -1,8 +1,8 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "GOI API",
-    "description": "Programmatic access to the ISTARI Global Organization Index (GOI) — search, bulk lookup, aggregations, and location resolution over ~20M verified organizations. Authenticate with the `x-api-key` header.",
+    "title": "GOI Public API",
+    "description": "Programmatic access to the ISTARI Global Organization Index (GOI) — search, bulk lookup, aggregations, location resolution, and async large-scale extracts over ~20M verified organizations. Authenticate with the `x-api-key` header.",
     "version": "v2"
   },
   "paths": {
@@ -98,7 +98,7 @@
           "stats"
         ],
         "summary": "Aggregate counts — group by dimension(s) with filters",
-        "description": "Returns `COUNT(*)` bucketed by one or two categorical dimensions with optional column filters and an optional date range. No search scoring — pure SQL `GROUP BY`.\n\n**Use cases:** NACE distribution by country, org size breakdown, top keywords for a sector, monthly registration trends.\n\n**Dimensions (`group_by` / `group_by_secondary`):** continent, country, country_code, state, state_code, region, region_code, district, district_code, municipality, municipality_code, nace_code, organization_type, organization_size, employee_class, revenue_class, summary_keywords (unnested), company_register_date, created_at.\n\n`summary_keywords` is automatically unnested — each keyword in the array counts as its own bucket.\n\nDate dimensions use `DATE_TRUNC` and are ordered chronologically (ASC). All other dimensions are ordered by count DESC.\n\nMonthly request quotas apply by API key tier.",
+        "description": "Returns `COUNT(*)` bucketed by one or two categorical dimensions with optional column filters and an optional date range. No search scoring — pure SQL `GROUP BY`.\n\n**Use cases:** NACE distribution by country, org size breakdown, top keywords for a sector, monthly registration trends.\n\n**Dimensions (`group_by` / `group_by_secondary`):** continent, country, country_code, state, state_code, region, region_code, district, district_code, municipality, municipality_code, nace_code, organization_type, organization_size, employee_class, revenue_class, summary_keywords (unnested), company_register_date, created_at.\n\n`summary_keywords` is automatically unnested — each keyword in the array counts as its own bucket.\n\nDate dimensions use `DATE_TRUNC` and are ordered chronologically (ASC). All other dimensions are ordered by count DESC.\n\n**Access:** all tiers; monthly request quotas per tier in `api_rate_limit_config`.",
         "operationId": "stats_v1_stats_post",
         "requestBody": {
           "content": {
@@ -166,7 +166,7 @@
           "locations"
         ],
         "summary": "List or look up locations",
-        "description": "Returns location-tree entries from the shared `goi_locations` table.\n\nModes:\n- Root: `parent_id` omitted, empty, or `null` → returns continents and countries\n- Children: `parent_id=<id>` → direct children of that location\n- Exact: `name=<name>&location_type=<type>` → exact lookup\n\nLocations are global navigation metadata — open to any caller past auth, no `regionAccess` filtering applied.",
+        "description": "Returns location-tree entries from the shared `goi_locations` table.\n\nModes:\n- Root: `parent_id` omitted, empty, or `null` → returns continents and countries\n- Children: `parent_id=<id>` → direct children of that location\n- Exact: `name=<name>&location_type=<type>` → exact lookup\n\nLocations are global navigation metadata — open to any caller past auth, no additional filtering applied.",
         "operationId": "locations_v1_locations_get",
         "security": [
           {
@@ -397,6 +397,114 @@
           }
         }
       }
+    },
+    "/extract": {
+      "get": {
+        "summary": "List Extracts",
+        "operationId": "list_extracts_v1_extract_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtractListResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Submit Extract",
+        "operationId": "submit_extract_v1_extract_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExtractRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtractQueuedResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/extract/{job_id}": {
+      "get": {
+        "summary": "Get Extract",
+        "operationId": "get_extract_v1_extract__job_id__get",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Job Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtractStatusResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -445,6 +553,42 @@
           "field"
         ],
         "title": "DateRangeFilter"
+      },
+      "DerivedGroupBy": {
+        "properties": {
+          "groups": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/FiltersInput"
+            },
+            "type": "object",
+            "maxProperties": 25,
+            "minProperties": 1,
+            "title": "Groups",
+            "description": "Ordered mapping of output labels to column-filter expressions."
+          },
+          "multi_label": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Multi Label",
+            "default": "Multiple"
+          },
+          "include_unmatched": {
+            "type": "boolean",
+            "title": "Include Unmatched",
+            "default": false
+          },
+          "unmatched_label": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Unmatched Label",
+            "default": "Unmatched"
+          }
+        },
+        "type": "object",
+        "required": [
+          "groups"
+        ],
+        "title": "DerivedGroupBy"
       },
       "FetchMetadata": {
         "properties": {
@@ -725,6 +869,19 @@
               }
             ],
             "description": "Strict BM25 WHERE filter on company description — combines AND / OR / NOT the same way as a search keywords argument. Not supported in /v1/stats."
+          },
+          "$or": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "$Or",
+            "description": "Top-level OR combinator. Each key is an ordinary column filter; the resulting predicates are OR-combined. Nested $or and text_keywords are not supported."
           }
         },
         "type": "object",
@@ -1139,6 +1296,19 @@
             "title": "Group By",
             "description": "The primary grouping column, or null if no grouping was applied."
           },
+          "group_by_derived": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Group By Derived",
+            "description": "The derived dimension definition, preserving group request order."
+          },
           "group_by_secondary": {
             "anyOf": [
               {
@@ -1241,6 +1411,17 @@
             "title": "Group By",
             "description": "Primary dimension to group by. Omit for a single total COUNT(*). Allowed values — Geographic: continent, country, country_code, state, state_code, region, region_code, district, district_code, municipality, municipality_code. Classification: nace_code, organization_type, organization_size, employee_class, revenue_class. Source: source. Array (unnested per keyword): summary_keywords. Registrations (unnested per registration via the registries jsonb): company_register_court, company_register_date. A company with multiple registrations contributes one row per registration. Date (requires date_trunc): company_register_date, created_at."
           },
+          "group_by_derived": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DerivedGroupBy"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Exclusive computed primary dimension. Each row matching one group gets that label, rows matching multiple groups get multi_label, and unmatched rows are included only when include_unmatched is true. Mutually exclusive with group_by."
+          },
           "group_by_secondary": {
             "anyOf": [
               {
@@ -1297,7 +1478,7 @@
           "explain": {
             "type": "boolean",
             "title": "Explain",
-            "description": "Return EXPLAIN ANALYZE plan in metadata. Sets a 120s statement timeout. Not available for customer API keys.",
+            "description": "Return EXPLAIN ANALYZE plan in metadata. Sets a 120s statement timeout. Restricted to tier_3 (public) / admin (dashboard).",
             "default": false
           }
         },
@@ -1371,6 +1552,233 @@
           "type"
         ],
         "title": "ValidationError"
+      },
+      "ExtractListResponse": {
+        "properties": {
+          "jobs": {
+            "items": {
+              "$ref": "#/components/schemas/ExtractStatusResponse"
+            },
+            "type": "array",
+            "title": "Jobs"
+          }
+        },
+        "type": "object",
+        "required": [
+          "jobs"
+        ],
+        "title": "ExtractListResponse"
+      },
+      "ExtractQueuedResponse": {
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "title": "Job Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "project": {
+            "type": "string",
+            "title": "Project"
+          },
+          "gs_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gs Path"
+          }
+        },
+        "type": "object",
+        "required": [
+          "job_id",
+          "status",
+          "project"
+        ],
+        "title": "ExtractQueuedResponse"
+      },
+      "ExtractRequest": {
+        "properties": {
+          "sql": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Sql"
+          },
+          "project": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$",
+            "title": "Project",
+            "description": "Project name grouping this extract in the bucket (results/{user}/{project}/{job_id}/). Alphanumeric plus . _ -, max 64 chars."
+          },
+          "format": {
+            "type": "string",
+            "pattern": "^parquet$",
+            "title": "Format",
+            "default": "parquet"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sql",
+          "project"
+        ],
+        "title": "ExtractRequest"
+      },
+      "ExtractStatusResponse": {
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "title": "Job Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "project": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Project"
+          },
+          "gs_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gs Path"
+          },
+          "signed_urls": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Signed Urls"
+          },
+          "signed_urls_truncated": {
+            "type": "boolean",
+            "title": "Signed Urls Truncated",
+            "default": false
+          },
+          "part_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Part Count"
+          },
+          "row_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Row Count"
+          },
+          "byte_size": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Byte Size"
+          },
+          "format": {
+            "type": "string",
+            "title": "Format"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "expires_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires At"
+          },
+          "submitted_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Submitted At"
+          },
+          "started_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Started At"
+          },
+          "finished_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finished At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "job_id",
+          "status",
+          "format",
+          "submitted_at"
+        ],
+        "title": "ExtractStatusResponse"
       }
     },
     "securitySchemes": {
@@ -1378,14 +1786,14 @@
         "type": "apiKey",
         "in": "header",
         "name": "x-api-key",
-        "description": "Your GOI API key. Create one on the GOI dashboard under API keys."
+        "description": "Your GOI API key. Create one in the dashboard under API keys."
       }
     }
   },
   "servers": [
     {
       "url": "https://api.istari.ai/v2",
-      "description": "GOI API (production)"
+      "description": "GOI Public API (production)"
     }
   ],
   "security": [
