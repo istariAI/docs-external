@@ -5,8 +5,17 @@ description: Connect GOI MCP to Claude, ChatGPT, Cursor, and other MCP clients.
 
 GOI MCP uses your ISTARI account at [index.istari.ai](https://index.istari.ai). The same account works for the GOI dashboard, the GOI API, and GOI MCP.
 
+## Install in Claude
+
+GOI MCP is listed in the Claude connector directory. This is the easiest way to use GOI in Claude. You don't need to request access or credentials.
+
+1. Open the [GOI listing in the Claude directory](https://claude.ai/directory/istari-goi).
+2. Click **Connect to Claude**.
+
+To use another client, or to set up Claude by hand, request access and add GOI MCP as a custom connector. The steps are below.
+
 <Note>
-GOI MCP is not yet listed in connector directories for Claude or ChatGPT. Request access, then add it manually as a **custom connector** using the credentials we email you. Once store approval is complete, we will update this page with one-click install instructions.
+GOI MCP is not yet listed in the ChatGPT connector directory. Add it as a custom connector in ChatGPT.
 </Note>
 
 ## Request access
@@ -31,6 +40,8 @@ Use the **Name**, **MCP URL**, **Client ID**, and **Secret** from your email in 
 ### Claude
 
 #### Claude on the web (claude.ai)
+
+To skip these steps, [install GOI from the Claude directory](#install-in-claude) instead.
 
 1. Go to **Settings → Connectors** on [claude.ai](https://claude.ai). Team and Enterprise admins can add org-wide connectors under **Admin settings → Connectors**.
 2. Click **Add custom connector**.
