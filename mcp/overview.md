@@ -19,7 +19,7 @@ A single MCP endpoint that lets an AI agent run the same queries a GOI user woul
 * **Resolve** free-text place names to canonical filter values.
 
 <Note>
-GOI MCP is not yet listed in connector directories for Claude or ChatGPT. Add it as a custom connector — see [Connect](/mcp/connect). Once store approval is complete, we will update the docs with one-click install instructions.
+In Claude, install GOI MCP from the [Claude directory](https://claude.ai/directory/istari-goi). In ChatGPT, Cursor, and other clients, add it as a custom connector. See [Connect](/mcp/connect).
 </Note>
 
 ## Get access
