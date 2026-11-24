@@ -7,11 +7,10 @@ GOI MCP uses your ISTARI account at [index.istari.ai](https://index.istari.ai). 
 
 ## Install in Claude
 
-GOI MCP is listed in the Claude connector directory. This is the easiest way to use GOI in Claude.
+GOI MCP is listed in the Claude connector directory. This is the easiest way to use GOI in Claude. You don't need to request access or credentials.
 
 1. Open the [GOI listing in the Claude directory](https://claude.ai/directory/istari-goi).
-2. Connect GOI from the listing.
-3. Sign in with your `index.istari.ai` account when prompted.
+2. Click **Connect GOI with Claude**.
 
 To use another client, or to set up Claude by hand, request access and add GOI MCP as a custom connector. The steps are below.
 
